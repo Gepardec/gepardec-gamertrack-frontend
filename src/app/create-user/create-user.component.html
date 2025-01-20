@@ -1,0 +1,20 @@
+<div class="form-container">
+  <h1 class="form-title">Create New User</h1>
+
+  <form [formGroup]="applyForm" (submit)="submitCreateUser()" class="user-form">
+    <div class="form-group">
+      <label for="firstname" class="form-label">First Name</label>
+      <input id="firstname" type="text" formControlName="firstname" class="form-input" placeholder="Enter first name">
+    </div>
+
+    <div class="form-group">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input id="lastname" type="text" formControlName="lastname" class="form-input" placeholder="Enter last name">
+    </div>
+
+    <div class="form-actions">
+      <button class="btn back-btn" routerLink="">Back</button>
+      <button type="submit" class="btn create-btn" >Create</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,53 @@
+
+<section class="user-detail-container">
+  <div class="user-detail-card">
+    <h1 class="user-title">Update User</h1>
+
+    <form (ngSubmit)="updateUser()" #updateUserForm="ngForm">
+      <div class="user-info">
+        <div class="info-row">
+          <div class="info-label">First Name:</div>
+          <div class="info-value">
+            <input
+              type="text"
+              name="firstname"
+              [(ngModel)]="user.firstname"
+              required
+              class="input-field"
+              placeholder="Enter First Name" />
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Last Name:</div>
+          <div class="info-value">
+            <input
+              type="text"
+              name="lastname"
+              [(ngModel)]="user.lastname"
+              class="input-field"
+              placeholder="Enter Last Name" />
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Status:</div>
+          <div class="info-value">
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="deactivated"
+                [(ngModel)]="user.deactivated" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn update-btn" type="submit" [disabled]="!updateUserForm.form.valid">Update</button>
+          <button class="btn back-btn" [routerLink]="['/details', user.token]">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
