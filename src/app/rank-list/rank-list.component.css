@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ranking-list {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  min-height: 500px;
+  padding: 30px;
+  text-align: center;
+}
+
+.ranking-list h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.game-selection,
+.score-count-selection {
+  margin-bottom: 25px;
+}
+
+label {
+  font-size: 18px;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+}
+
+select {
+  width: 100%;
+  padding: 12px 18px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f4f7fc;
+  font-size: 16px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  border-color: #6c63ff;
+  outline: none;
+  background-color: #fff;
+}
+
+option {
+  font-size: 16px;
+  color: #333;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid #e4e4e4;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.ranking-item:hover {
+  background-color: #f9f9f9;
+  transform: translateX(5px);
+}
+
+.rank {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6c63ff;
+  width: 60px;
+}
+
+.user-details {
+  flex: 1;
+  text-align: left;
+}
+
+.user-details p {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.user-details span {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.ranking-item .score {
+  font-size: 20px;
+  font-weight: 700;
+  color: #6c63ff;
+  text-align: center;
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .ranking-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rank {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .user-details p {
+    padding-left: 0;
+    text-align: center;
+  }
+}

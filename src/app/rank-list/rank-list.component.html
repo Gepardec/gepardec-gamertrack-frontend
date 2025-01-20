@@ -1,0 +1,30 @@
+<div class="game-selection">
+  <label for="game">Spiel auswählen:</label>
+  <select id="game" [(ngModel)]="selectedGame" (ngModelChange)="filterScores()">
+    <option *ngFor="let game of games" [ngValue]="game">{{game.name}}</option>
+  </select>
+</div>
+
+<div class="score-count-selection">
+  <label for="scoreCount">Anzahl der angezeigten Scores:</label>
+  <select id="scoreCount" [(ngModel)]="selectedScoreCount" (ngModelChange)="filterScores()">
+    <option *ngFor="let count of scoreCounts" [value]="count">{{count}}</option>
+  </select>
+</div>
+
+<div class="ranking-list">
+  <h2>Rangliste</h2>
+
+  <div *ngFor="let score of scores; let i = index" class="ranking-item">
+    <div class="rank">
+      <strong>{{i + 1}}</strong>
+    </div>
+
+    <div class="user-details">
+      <p>{{score.user.firstname}} {{score.user.lastname}}</p>
+    </div>
+    <div class="user-details">
+      {{score.score}}
+    </div>
+  </div>
+</div>
