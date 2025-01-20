@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Game} from '../game/game';
+import {Router} from '@angular/router';
+import {routes} from '../app.routes';
 
 @Component({
   selector: 'app-game-card',
@@ -9,4 +11,11 @@ import {Game} from '../game/game';
 })
 export class GameCardComponent {
   @Input() game!: Game;
+
+  router = inject(Router)
+
+
+  openGame(token: String) {
+    this.router.navigate([`/games/${token}`]);
+  }
 }

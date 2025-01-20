@@ -1,7 +1,10 @@
 import {inject, Injectable} from '@angular/core';
 import {CreateGame, Game} from './game';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable} from 'rxjs';
+import {map, Observable, tap} from 'rxjs';
+
+class UpdateGame {
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +18,12 @@ export class GameService {
   private http = inject(HttpClient)
 
 
-  getAllGames(){
+  getAllGames(): Observable<Game[]>{
     return this.http.get<Game[]>(this.url);
   }
 
-  async getGameByToken(token: String): Promise<Game | undefined> {
-    const data = await fetch(`${this.url}/${token}`);
-    return (await data.json()) ?? {};
+  getGameByToken(token: String): Observable<Game>{
+    return this.http.get<Game>(`${this.url}/${token}`);
   }
 
   createGame(name: String, rules: String): Observable<Game> {
@@ -29,6 +31,14 @@ export class GameService {
       name: name,
       rules: rules
     }
-    return this.http.post(this.url, game).pipe(map((response: any) => response.symbol))
+    return this.http.post<Game>(this.url, game);
+  }
+
+  deleteGame(token: String): Observable<Response> {
+    return this.http.delete<Response>(`${this.url}/${token}`);
+  }
+
+  updateGame(updateGame: UpdateGame, token:String) {
+    return this.http.put<Game>(`${this.url}/${token}`, updateGame)
   }
 }

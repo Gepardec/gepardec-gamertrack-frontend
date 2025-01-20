@@ -1,0 +1,28 @@
+<section class="create-game-form">
+  <h2 class="create-game-form-heading text-3xl pb-8 pt-5 place-self-center">Edit Game</h2>
+
+  <form [formGroup]="updateGameForm" #formDir="ngForm" (submit)="submitEditedGame()">
+    <div class="cross-validation" [class.cross-validation-error]="updateGameForm.hasError('unambiguousRole') && (updateGameForm.touched || updateGameForm.dirty)">
+
+
+      <label for="name">Name</label>
+      <input class="form-control" id="name" type="text" formControlName="name" required/>
+      <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="alert alert-danger">
+        <div *ngIf="name.hasError('required')">
+          A name is required
+        </div>
+        <div *ngIf="name.hasError('minlength')">
+          Name must be at least 1 character long
+        </div>
+        <div *ngIf="name.hasError('pattern')">
+          Name can't be blank
+        </div>
+      </div>
+      <label for="rules">Rules</label>
+      <input id="rules" type="text" formControlName="rules" />
+      <button [disabled]="updateGameForm.invalid || !updateGameForm.touched || !updateGameForm.dirty" type="submit" class="primary">Update Game</button>
+      <button type="button" onClick="history.back()" class="secondary">Back</button>
+    </div>
+  </form>
+
+</section>

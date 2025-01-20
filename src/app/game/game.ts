@@ -8,3 +8,8 @@ export interface CreateGame {
   name: String,
   rules: String
 }
+
+export interface UpdateGame {
+  name: String,
+  rules: String
+}

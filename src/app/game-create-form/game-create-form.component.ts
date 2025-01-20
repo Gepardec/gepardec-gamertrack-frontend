@@ -56,7 +56,6 @@ export class GameCreateFormComponent implements OnInit{
 
   get name() {
     return this.createGameForm?.get("name")!;
-
   }
 
 }
