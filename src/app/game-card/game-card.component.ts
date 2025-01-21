@@ -1,7 +1,5 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {Game} from '../game/game';
-import {Router} from '@angular/router';
-import {routes} from '../app.routes';
 
 @Component({
   selector: 'app-game-card',
@@ -11,11 +9,13 @@ import {routes} from '../app.routes';
 })
 export class GameCardComponent {
   @Input() game!: Game;
+  @Input() isSelected?: Boolean;
+  @Output() onCardClick = new EventEmitter<any>();
 
-  router = inject(Router)
 
+  protected readonly EventEmitter = EventEmitter;
 
-  openGame(token: String) {
-    this.router.navigate([`/games/${token}`]);
+  onClick() {
+    this.onCardClick.emit("")
   }
 }

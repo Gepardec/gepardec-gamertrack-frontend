@@ -4,10 +4,11 @@ import {GameCardComponent} from '../game-card/game-card.component';
 import {Game} from './game';
 import {NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
+import {GameListComponent} from '../game-list/game-list.component';
 
 @Component({
   selector: 'app-game',
-  imports: [GameCardComponent, NgForOf],
+  imports: [GameListComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
@@ -26,5 +27,9 @@ export class GameComponent implements OnInit {
 
   createGame() {
     this.router.navigate(["/games/new"]);
+  }
+
+  openGame(token: String) {
+    this.router.navigate([`/games/${token}`]);
   }
 }

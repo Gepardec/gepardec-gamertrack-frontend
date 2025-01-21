@@ -1,5 +1,4 @@
 .card {
-  background-color: #fff; /* White background */
   border: 1px solid #ddd; /* Light border */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -7,6 +6,11 @@
   overflow: hidden; /* Ensure content doesn't overflow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
+
+.selected {
+  background-color: lightgrey;
+}
+
 .card:hover {
   transform: translateY(-5px); /* Lift card slightly */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */

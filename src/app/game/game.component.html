@@ -8,7 +8,5 @@
         Create game
     </span>
   </button>
-</section>
-<section class="card-container">
-    <app-game-card *ngFor="let game of gameList" [game]="game"></app-game-card>
+  <app-game-list [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
 </section>
