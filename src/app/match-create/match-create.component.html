@@ -1,0 +1,17 @@
+<h1>Create a Match</h1>
+<section>
+  <h2>Select Game</h2>
+</section>
+<app-game-list [selectedGame]="selectedGame" [gameList]="gameList" (onCardClick)="onGameSelect($event)"></app-game-list>
+<section>
+  <h2>Select Users</h2>
+</section>
+<div *ngFor="let user of userList" (click)="selectedUsers.includes(user) ? onUserDeselect(user) : onUserSelect(user)" [class.selected]="selectedUsers.includes(user)">
+  <span *ngIf="selectedUsers.includes(user)">
+    {{ selectedUsers.indexOf(user)+1 }}
+  </span>
+  <span>
+    {{ user.firstname }} {{ user.lastname }}
+  </span>
+</div>
+  <button type="button" (click)="createMatch()">Create Game</button>

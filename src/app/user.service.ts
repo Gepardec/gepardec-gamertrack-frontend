@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from './user';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,10 @@ export class UserService {
 
   getAllUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.url}`);
+  }
+
+  getAllActivatedUsers() {
+    return this.httpClient.get<User[]>(`${this.url}`, { params: new HttpParams().set('includeDeactivated', false)})
   }
 
   getUserBytoken(token: string): Observable<User> {

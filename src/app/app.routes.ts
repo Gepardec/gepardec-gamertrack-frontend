@@ -15,6 +15,7 @@ import {CreateUserComponent} from './create-user/create-user.component';
 import {HomeScreenComponent} from './home-screen/home-screen.component';
 import {RankListComponent} from './rank-list/rank-list.component';
 import {UpdateUserComponent} from './update-user/update-user.component';
+import {MatchCreateComponent} from './match-create/match-create.component';
 
 export const routes: Routes = [
   { path: '', component: HomeScreenComponent, title: 'Home' },
@@ -42,4 +43,9 @@ export const routes: Routes = [
     component: GameComponent,
     title: "Games"
   },
+  {
+    path: 'matches/new',
+    component: MatchCreateComponent,
+    title: 'Create match'
+  }
 ];
