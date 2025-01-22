@@ -1,0 +1,9 @@
+{
+  "/gepardec-gamertrack/api/v1": {
+    "target": "http://localhost:8080/gepardec-gamertrack/api/v1/",
+    "secure": true,
+    "pathRewrite": {
+      "^/gepardec-gamertrack/api/v1": ""
+    }
+  }
+}

@@ -1,0 +1,45 @@
+name: Build and publish image
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: checkout
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+              ${{ runner.os }}-build-${{ env.cache-name }}-
+              ${{ runner.os }}-build-
+              ${{ runner.os }}-
+
+      - uses: nelonoel/branch-name@v1.0.1
+
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - uses: mr-smithers-excellent/docker-build-push@v6.4
+        name: push-container-image
+        with:
+          image: gepardec-gamertrack-frontend
+          registry: ghcr.io
+          multiPlatform: true
+          platform: linux/amd64,linux/arm64
+          username: ${{ github.repository }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          # if the branch is main, add the latest tag
+          addLatest: ${{ github.ref == 'refs/heads/main' }}
