@@ -1,4 +1,4 @@
-div {
+div.match-user-list {
   height: 25px;
   width: 50vw;
   border-color: lightgrey;
@@ -8,12 +8,28 @@ div {
   margin-bottom: 10px;
 }
 
-div span {
-  font-size: 20px;
-}
-
 .selected {
   border-color: darkgrey;
   border-width: 2px 0 2px 0;
 }
 
+span.ranking-number {
+  height: max-content;
+  width: max-content;
+  display: inline-flex;
+  justify-self: center;
+  padding: 2px;
+  margin-right: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+}
+
+.match-app-dialog span {
+  padding: 10px 0 10px 0;
+}
+.match-app-dialog div span {
+  padding: 20px;
+  margin: 20px;
+  font-size: 15px;
+}

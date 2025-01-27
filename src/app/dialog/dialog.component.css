@@ -1,0 +1,16 @@
+dialog {
+  top: 25%;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: grey;
+}
+
+button {
+  margin: 10px 10px 0 0;
+}
+
+.dialog-body {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+}
