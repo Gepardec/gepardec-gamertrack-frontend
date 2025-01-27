@@ -1,9 +1,12 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {NgForOf} from '@angular/common';
 import {RankListService} from '../rank-list.service';
 import {Score} from '../score.model';
 import {ScoreComponent} from '../score/score.component';
 import {FormsModule} from '@angular/forms';
+import {Game} from "../game/game";
+import {GameService} from "../game/game.service";
+import {first} from "rxjs";
 
 
 @Component({
@@ -15,33 +18,43 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './rank-list.component.html',
   styleUrl: './rank-list.component.css'
 })
-export class RankListComponent {
+export class RankListComponent implements OnInit{
   scores: Score[] = [];
-  games = [
-    { id: 1, name: 'Game 1' , token: 'dzszfHohX3tbz9EL' },
-    { id: 2, name: 'Game 2' , token: 'sYxkGW4fLNQEev3h' },
-  ];
-  scoreCounts = [1, 3, 5, 10, 15, 20];
-  selectedGame = this.games[0];
-  selectedScoreCount = this.scoreCounts[0];
+  games: Game[] = [];
+  scoreCounts = [5, 10, 15, 20];
+  selectedGame!: Game;
+  selectedScoreCount: number = this.scoreCounts[0];
 
-  rankListService: RankListService = inject(RankListService);
+  gameService = inject(GameService);
+  rankListService = inject(RankListService);
 
   protected readonly ScoreComponent = ScoreComponent;
 
 
-
-  filterScores() {
-    this.rankListService.getTopScoresByGame(this.selectedGame.token, this.selectedScoreCount).subscribe(data => {
-      console.log('Getting Scores:',data);
-      this.scores = data;
+  async ngOnInit() {
+    this.gameService.getAllGames().subscribe({
+      next: games => {
+        if (games) {
+          this.games = games;
+          this.selectedGame = games[0]
+          this.filterScores()
+        }
+      },
+      error: err => {
+        console.log("Could not fetch games: " + err);
+      }
     });
   }
 
-  constructor() {
-    this.rankListService.getTopScoresByGame(this.selectedGame.token, this.selectedScoreCount).subscribe(data => {
-      console.log('Getting Scores:',data);
-      this.scores = data;
+  filterScores() {
+    this.rankListService.getTopScoresByGame(this.selectedGame.token, this.selectedScoreCount).subscribe( {
+      next: scores => {
+        console.log('Getting Scores', scores)
+        this.scores = scores;
+      },
+      error: err => {
+        console.log('Could not fetch scores: ', err);
+      }
     });
   }
 }
