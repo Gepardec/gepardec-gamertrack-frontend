@@ -24,11 +24,11 @@ export class GameService {
     return this.http.get<Game[]>(this.configService.getBackendUrlWithContext(this.url));
   }
 
-  getGameByToken(token: String): Observable<Game>{
+  getGameByToken(token: string): Observable<Game>{
     return this.http.get<Game>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`));
   }
 
-  createGame(name: String, rules: String): Observable<Game> {
+  createGame(name: string, rules: string): Observable<Game> {
     let game: CreateGame = {
       name: name,
       rules: rules
@@ -36,11 +36,11 @@ export class GameService {
     return this.http.post<Game>(this.configService.getBackendUrlWithContext(this.url), game);
   }
 
-  deleteGame(token: String): Observable<Response> {
+  deleteGame(token: string): Observable<Response> {
     return this.http.delete<Response>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`));
   }
 
-  updateGame(updateGame: UpdateGame, token:String) {
+  updateGame(updateGame: UpdateGame, token:string) {
     return this.http.put<Game>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`), updateGame)
   }
 }

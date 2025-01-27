@@ -2,7 +2,7 @@ import {Game} from './game/game';
 import {User} from './user';
 
 export interface Match {
-  token: String
+  token: string
   game: Game
   users: User[]
 }

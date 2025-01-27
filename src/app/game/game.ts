@@ -1,15 +1,15 @@
 export interface Game {
-  token: String
-  name: String,
-  rules: String
+  token: string
+  name: string,
+  rules: string
 }
 
 export interface CreateGame {
-  name: String,
-  rules: String
+  name: string,
+  rules: string
 }
 
 export interface UpdateGame {
-  name: String,
-  rules: String
+  name: string,
+  rules: string
 }
