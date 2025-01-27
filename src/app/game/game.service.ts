@@ -1,7 +1,8 @@
 import {inject, Injectable} from '@angular/core';
 import {CreateGame, Game} from './game';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable, tap} from 'rxjs';
+import {config, map, Observable, tap} from 'rxjs';
+import {ConfigService} from "../shared/config.service";
 
 class UpdateGame {
 }
@@ -16,14 +17,15 @@ export class GameService {
   games: Game[] = [];
 
   private http = inject(HttpClient)
+  private configService = inject(ConfigService)
 
 
   getAllGames(): Observable<Game[]>{
-    return this.http.get<Game[]>(this.url);
+    return this.http.get<Game[]>(this.configService.getBackendUrlWithContext(this.url));
   }
 
   getGameByToken(token: String): Observable<Game>{
-    return this.http.get<Game>(`${this.url}/${token}`);
+    return this.http.get<Game>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`));
   }
 
   createGame(name: String, rules: String): Observable<Game> {
@@ -31,14 +33,14 @@ export class GameService {
       name: name,
       rules: rules
     }
-    return this.http.post<Game>(this.url, game);
+    return this.http.post<Game>(this.configService.getBackendUrlWithContext(this.url), game);
   }
 
   deleteGame(token: String): Observable<Response> {
-    return this.http.delete<Response>(`${this.url}/${token}`);
+    return this.http.delete<Response>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`));
   }
 
   updateGame(updateGame: UpdateGame, token:String) {
-    return this.http.put<Game>(`${this.url}/${token}`, updateGame)
+    return this.http.put<Game>(this.configService.getBackendUrlWithContext(`${this.url}/${token}`), updateGame)
   }
 }
