@@ -1,0 +1,73 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.action-tab {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  flex-grow: inherit;
+}
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  padding: 0 15px;
+}
+
+/* General button style */
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Prevent text overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* SVG icon style */
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor; /* Match the button text color */
+  transition: transform 0.3s ease;
+}
+
+/* Text (hidden by default) */
+.icon-button span {
+  opacity: 0; /* Fully hidden */
+  transform: translateX(-10px); /* Slide left */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.icon-button:hover span {
+  opacity: 1; /* Fully visible */
+  transform: translateX(0); /* Reset position */
+}
+
+.icon-button:hover svg {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+

@@ -1,0 +1,44 @@
+<h1>Create a Match</h1>
+<section>
+  <h2>Select Game</h2>
+</section>
+<app-game-list [selectedGame]="selectedGame" [gameList]="gameList" (onCardClick)="onGameSelect($event)"></app-game-list>
+<section>
+  <h2>Select Users</h2>
+</section>
+<div class="match-user-list" *ngFor="let user of userList" (click)="selectedUsers.includes(user) ? onUserDeselect(user) : onUserSelect(user)" [class.selected]="selectedUsers.includes(user)">
+  <span class="ranking-number" *ngIf="selectedUsers.includes(user)">
+    {{ selectedUsers.indexOf(user)+1 }}
+  </span>
+  <span>
+    {{ user.firstname }} {{ user.lastname }}
+  </span>
+</div>
+@if (openDialog) {
+    <app-dialog *ngIf="openDialog"
+                [openDialog]="openDialog"
+                (onConfirmation)="$event ? createMatch()
+                : closeDialog()"
+class="match-app-dialog">
+      <span>Creating Match with the following Users and their rankings</span>
+      <div>
+        @for (user of selectedUsers; track user; let userRanking = $index) {
+        <span>{{userRanking + 1 }} {{ user.firstname }} {{ user.lastname }}</span><br>
+        }
+      </div>
+      <span>For the game</span>
+      <div>
+      <span> {{ selectedGame?.name }}</span>
+      </div>
+    </app-dialog>
+}
+  <button type="submit" (click)="ifValidOpenDialog()">Create Match</button>
+
+@if (throwErrorAlert) {
+  <div class="alert" (click)="this.throwErrorAlert = false" >
+    Select at least one game and two users!
+  </div>
+}
+
+
+

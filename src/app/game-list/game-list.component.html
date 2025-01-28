@@ -1,0 +1,4 @@
+<section class="card-container">
+  <app-game-card *ngFor="let game of gameList" [game]="game" (onCardClick)="onCardClicked(game)"
+                 [isSelected]="game === selectedGame"></app-game-card>
+</section>

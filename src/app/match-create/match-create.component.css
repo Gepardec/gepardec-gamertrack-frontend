@@ -1,0 +1,91 @@
+div.match-user-list {
+  height: 25px;
+  width: 50vw;
+  border-color: lightgrey;
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+  padding: 15px  15px 10px;
+  margin-bottom: 10px;
+}
+
+.selected {
+  border-color: darkgrey;
+  border-width: 2px 0 2px 0;
+}
+
+span.ranking-number {
+  height: max-content;
+  width: max-content;
+  display: inline-flex;
+  justify-self: center;
+  padding: 2px;
+  margin-right: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+}
+
+.match-app-dialog span {
+  padding: 10px 0 10px 0;
+}
+.match-app-dialog div span {
+  padding: 20px;
+  margin: 20px;
+  font-size: 15px;
+}
+
+
+button[type="submit"] {
+  display: inline-block;
+  background-color: #007BFF; /* Primary color */
+  color: #fff; /* Text color */
+  padding: 12px 20px; /* Button padding */
+  font-size: 16px; /* Font size */
+  font-family: Arial, sans-serif;
+  font-weight: bold; /* Bold text */
+  text-align: center;
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  display: inline-block;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Darker text color */
+  padding: 12px 20px; /* Button padding */
+  font-size: 16px; /* Font size */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-weight: bold; /* Bold text */
+  border: 2px solid #ccc; /* Border with a light gray color */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc; /* Gray background */
+  color: #666; /* Dimmed text color */
+  cursor: not-allowed; /* Not-allowed cursor */
+  box-shadow: none; /* No shadow */
+}
+
+/* The alert message box */
+.alert {
+  position: absolute;
+  justify-self: center;
+  bottom: 10%;
+  left: 41%;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: grey;
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+

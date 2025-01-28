@@ -12,7 +12,7 @@ export class ConfigService {
   constructor() { }
 
 
-  getBackendUrl(): string {
+  private getBackendUrl(): string {
     return window.location.origin.replace(environment.frontendOriginSegment, environment.backendOriginSegment)
   }
 

@@ -1,0 +1,10 @@
+<dialog [open]="openDialog">
+  <span class="dialog-heading">
+    <h2> {{ heading }} </h2>
+  </span>
+  <section class="dialog-body">
+    <ng-content></ng-content>
+  </section>
+  <button type="submit" (click)="onConfirmation.emit(true); closeDialog()"> Confirm </button>
+  <button type="button" (click)="closeDialog(); closeDialog()"> Cancel </button>
+</dialog>
