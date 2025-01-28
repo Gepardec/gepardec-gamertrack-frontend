@@ -14,11 +14,11 @@
     {{ user.firstname }} {{ user.lastname }}
   </span>
 </div>
-@if (isSelectionValid()) {
+@if (openDialog) {
     <app-dialog *ngIf="openDialog"
                 [openDialog]="openDialog"
                 (onConfirmation)="$event ? createMatch()
-                :closeDialog()"
+                : closeDialog()"
 class="match-app-dialog">
       <span>Creating Match with the following Users and their rankings</span>
       <div>
@@ -32,5 +32,13 @@ class="match-app-dialog">
       </div>
     </app-dialog>
 }
-  <button type="submit" (click)="isSelectionValid() ? createDialog() : closeDialog() ">Create Match</button>
+  <button type="submit" (click)="ifValidOpenDialog()">Create Match</button>
+
+@if (throwErrorAlert) {
+  <div class="alert" (click)="this.throwErrorAlert = false" >
+    Select at least one game and two users!
+  </div>
+}
+
+
 

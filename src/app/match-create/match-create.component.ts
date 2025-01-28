@@ -7,7 +7,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import {UserService} from '../user.service';
 import {MatchService} from '../match.service';
 import {DialogComponent} from '../dialog/dialog.component';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-match-create',
@@ -35,6 +35,8 @@ export class MatchCreateComponent implements OnInit {
   selectedUsers: User[] = [];
 
   openDialog: boolean = false;
+
+  throwErrorAlert?: boolean = false;
 
 
   ngOnInit() {
@@ -74,12 +76,15 @@ export class MatchCreateComponent implements OnInit {
       : alert("No game or users have been selected");
   }
 
-  isSelectionValid(): boolean {
-    return this.selectedGame != undefined && this.selectedUsers.length > 1;
+  ifValidOpenDialog(): boolean {
+    let isValid= this.selectedGame != undefined && this.selectedUsers.length > 1 ;
+    this.throwErrorAlert = !isValid
+    this.openDialog = isValid;
+    return isValid
   }
 
-  createDialog() {
-    this.openDialog = true
+  ifValidCloseAlert() {
+    this.throwErrorAlert = this.selectedGame != undefined && this.selectedUsers.length > 1
   }
 
   closeDialog() {

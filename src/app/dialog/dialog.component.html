@@ -6,5 +6,5 @@
     <ng-content></ng-content>
   </section>
   <button type="submit" (click)="onConfirmation.emit(true); closeDialog()"> Confirm </button>
-  <button (click)="closeDialog(); closeDialog()"> Cancel </button>
+  <button type="button" (click)="closeDialog(); closeDialog()"> Cancel </button>
 </dialog>

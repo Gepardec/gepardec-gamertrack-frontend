@@ -17,10 +17,4 @@ export class DialogComponent {
     this.onConfirmation.emit(false)
     this.openDialog = false;
   }
-
-  confirm() {
-    this.openDialog = false
-    this.onConfirmation.emit(true)
-
-  }
 }

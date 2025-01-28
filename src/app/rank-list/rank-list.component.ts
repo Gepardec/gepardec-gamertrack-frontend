@@ -34,7 +34,7 @@ export class RankListComponent implements OnInit{
   async ngOnInit() {
     this.gameService.getAllGames().subscribe({
       next: games => {
-        if (games) {
+        if (games.length > 0) {
           this.games = games;
           this.selectedGame = games[0]
           this.filterScores()
