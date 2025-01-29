@@ -6,7 +6,7 @@
     <div class="game-rules"> {{ game?.rules }}</div>
   </div>
   <div class="game-actions">
-    <button (click)="deleteGame(game!)">
+    <button (click)="openDialog()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
@@ -18,4 +18,11 @@
     </button>
   </div>
 </section>
+  <app-dialog class="warning-dialog" [confirmButtonDisabled]="!dialogInputIsValid" [openDialog]="openWarningDialog" (onConfirmation)="$event && game?.name === this.inputText ? deleteGame(game!) : closeDialog()">
+    <span>This action is irreversible and will delete {{ this.matchAmount}} matches with it</span>
+    <span>
+    <label for="gameName">Provide the exact game name in order to confirm the action</label>
+    <input [(ngModel)]="this.inputText" (ngModelChange)="isDialogInputValid()" id="gameName" type="text" placeholder="Provide the game name">
+    </span>
+  </app-dialog>
 <button type="button" (click)="goToGamesOverview()" class="secondary">Games Overview</button>

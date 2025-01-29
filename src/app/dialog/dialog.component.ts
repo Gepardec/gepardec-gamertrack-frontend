@@ -10,8 +10,10 @@ export class DialogComponent {
 
   @Input() heading: String = 'Confirm'
   @Input() openDialog?: boolean;
+  @Input() confirmButtonDisabled?: boolean;
 
   @Output() onConfirmation = new EventEmitter<Boolean>();
+
 
   closeDialog() {
     this.onConfirmation.emit(false)
