@@ -41,5 +41,6 @@ jobs:
           platform: linux/amd64,linux/arm64
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          labels: 1.0
           # if the branch is main, add the latest tag
           addLatest: ${{ github.ref == 'refs/heads/main' }}
