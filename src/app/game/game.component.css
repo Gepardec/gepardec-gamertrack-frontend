@@ -6,19 +6,9 @@
 }
 .action-tab {
   display: flex;
+  align-items: center;
   justify-self: center;
   flex-direction: column;
-  flex-grow: inherit;
-}
-@media (max-width: 768px) {
-  .card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 480px) {
-  .card-container {
-    grid-template-columns: 1fr;
-  }
 }
 
 .page-heading {
@@ -38,7 +28,7 @@
   font-size: 16px;
   padding: 10px 15px;
   background-color: transparent;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden; /* Prevent text overflow */
@@ -49,14 +39,17 @@
 .icon-button svg {
   width: 20px;
   height: 20px;
+  justify-self: center;
   fill: currentColor; /* Match the button text color */
-  transition: transform 0.3s ease;
+  transition: 0.3s ease-in  ;
 }
 
 /* Text (hidden by default) */
 .icon-button span {
+  position: absolute;
+  left: 52%;
   opacity: 0; /* Fully hidden */
-  transform: translateX(-10px); /* Slide left */
+  transform: translateX(-12px); /* Slide left */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -67,7 +60,18 @@
 }
 
 .icon-button:hover svg {
-  transform: scale(1.1); /* Slightly enlarge the icon */
+  transform: rotate(90deg); /* Rotate icon */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 

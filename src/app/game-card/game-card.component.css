@@ -5,6 +5,7 @@
   width: 300px; /* Fixed card width */
   overflow: hidden; /* Ensure content doesn't overflow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  height: 100%;
 }
 
 .selected {
