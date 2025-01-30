@@ -1,8 +1,8 @@
 /* Main container for the game section */
 .game-section {
   display: flex;
+  align-items: start;
   justify-content: space-between; /* Space between left (info) and right (actions) */
-  align-items: flex-start; /* Align items to the top */
   width: auto; /* Full width */
   min-height: 400px; /* Increased height */
   padding: 40px; /* Add generous padding */
@@ -51,18 +51,20 @@
   color: red;
   padding: 15px 15px; /* Increased button size */
   background-color: transparent;
-  border-radius: 8px; /* Slightly rounder corners */
+  border-style: solid;
+  border-color: transparent;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Hover effect */
 .game-actions button:hover {
-  background-color: darkred;
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.30);
 }
 
+.game-actions .edit-button {
+  color: greenyellow;
+}
 /* Icon style inside the button */
 .game-actions button svg {
   vertical-align: middle;
@@ -70,6 +72,8 @@
   height: 25px;
   fill: currentColor; /* Inherits button's text color */
 }
+
+/* Hover effect */
 
 button[type="button"] {
   display: inline-block;
@@ -85,4 +89,35 @@ button[type="button"] {
   cursor: pointer; /* Pointer cursor */
   transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
 }
+
+.warning-dialog span {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 10px 0;
+}
+
+.warning-dialog input {
+  font-size: 100%;
+  margin-top: 20px;
+  height: 35px;
+  width: 100%;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: red;
+}
+
+* {
+  transition: none;
+}
+
+.warning-dialog .disarmed {
+  border-color: green;
+}
+
+.warning-dialog .disarmed input:focus {
+  outline: none;
+  border-color: green;
+}
+
+
 

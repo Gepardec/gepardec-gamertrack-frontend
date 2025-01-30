@@ -2,10 +2,16 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../game/game.service';
 import {Game} from '../game/game';
+import {DialogComponent} from '../dialog/dialog.component';
+import {MatchService} from '../match.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-game-details',
-  imports: [],
+  imports: [
+    DialogComponent,
+    FormsModule
+  ],
   templateUrl: './game-detail.component.html',
   styleUrl: './game-detail.component.css'
 })
@@ -15,10 +21,14 @@ export class GameDetailComponent implements OnInit{
   router = inject(Router);
   gameService = inject(GameService);
   game: Game | undefined
+  openWarningDialog: boolean = false;
+  matchAmount: number = 0;
+  matchService = inject(MatchService)
+  inputText: string = '';
+  dialogInputIsValid: boolean = false;
 
 
   ngOnInit(): void {
-    //TODO alternative that is not hardcoded?
     this.gameService.getGameByToken(this.activatedRoute.snapshot.url[1].path)
       .subscribe({
         next: (game) => {
@@ -30,9 +40,22 @@ export class GameDetailComponent implements OnInit{
       });
   }
 
+  openDialog() {
+    this.matchService.getAllMatchesFromGame(this.game?.token!).subscribe({
+      next: (matches) => {
+        this.matchAmount = matches.length;
+      }
+    });
+    this.openWarningDialog = true;
+  }
+
+  closeDialog() {
+    this.openWarningDialog = false;
+    this.inputText = '';
+    this.dialogInputIsValid = false
+  }
 
   deleteGame(game: Game) {
-    if (confirm("Are you sure you want to delete game with the following name: " + game.name)) {
       this.gameService.deleteGame(game.token).subscribe({
         next: (response) => {
             this.router.navigate(["/games"]);
@@ -41,7 +64,7 @@ export class GameDetailComponent implements OnInit{
           alert("Could not remove game with token it has either been deleted already or does not exist");
         }
       });
-    }
+    this.closeDialog()
   }
 
   editGame(token: String) {
@@ -50,5 +73,9 @@ export class GameDetailComponent implements OnInit{
 
   goToGamesOverview() {
     this.router.navigate(['/games']);
+  }
+
+  isDialogInputValid() {
+    this.dialogInputIsValid = this.game?.name === this.inputText;
   }
 }
