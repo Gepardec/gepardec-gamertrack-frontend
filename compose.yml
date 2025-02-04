@@ -1,0 +1,5 @@
+services:
+  backend:
+    image: ghcr.io/gepardec/gepardec-gamertrack:dev-5e383ab
+    ports:
+      - 8080:8080

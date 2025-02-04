@@ -3,7 +3,17 @@
     <div class="game-name">
       <h1> {{ game?.name }}</h1>
     </div>
+    <div class="tabs">
+      <button class="tablink"><!--//TODO add here the tab functionality with js--> Rules</button>
+      <button class="tablink"><!--//TODO add here the tab functionality with js--> Matches</button>
+    </div>
+
+
+
+
+    <div class="tabcontent">
     <div class="game-rules"> {{ game?.rules }}</div>
+    </div>
   </div>
   <div class="game-actions">
     <button (click)="openDialog()">
@@ -18,6 +28,10 @@
     </button>
   </div>
 </section>
+
+
+
+
   <app-dialog class="warning-dialog" [confirmButtonDisabled]="!dialogInputIsValid" [openDialog]="openWarningDialog" (onConfirmation)="$event && game?.name === this.inputText ? deleteGame(game!) : closeDialog()">
     <span>This action is irreversible and will delete {{ this.matchAmount}} matches with it</span>
     <span>
