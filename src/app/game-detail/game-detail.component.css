@@ -1,25 +1,29 @@
 /* Main container for the game section */
 .game-section {
   display: flex;
-  align-items: start;
   justify-content: space-between; /* Space between left (info) and right (actions) */
+  align-items: flex-start; /* Align items to the top */
   width: auto; /* Full width */
-  min-height: 400px; /* Increased height */
-  padding: 40px; /* Add generous padding */
-  background: linear-gradient(135deg, #1a73e8, #4285f4);
-  color: #fff;
+  min-height: auto; /* Increased height */
+  padding: 40px 40px 10px 40px; /* Add generous padding */
   font-family: 'Arial', sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
   margin: 20px 0; /* Add spacing above and below the container */
+  border-bottom: gray;
+  border-width: 0 0 2px 0;
+  border-style: solid;
 }
 
 /* Game info container */
 .game-info {
-  display: flex;
+  display: inline-flex;
   flex-direction: column; /* Stack title and rules vertically */
   align-items: flex-start; /* Align text to the left */
-  width: 70%; /* Adjust to fit buttons */
+  width: auto; /* Adjust to fit buttons */
+}
+
+.game-name {
+  padding: 0;
+  margin: 0;
 }
 
 /* Game name style */
@@ -38,10 +42,8 @@
 /* Game actions container */
 .game-actions {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  flex-direction: column;
-  justify-content: flex-end; /* Align buttons to the right */
   white-space: nowrap;
   padding-left: 100px;
 }
@@ -51,19 +53,17 @@
   color: red;
   padding: 15px 15px; /* Increased button size */
   background-color: transparent;
-  border-style: solid;
-  border-color: transparent;
   cursor: pointer;
+  border-style: none;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .game-actions button:hover {
-  color: white;
   transform: scale(1.30);
 }
 
 .game-actions .edit-button {
-  color: greenyellow;
+  color: green;
 }
 /* Icon style inside the button */
 .game-actions button svg {
@@ -72,8 +72,6 @@
   height: 25px;
   fill: currentColor; /* Inherits button's text color */
 }
-
-/* Hover effect */
 
 button[type="button"] {
   display: inline-block;
@@ -117,6 +115,37 @@ button[type="button"] {
 .warning-dialog .disarmed input:focus {
   outline: none;
   border-color: green;
+}
+
+.tabs {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  white-space: nowrap;
+  border-color: gray;;
+  border-radius: 10px;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+}
+
+.tablink {
+  background-color: #f8f9fa;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-style: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tablink:hover {
+  background-color: #e9ecef;
+  border-width: 2px 2px 0 2px;
+  border-style: solid;
+  border-radius: 10px 10px 0 10px;
 }
 
 
