@@ -26,8 +26,10 @@ html, body {
 }
 
 .ranking-list h2 {
+  line-height: 40px;
   font-size: 36px;
   color: #333;
+  overflow: hidden;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -37,6 +39,11 @@ html, body {
   margin-bottom: 25px;
   width: 70%;
   max-width: 100%;
+}
+
+.selection-container {
+  display: flex;
+  gap: 20px;
 }
 
 label {
@@ -89,7 +96,7 @@ option {
 .rank {
   font-size: 28px;
   font-weight: 700;
-  color: #6c63ff;
+  color: #0056b3;
   width: 60px;
 }
 
@@ -114,7 +121,7 @@ option {
 .ranking-item .score {
   font-size: 20px;
   font-weight: 700;
-  color: #6c63ff;
+  color: #3498db;
   text-align: center;
 }
 
