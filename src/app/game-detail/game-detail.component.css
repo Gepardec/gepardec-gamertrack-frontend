@@ -120,32 +120,42 @@ button[type="button"] {
 .tabs {
   background-color: #f8f9fa;
   display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  white-space: nowrap;
-  border-color: gray;;
-  border-radius: 10px;
-  border-width: 0 0 2px 0;
+  justify-content: flex-start;
+  width: max-content;
+  border-color: gray;
+  border-width: 0 0 0 0;
   border-style: solid;
+  border-radius: 20%;
 }
 
 .tablink {
   background-color: #f8f9fa;
   padding: 12px 20px;
+  margin: 0 0 0 0;
   font-size: 16px;
   font-family: Arial, sans-serif;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 10px 10px 0 0;
   border-style: none;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .tablink:hover {
   background-color: #e9ecef;
-  border-width: 2px 2px 0 2px;
+  border-width: 1px 1px 0 1px;
   border-style: solid;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 10px 10px 0 0;
+  border-color: grey;
+}
+
+.tablink.active {
+  background-color: #e9ecef;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-radius: 10px 10px 0 0;
+  border-color: grey;
 }
 
 
