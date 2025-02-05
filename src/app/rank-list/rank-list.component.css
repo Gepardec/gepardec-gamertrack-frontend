@@ -14,27 +14,47 @@ html, body {
 }
 
 .ranking-list {
+  min-height: 500px;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.ranking-list {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 900px;
-  min-height: 500px;
   padding: 30px;
   text-align: center;
 }
 
 .ranking-list h2 {
+  line-height: 40px;
   font-size: 36px;
   color: #333;
+  overflow: hidden;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-.game-selection,
-.score-count-selection {
-  margin-bottom: 25px;
+.selection-container {
+  display: flex;
+  gap: 20px;
 }
+
+.game-selection, .score-count-selection {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-bottom: 15px;
+
+}
+
 
 label {
   font-size: 18px;
@@ -86,7 +106,7 @@ option {
 .rank {
   font-size: 28px;
   font-weight: 700;
-  color: #6c63ff;
+  color: #0056b3;
   width: 60px;
 }
 
@@ -108,10 +128,12 @@ option {
   font-weight: 600;
 }
 
+
+
 .ranking-item .score {
   font-size: 20px;
   font-weight: 700;
-  color: #6c63ff;
+  color: #3498db;
   text-align: center;
 }
 
