@@ -5,13 +5,14 @@
   align-items: flex-start; /* Align items to the top */
   width: auto; /* Full width */
   min-height: auto; /* Increased height */
-  padding: 40px 40px 10px 40px; /* Add generous padding */
+  padding: 40px 40px 0 40px; /* Add generous padding */
   font-family: 'Arial', sans-serif;
   margin: 20px 0; /* Add spacing above and below the container */
   border-bottom: gray;
   border-width: 0 0 2px 0;
   border-style: solid;
 }
+
 
 /* Game info container */
 .game-info {
@@ -86,6 +87,7 @@ button[type="button"] {
   border-radius: 8px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor */
   transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+  margin-top: 20px;
 }
 
 .warning-dialog span {
@@ -152,10 +154,10 @@ button[type="button"] {
 
 .tablink.active {
   background-color: #e9ecef;
-  border-width: 1px 1px 0 1px;
+  border-width: 4px 2px 0 2px;
   border-style: solid;
   border-radius: 10px 10px 0 0;
-  border-color: grey;
+  border-color: rgb(240,210,0);
 }
 
 
