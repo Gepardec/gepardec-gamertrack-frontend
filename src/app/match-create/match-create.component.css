@@ -37,7 +37,7 @@ span.ranking-number {
 
 button[type="submit"] {
   display: inline-block;
-  background-color: #007BFF; /* Primary color */
+  background-color: rgb(240,210,0); /* Primary color */
   color: #fff; /* Text color */
   padding: 12px 20px; /* Button padding */
   font-size: 16px; /* Font size */

@@ -1,0 +1,103 @@
+select {
+  width: 35%;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+
+
+}
+.amount-matches {
+  width: 10%;
+}
+
+/* The alert message box */
+.alert {
+  position: absolute;
+  justify-self: center;
+  bottom: 10%;
+  left: 41%;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: grey;
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+
+
+
+.grid {
+  display: grid;
+  justify-self: center;
+  grid-template-columns:  minmax(5px, 0.5fr) minmax(5px, 0.5fr) auto auto; /* Second column (numbers) shrinks first */
+  width: 100%;
+  max-width: 100%;
+  column-gap: 0;
+  border-color: transparent transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 0 5px 5px 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 500px;
+  scrollbar-width: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+}
+
+.grid-column-header {
+  display: contents;
+}
+
+
+.grid-column-header div {
+  font-weight: bold;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  grid-column-gap: 0;
+  overflow-x: hidden;
+  position: sticky;
+  top: 0;
+  background-color: white; /* Ensure it remains visible over other content */
+  z-index: 10; /* Keep it above grid content */
+}
+
+
+.grid-row {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  display: contents;
+
+}
+
+.grid-row div {
+  padding: 10px;
+  margin: 0;
+  justify-content: center;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0 0 1px 0;
+  width: auto;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  width: auto;
+}
+
+.grid-item span {
+  display: block;
+  width: auto;
+}

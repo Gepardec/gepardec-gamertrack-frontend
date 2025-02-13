@@ -33,6 +33,9 @@
   transition: all 0.3s ease;
   overflow: hidden; /* Prevent text overflow */
   white-space: nowrap; /* Prevent text wrapping */
+  border-style: solid;
+  border-color: rgb(240, 210, 0);
+  color: rgb(240, 210, 0);
 }
 
 /* SVG icon style */
@@ -41,7 +44,9 @@
   height: 20px;
   justify-self: center;
   fill: currentColor; /* Match the button text color */
-  transition: 0.3s ease-in  ;
+  transition: 0.3s ease-in rgb(240,210,0) ;
+
+
 }
 
 /* Text (hidden by default) */

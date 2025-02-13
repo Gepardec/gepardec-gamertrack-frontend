@@ -5,12 +5,17 @@ import {Game} from '../game/game';
 import {DialogComponent} from '../dialog/dialog.component';
 import {MatchService} from '../match.service';
 import {FormsModule} from '@angular/forms';
+import {NgClass, NgIf} from '@angular/common';
+import {MatchListComponent} from '../match-list/match-list.component';
 
 @Component({
   selector: 'app-game-details',
   imports: [
+    MatchListComponent,
     DialogComponent,
-    FormsModule
+    FormsModule,
+    NgClass,
+    NgIf
   ],
   templateUrl: './game-detail.component.html',
   styleUrl: './game-detail.component.css'
@@ -26,6 +31,7 @@ export class GameDetailComponent implements OnInit{
   matchService = inject(MatchService)
   inputText: string = '';
   dialogInputIsValid: boolean = false;
+  currentTab: string = 'Rules';
 
 
   ngOnInit(): void {
@@ -41,9 +47,9 @@ export class GameDetailComponent implements OnInit{
   }
 
   openDialog() {
-    this.matchService.getAllMatchesFromGame(this.game?.token!).subscribe({
-      next: (matches) => {
-        this.matchAmount = matches.length;
+    this.matchService.getMatchCount(this.game?.token!).subscribe({
+      next: (matchesAmount) => {
+      this.matchAmount = matchesAmount;
       }
     });
     this.openWarningDialog = true;
@@ -78,4 +84,10 @@ export class GameDetailComponent implements OnInit{
   isDialogInputValid() {
     this.dialogInputIsValid = this.game?.name === this.inputText;
   }
+
+  changeTab(tab: string) {
+    this.currentTab = tab;
+  }
+
+  protected readonly MatchListComponent = MatchListComponent;
 }

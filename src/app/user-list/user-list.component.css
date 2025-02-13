@@ -12,12 +12,12 @@
 }
 
 .create-btn {
-  background-color: #3498db;
+  background-color: rgb(240, 210, 0);
   color: #fff;
 }
 
 .create-btn:hover {
-  background-color: #2980b9;
+  background-color: rgb(240, 210, 0);
 }
 
 .userList {

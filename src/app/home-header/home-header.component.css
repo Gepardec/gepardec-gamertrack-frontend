@@ -2,14 +2,14 @@ header {
   font-family: Arial, sans-serif;
   position: fixed;
   background-color: #f0f2f5;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 1000;
 }
 
@@ -29,4 +29,22 @@ header li a {
 }
 header li a:hover {
   color: orange;
+}
+
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.logo-first-half {
+  color:  rgb(240,210,0);
+}
+
+.logo-second-half {
+  font-family: "Gill Sans" , sans-serif;
 }
