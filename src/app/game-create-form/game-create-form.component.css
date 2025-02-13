@@ -21,10 +21,10 @@ input {
 
 button[type="submit"] {
   display: inline-block;
-  background-color: #007BFF; /* Primary color */
-  color: #fff; /* Text color */
+  background-color: rgb(240,210,0); /* Primary color */
   padding: 12px 20px; /* Button padding */
   font-size: 16px; /* Font size */
+  color: white;
   font-family: Arial, sans-serif;
   font-weight: bold; /* Bold text */
   text-align: center;
@@ -45,10 +45,11 @@ button[type="button"] {
   font-family: Arial, sans-serif;
   text-align: center;
   font-weight: bold; /* Bold text */
-  border: 2px solid #ccc; /* Border with a light gray color */
+  border: none; /* Border with a light gray color */
   border-radius: 8px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor */
   transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 button[type="submit"]:disabled {

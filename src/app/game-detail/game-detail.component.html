@@ -24,7 +24,7 @@
 <section>
     <div *ngIf="currentTab === 'Rules'" class="tabcontent"> {{ game?.rules }}</div>
     <div *ngIf="currentTab === 'Matches'" class="tabcontent">
-    <app-match-list [game]="game"></app-match-list>
+    <app-match-list class="matchList" [game]="game"></app-match-list>
     </div>
 </section>
 
