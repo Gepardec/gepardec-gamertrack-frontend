@@ -9,6 +9,7 @@ import {CreateUserComponent} from './create-user/create-user.component';
 import {HomeScreenComponent} from './home-screen/home-screen.component';
 import {UpdateUserComponent} from './update-user/update-user.component';
 import {MatchCreateComponent} from './match-create/match-create.component';
+import {LoginComponent} from './login/login.component';
 
 export const routes: Routes = [
   { path: '', component: HomeScreenComponent, title: 'Home' },
@@ -40,5 +41,10 @@ export const routes: Routes = [
     path: 'matches/new',
     component: MatchCreateComponent,
     title: 'Create match'
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Login'
   }
 ];
