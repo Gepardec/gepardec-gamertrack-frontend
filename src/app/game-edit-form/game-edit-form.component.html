@@ -1,8 +1,9 @@
-<section class="create-game-form">
+<section class="edit-game-form">
   <h2 class="create-game-form-heading text-3xl pb-8 pt-5 place-self-center">Edit Game</h2>
 
   <form [formGroup]="updateGameForm" #formDir="ngForm" (submit)="submitEditedGame()">
-    <div class="cross-validation" [class.cross-validation-error]="updateGameForm.hasError('unambiguousRole') && (updateGameForm.touched || updateGameForm.dirty)">
+    <div class="cross-validation"
+         [class.cross-validation-error]="updateGameForm.hasError('unambiguousRole') && (updateGameForm.touched || updateGameForm.dirty)">
 
 
       <label for="name">Name</label>
@@ -19,9 +20,13 @@
         </div>
       </div>
       <label for="rules">Rules</label>
-      <input id="rules" type="text" formControlName="rules" />
-      <button [disabled]="updateGameForm.invalid || !updateGameForm.touched || !updateGameForm.dirty" type="submit" class="primary">Update Game</button>
-      <button type="button" onClick="history.back()" class="secondary">Back</button>
+      <input id="rules" type="text" formControlName="rules"/>
+      <div class="button-group">
+        <button [disabled]="updateGameForm.invalid || !updateGameForm.touched || !updateGameForm.dirty" type="submit"
+                class="primary">Update Game
+        </button>
+        <button type="button" onClick="history.back()" class="secondary">Back</button>
+      </div>
     </div>
   </form>
 

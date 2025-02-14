@@ -1,3 +1,10 @@
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 label {
   display: block;
   font-size: 14px; /* Adjust font size as needed */
@@ -57,4 +64,17 @@ button[type="submit"]:disabled {
   color: #666; /* Dimmed text color */
   cursor: not-allowed; /* Not-allowed cursor */
   box-shadow: none; /* No shadow */
+}
+
+.create-game-form {
+  width: 50%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  flex-direction: column;
+}
+
+.create-game-form-heading {
 }

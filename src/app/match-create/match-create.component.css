@@ -1,11 +1,21 @@
-div.match-user-list {
-  height: 25px;
-  width: 50vw;
+.app-game-list {
+  max-height: 35vh;
+  overflow-y: scroll;
+}
+
+.match-user-list {
+  max-width: 100%;
   border-color: lightgrey;
   border-style: solid;
   border-width: 1px 0 1px 0;
   padding: 15px  15px 10px;
   margin-bottom: 10px;
+}
+
+.match-user-list-container {
+  max-height: 30vh;
+  max-width: 100%;
+  overflow: scroll;
 }
 
 .selected {
@@ -79,13 +89,21 @@ button[type="submit"]:disabled {
   position: absolute;
   justify-self: center;
   bottom: 10%;
-  left: 41%;
+  left: 40%;
+  right: 40%;
+  max-width: 100%;
   border-radius: 10px;
   border-width: 2px;
   border-color: grey;
   padding: 20px;
   background-color: #f44336; /* Red */
   color: white;
+}
+
+@media (max-width: 768px) {
+  app-game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 

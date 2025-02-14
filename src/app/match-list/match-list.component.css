@@ -5,8 +5,6 @@ select {
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: transparent;
-
-
 }
 .amount-matches {
   width: 10%;
@@ -32,8 +30,7 @@ select {
 .grid {
   display: grid;
   justify-self: center;
-  grid-template-columns:  minmax(5px, 0.5fr) minmax(5px, 0.5fr) auto auto; /* Second column (numbers) shrinks first */
-  width: 100%;
+  grid-template-columns: fit-content(100px) fit-content(100px) auto auto; /* Second column (numbers) shrinks first */
   max-width: 100%;
   column-gap: 0;
   border-color: transparent transparent;
@@ -44,10 +41,10 @@ select {
   padding: 0 5px 5px 5px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 500px;
+  max-height: 100%;
   scrollbar-width: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-
+  width: 100%;
 }
 
 .grid-column-header {
@@ -65,7 +62,6 @@ select {
   position: sticky;
   top: 0;
   background-color: white; /* Ensure it remains visible over other content */
-  z-index: 10; /* Keep it above grid content */
 }
 
 
@@ -100,4 +96,23 @@ select {
 .grid-item span {
   display: block;
   width: auto;
+}
+
+.no-matches {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px;
+  padding: 0 15px;
+}
+
+.select-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
 }

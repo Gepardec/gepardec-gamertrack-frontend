@@ -1,28 +1,30 @@
 <section class="create-game-form">
-  <h2 class="create-game-form-heading text-3xl pb-8 pt-5 place-self-center">Create a new Game</h2>
-
+  <h2 class="create-game-form-heading">Create a new Game</h2>
   <form [formGroup]="createGameForm" #formDir="ngForm" (submit)="submitNewGame()">
-      <div class="cross-validation" [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
+    <div class="cross-validation"
+         [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
 
 
       <label for="name">Name</label>
-        <input class="form-control" id="name" type="text" formControlName="name" required/>
-        <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="alert alert-danger">
-          <div *ngIf="name.hasError('required')">
-            A name is required
-          </div>
-          <div *ngIf="name.hasError('minlength')">
-            Name must be at least 1 character long
-          </div>
-          <div *ngIf="name.hasError('pattern')">
-            Name can't be blank
-          </div>
+      <input class="form-control" id="name" type="text" formControlName="name" required/>
+      <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="alert alert-danger">
+        <div *ngIf="name.hasError('required')">
+          A name is required
         </div>
-        <label for="rules">Rules</label>
-        <input id="rules" type="text" formControlName="rules" />
+        <div *ngIf="name.hasError('minlength')">
+          Name must be at least 1 character long
+        </div>
+        <div *ngIf="name.hasError('pattern')">
+          Name can't be blank
+        </div>
+      </div>
+      <label for="rules">Rules</label>
+      <input id="rules" type="text" formControlName="rules"/>
+      <div class="button-group">
         <button [disabled]="createGameForm.invalid" type="submit" class="primary">Create Game</button>
         <button type="button" onClick="history.back()" class="secondary">Back</button>
       </div>
+    </div>
   </form>
 
 </section>

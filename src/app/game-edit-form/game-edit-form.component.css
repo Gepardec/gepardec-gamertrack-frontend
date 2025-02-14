@@ -1,3 +1,10 @@
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 label {
   display: block;
   font-size: 14px; /* Adjust font size as needed */
@@ -58,3 +65,13 @@ button[type="submit"]:disabled {
   cursor: not-allowed; /* Not-allowed cursor */
   box-shadow: none; /* No shadow */
 }
+
+.edit-game-form {
+  max-width: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+}
+

@@ -82,12 +82,12 @@
 }
 
 .update-btn {
-  background-color: #4CAF50;
+  background-color: rgb(240,210,0);
   color: white;
 }
 
 .update-btn:hover {
-  background-color: #45a049;
+  background-color: rgb(240,210,0);
   box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
 }
 

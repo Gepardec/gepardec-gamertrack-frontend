@@ -11,6 +11,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 
 .ranking-list {
@@ -18,8 +19,8 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 900px;
-  min-height: 500px;
+  max-width: 100%;
+  max-height: 100%;
   padding: 30px;
   text-align: center;
 }
@@ -34,6 +35,8 @@ html, body {
 .game-selection,
 .score-count-selection {
   margin-bottom: 25px;
+  width: 70%;
+  max-width: 100%;
 }
 
 label {
@@ -117,6 +120,11 @@ option {
 
 .ranking-item:last-child {
   border-bottom: none;
+}
+
+.selections {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 768px) {

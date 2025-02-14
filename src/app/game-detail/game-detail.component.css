@@ -3,9 +3,7 @@
   display: flex;
   justify-content: space-between; /* Space between left (info) and right (actions) */
   align-items: flex-start; /* Align items to the top */
-  width: auto; /* Full width */
-  min-height: auto; /* Increased height */
-  padding: 40px 40px 0 40px; /* Add generous padding */
+  max-width: 100%; /* Full width */
   font-family: 'Arial', sans-serif;
   margin: 20px 0; /* Add spacing above and below the container */
   border-bottom: gray;
@@ -24,7 +22,7 @@
 
 .game-name {
   padding: 0;
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 /* Game name style */
@@ -43,10 +41,10 @@
 /* Game actions container */
 .game-actions {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-start;
+  width: auto;
   white-space: nowrap;
-  padding-left: 100px;
+  padding-left: 50px;
 }
 
 /* Button style */

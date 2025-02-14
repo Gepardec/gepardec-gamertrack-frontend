@@ -22,7 +22,15 @@
 
 .userList {
   flex: 1;
+  height: 90%;
   width: 100%;
-  min-width: 600px;
+  max-width: 100%;
+}
 
+.list-container {
+  margin-top: 20px;
+  overflow-y: scroll;
+  height: 90%;
+  max-width: 100%;
+  width: 100%;
 }
