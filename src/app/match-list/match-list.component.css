@@ -5,8 +5,6 @@ select {
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: transparent;
-
-
 }
 .amount-matches {
   width: 10%;
@@ -33,7 +31,6 @@ select {
   display: grid;
   justify-self: center;
   grid-template-columns:  minmax(5px, 0.5fr) minmax(5px, 0.5fr) auto auto; /* Second column (numbers) shrinks first */
-  width: 100%;
   max-width: 100%;
   column-gap: 0;
   border-color: transparent transparent;
@@ -44,7 +41,7 @@ select {
   padding: 0 5px 5px 5px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 500px;
+  max-height: 100%;
   scrollbar-width: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 
@@ -65,7 +62,6 @@ select {
   position: sticky;
   top: 0;
   background-color: white; /* Ensure it remains visible over other content */
-  z-index: 10; /* Keep it above grid content */
 }
 
 

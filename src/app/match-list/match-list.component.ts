@@ -83,7 +83,7 @@ export class MatchListComponent implements OnInit {
       this.refreshMatches(value, undefined);
     }
 
-    selectUser(user: User) {
+    selectUser(user: User|undefined) {
         this.selectedUser = user;
       this.refreshMatches(this.selectedValue, this.selectedUser);
     }

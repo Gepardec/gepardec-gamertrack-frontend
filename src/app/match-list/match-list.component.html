@@ -6,6 +6,7 @@
   </select>
 <label class="select-label" for="users">User: </label>
   <select name="users" id="users" [(ngModel)]="selectedUser" (change)="selectUser(selectedUser!)">
+    <option (select)="selectUser(undefined)" [ngValue]="undefined">all</option>
   @for (user of users; track user) {
       <option (select)="selectUser(user)" [ngValue]="user">{{user?.firstname}} {{user?.lastname}}</option>
   }
@@ -15,7 +16,7 @@
 
   <div class="grid-column-header grid-row">
     <div> No.</div>
-    <div> Number of Players</div>
+    <div> No. of Players</div>
     <div> Winner</div>
     <div> Players</div>
   </div>
