@@ -3,9 +3,10 @@
   max-width: 100%;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 2px solid rgb(240,210,0);
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 h2 {
@@ -22,8 +23,19 @@ h2 {
   width: 95%;
   max-width: 100%;
   padding: 8px;
+  margin: 5px 0;
   border-radius: 4px;
   border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(240,210,0);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button:disabled {
@@ -39,8 +51,8 @@ button:disabled {
 button {
   width: 95%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: rgb(240,210,0);
+  color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;

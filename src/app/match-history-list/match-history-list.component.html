@@ -1,0 +1,11 @@
+<div class="match-history-list">
+  <h2 class="match-history-list-heading">Matchverlauf</h2>
+
+  <div *ngFor="let match of matches; let i = index" class="match-history-list-item">
+    <div class="user-details">
+      <p >{{match.game.name}}:
+        <span><span class="match-history-list-item-user" *ngFor="let user of match.users">{{ user.firstname }} </span></span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 header {
   font-family: Arial, sans-serif;
   position: fixed;
-  background-color: #f0f2f5;
+  background-color: black;
   top: 0;
   left: 0;
   right: 0;
@@ -22,13 +22,13 @@ header li {
 }
 
 header li a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
 }
 header li a:hover {
-  color: orange;
+  color: rgb(240,210,0);
 }
 
 nav {
@@ -48,4 +48,5 @@ nav {
 
 .logo-second-half {
   font-family: "Gill Sans" , sans-serif;
+  color:  white;
 }

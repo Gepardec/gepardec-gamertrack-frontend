@@ -51,4 +51,10 @@ export class MatchService {
           }),
         );
   }
+
+  getAllMatches(): Observable<Match[]> {
+    return this.http.get<Match[]>(
+      this.configService.getBackendUrlWithContext(this.url),
+      { params: new HttpParams()});
+  }
 }

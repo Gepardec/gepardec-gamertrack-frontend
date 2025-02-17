@@ -16,13 +16,15 @@
 
 .create-btn {
   background-color: rgb(240,210,0);
+  color: black;
+  font-size: 30px;
   height: 5vh;
-  color: white;
+
 }
 
 .create-btn:hover {
   background-color: rgb(240,210,0);
-  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
 }
 
 .create-btn:active {
