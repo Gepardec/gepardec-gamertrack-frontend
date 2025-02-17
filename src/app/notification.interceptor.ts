@@ -21,7 +21,6 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
 
 
           if (response instanceof HttpResponse) {
-            console.log("HIER")
             let message = `${response.statusText}: Successfully`;
 
             let colorClass = 'success';
@@ -36,7 +35,11 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
       let message = 'Ein Fehler ist aufgetreten';
       let colorClass = 'error';
 
-      message = `Error ${error.status}: ${error.statusText}`;
+      if (error.error) {
+        message = error.error.message
+      } else {
+        message = `Error ${error.status}: ${error.error.message}`;
+      }
 
 
       if (error.status === 401 || error.status === 402 || error.status === 403) {

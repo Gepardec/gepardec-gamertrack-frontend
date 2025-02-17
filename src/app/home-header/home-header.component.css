@@ -38,7 +38,7 @@ nav {
 }
 
 .logo {
-  font-size: 35px;
+  font-size: 38px;
   flex-shrink: 0;
   position: absolute;
 }
@@ -49,4 +49,11 @@ nav {
 .logo-second-half {
   font-family: "Gill Sans" , sans-serif;
   color:  white;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px;
+  }
+
 }

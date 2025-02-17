@@ -9,4 +9,27 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Prevents scrolling */
+  justify-content: center;
+}
+
+
+@media (max-width:  3440px) {
+  html, body {
+    width: 30vw;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 2560px) {
+  html, body {
+    width: 60vw;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  html, body {
+    width: 90vw;
+    justify-self: center;
+  }
 }
