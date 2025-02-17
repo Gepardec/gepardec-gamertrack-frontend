@@ -1,0 +1,4 @@
+<div *ngIf="isVisible" class="notification" [ngClass]="notificationColorClass">
+  <span>{{ notificationMessage }}</span>
+  <button (click)="closeNotification()">X</button>
+</div>

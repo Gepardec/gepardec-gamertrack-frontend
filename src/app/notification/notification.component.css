@@ -1,0 +1,36 @@
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.notification button:hover {
+  color: #ff5733;
+}
+
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: #e74c3c;
+}
+
+.warning {
+  background-color: #f39c12;
+}

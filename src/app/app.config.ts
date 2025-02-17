@@ -5,11 +5,15 @@ import { authInterceptor } from './auth.interceptor';
 
 
 import { routes } from './app.routes';
+import {NotificationInterceptor} from './notification.interceptor';
+import {NotificationService} from './notification.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideHttpClient(
       withInterceptors([authInterceptor]),
-    )
+      withInterceptors([NotificationInterceptor]),
+    ), NotificationService
+
   ]
 };
