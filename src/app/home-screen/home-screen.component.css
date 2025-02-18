@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   padding: 12px 20px;
-  font-size: 16px;
   font-weight: 600;
   border-radius: 5px;
   border: none;
@@ -12,9 +11,6 @@
   text-decoration: none;
   transition: all 0.3s ease;
   width: 100%;
-}
-
-.create-btn {
   background-color: rgb(240,210,0);
   color: black;
   font-size: 30px;
@@ -31,3 +27,13 @@
   transform: translateY(1px);
   box-shadow: none;
 }
+
+.home-screen {
+  min-height: 500px;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  display: contents;
+}
+

@@ -16,6 +16,7 @@ html, body {
 @media (max-width:  3440px) {
   html, body {
     width: 30vw;
+    height: 90vh;
     justify-self: center;
   }
 }
@@ -23,6 +24,7 @@ html, body {
 @media (max-width: 2560px) {
   html, body {
     width: 60vw;
+    height: 100vh;
     justify-self: center;
   }
 }
@@ -30,6 +32,7 @@ html, body {
 @media (max-width: 1024px) {
   html, body {
     width: 90vw;
+    height: 90vh;
     justify-self: center;
   }
 }

@@ -35,6 +35,8 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
       let message = 'Ein Fehler ist aufgetreten';
       let colorClass = 'error';
 
+      console.log("Drinnen");
+
       if (error.error) {
         message = error.error.message
       } else {
