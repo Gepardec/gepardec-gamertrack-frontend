@@ -1,32 +1,37 @@
-<div class="selection-container">
-  <div class="game-selection">
-    <select id="game" [(ngModel)]="selectedGame" (ngModelChange)="filterScores()">
-      <option value="" disabled selected>Spiel auswählen</option>
-      <option *ngFor="let game of games" [ngValue]="game">{{game.name}}</option>
-    </select>
+<div class="rank-list-container">
+  <div class="ranking-heading">
+    <h2>Rank List {{selectedGame.name}}</h2>
   </div>
-
-  <div class="score-count-selection">
-    <select id="scoreCount" [(ngModel)]="selectedScoreCount" (ngModelChange)="filterScores()">
-      <option value="" disabled selected>Top Score</option>
-      <option *ngFor="let count of scoreCounts" [value]="count">{{count}}</option>
-    </select>
-  </div>
-</div>
-
-<div class="ranking-list">
-  <h2>Rangliste {{selectedGame.name}}</h2>
-
-  <div *ngFor="let score of scores; let i = index" class="ranking-item">
-    <div class="rank">
-      <strong>{{i + 1}}</strong>
+  <div class="selection-container">
+    <div class="game-selection">
+      <select class="selectionsBox" id="game" [(ngModel)]="selectedGame" (ngModelChange)="filterScores()">
+        <option value="" disabled selected>Spiel auswählen</option>
+        <option *ngFor="let game of games" [ngValue]="game">{{game.name}}</option>
+      </select>
     </div>
 
-    <div class="user-details">
-      <p>{{score.user.firstname}} {{score.user.lastname}}</p>
+    <div class="score-count-selection">
+      <select class="selectionsBox" id="scoreCount" [(ngModel)]="selectedScoreCount" (ngModelChange)="filterScores()">
+        <option value="" disabled selected>Top Score</option>
+        <option *ngFor="let count of scoreCounts" [value]="count">{{count}}</option>
+      </select>
     </div>
-    <div class="user-details">
-      {{score.score}}
+  </div>
+
+
+  <div class="ranking-list">
+
+    <div *ngFor="let score of scores; let i = index" class="ranking-item">
+      <div class="rank">
+        <strong>{{i + 1}}</strong>
+      </div>
+
+      <div class="user-details">
+        <p>{{score.user.firstname}} {{score.user.lastname}}</p>
+      </div>
+      <div class="user-details">
+        {{score.score}}
+      </div>
     </div>
   </div>
 </div>

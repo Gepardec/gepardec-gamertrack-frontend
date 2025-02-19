@@ -1,20 +1,56 @@
-<div class="form-container">
-  <h1 class="form-title">Create New User</h1>
+<section class="form-container">
+  <div class="create-card">
+    <h1 class="form-title">Create New User</h1>
 
-  <form [formGroup]="applyForm" (submit)="submitCreateUser()" class="user-form">
-    <div class="form-group">
-      <label for="firstname" class="form-label">First Name</label>
-      <input id="firstname" type="text" formControlName="firstname" class="form-input" placeholder="Enter first name">
-    </div>
+    <form (ngSubmit)="submitCreateUser()" class="user-form" #createForm="ngForm">
 
-    <div class="form-group">
-      <label for="lastname" class="form-label">Last Name</label>
-      <input id="lastname" type="text" formControlName="lastname" class="form-input" placeholder="Enter last name">
-    </div>
+      <div class="user-info">
+        <div class="info-row">
+          <div class="info-label" for="firstname">Firstname:</div>
+          <div class="info-value">
+            <input
+              id="firstname" type="text"
+              class="input-field"
+              placeholder="Enter Firstname"
+              name="firstname"
+              [(ngModel)]="firstname"
+              required
+              #firstnameInput="ngModel"
+            />
+            <div class="error-container">
+              <div *ngIf="firstnameInput.invalid && firstnameInput.touched" class="error">
+                  Firstname is required.
+                </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="form-actions">
-      <button class="btn back-btn" routerLink="">Back</button>
-      <button type="submit" class="btn create-btn" >Create</button>
-    </div>
-  </form>
-</div>
+        <div class="info-row">
+          <div class="info-label" for="lastname">Lastname:</div>
+          <div class="info-value">
+            <input
+              id="lastname" type="text"
+              class="input-field"
+              placeholder="Enter Lastname"
+              name="lastname"
+              [(ngModel)]="lastname"
+              required
+              #lastnameInput="ngModel"
+            />
+            <div class="error-container">
+              <div *ngIf="lastnameInput.invalid && lastnameInput.touched" class="error">
+                Lastname is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn back-btn" routerLink="/users">Back</button>
+          <button type="submit" class="btn create-btn" [disabled]="createForm.invalid" >Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+

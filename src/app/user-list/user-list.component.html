@@ -1,8 +1,9 @@
-<div class="userList">
-  <div class="list-container">
-  <app-user  *ngFor="let user of users" [user]="user"></app-user>
-  </div>
-  <button class="btn create-btn" [routerLink]="['/new']" >Create</button>
-
+<div class="user-heading">
+  <h2>All Users</h2>
 </div>
+<div class="userList">
+  <app-user  *ngFor="let user of users" [user]="user"></app-user>
+</div>
+<button class="btn create-btn" [routerLink]="['/new']" >Create</button>
+
 

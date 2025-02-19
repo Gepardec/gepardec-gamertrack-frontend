@@ -1,50 +1,53 @@
 .btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 20px;
   font-weight: 600;
   border-radius: 5px;
   border: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
   transition: all 0.3s ease;
   width: 100%;
   background-color: rgb(240,210,0);
-  color: black;
   font-size: 30px;
   height: 5vh;
+  margin-top: 1vh;
 }
 
+
 .create-btn:hover {
-  background-color: rgb(240,210,0);
-  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
+  background-color: rgb(240,220,0);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
 }
 
 .create-btn:active {
-  transform: translateY(1px);
+  transform: translateY(3px);
   box-shadow: none;
 }
 
+
 .userList {
-  flex: 1;
-  height: 90%;
-  width: 99%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
-  align-content: center;
-  justify-items: center;
-  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-height: 70%;
+  overflow-y: scroll;
   border: 1px solid #ccc;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  padding: 3px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.list-container {
-  margin-top: 20px;
-  overflow-y: scroll;
-  height: 90%;
+.user-heading {
+  line-height: 40px;
+  font-size: 36px;
+  color: #333;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-weight: 600;
+  justify-items: center;
+  align-items: center;
   max-width: 100%;
-  width: 100%;
+  min-height: 53px;
 }

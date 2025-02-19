@@ -5,7 +5,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +24,7 @@ header li {
 header li a {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 header li a:hover {
@@ -70,4 +70,12 @@ nav {
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 1vh;
+}
+
+.loginContainer{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
 }

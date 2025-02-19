@@ -1,23 +1,25 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {UserComponent} from '../user/user.component';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import {UserService} from '../user.service';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-create-user',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, FormsModule, NgIf],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
 export class CreateUserComponent {
- applyForm = new FormGroup({
-   firstname: new FormControl("", Validators.required),
-   lastname: new FormControl("", Validators.required),
- })
+  firstname: string = '';
+  lastname: string = '';
+
   userService = inject(UserService);
 
-  submitCreateUser(){
-    this.userService.createUser(this.applyForm.value.firstname ?? '', this.applyForm.value.lastname ?? '')
+  submitCreateUser(): void{
+    if (this.firstname && this.lastname) {
+      this.userService.createUser(this.firstname ?? '', this.lastname ?? '')
+    }
   }
 }

@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -8,14 +6,10 @@ html, body {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f6fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   max-width: 100%;
 }
 
 .ranking-list {
-  min-height: 500px;
   overflow-y: auto;
   border: 1px solid #ccc;
   margin-bottom: 8px;
@@ -24,19 +18,26 @@ html, body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 100%;
-  max-height: 80%;
-  padding: 30px;
+  max-height: 71%;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   text-align: center;
 }
 
-.ranking-list h2 {
+.ranking-heading {
   line-height: 40px;
   font-size: 36px;
   color: #333;
   overflow: hidden;
   margin-bottom: 20px;
   font-weight: 600;
+  justify-items: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 53px;
 }
+
 
 .selection-container {
   display: flex;
@@ -49,6 +50,7 @@ html, body {
   margin-bottom: 25px;
   width: 70%;
   max-width: 100%;
+  font-size: 40px;
 
 }
 
@@ -98,8 +100,8 @@ option {
 
 
 .rank {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: bold;
   color: rgb(240,210,0);
   width: 60px;
 }
@@ -107,11 +109,14 @@ option {
 .user-details {
   flex: 1;
   text-align: left;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .user-details p {
-  font-size: 18px;
-  color: #555;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
   margin: 0;
   padding-left: 20px;
 }
@@ -138,6 +143,22 @@ option {
 .selections {
   display: flex;
   justify-content: space-between;
+}
+
+.selectionsBox {
+  color: black;
+  background-color: white ;
+  border: 2px solid #ccc;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.selectionsBox:focus {
+  border-color: black;
+}
+
+.rank-list-container {
+  height: 100%;
 }
 
 @media (max-width: 768px) {

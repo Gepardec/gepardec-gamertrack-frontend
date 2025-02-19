@@ -23,7 +23,7 @@ export class RankListComponent implements OnInit{
   games: Game[] = [];
   scoreCounts = [5, 10, 15, 20];
   selectedGame!: Game;
-  selectedScoreCount: number = this.scoreCounts[0];
+  selectedScoreCount: number = this.scoreCounts[1];
 
   gameService = inject(GameService);
   rankListService = inject(RankListService);

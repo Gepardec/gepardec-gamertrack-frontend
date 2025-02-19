@@ -4,19 +4,24 @@
 }
 
 html, body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden; /* Prevents scrolling */
   justify-content: center;
 }
 
+@media (max-width: 1024px) {
+  html, body {
+    width: 90vw;
+    justify-self: center;
+  }
+}
 
 @media (max-width:  3440px) {
   html, body {
     width: 30vw;
-    height: 90vh;
     justify-self: center;
   }
 }
@@ -24,15 +29,21 @@ html, body {
 @media (max-width: 2560px) {
   html, body {
     width: 60vw;
-    height: 100vh;
     justify-self: center;
   }
 }
 
-@media (max-width: 1024px) {
+
+@media (max-height: 1440px) {
   html, body {
-    width: 90vw;
-    height: 90vh;
+    height: 95vh;
+    justify-self: center;
+  }
+}
+
+@media (max-height: 7440px) {
+  html, body {
+    height: 92vh;
     justify-self: center;
   }
 }

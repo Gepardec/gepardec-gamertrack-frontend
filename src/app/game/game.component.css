@@ -4,6 +4,19 @@
   height: 90%;
 }
 
+.game-heading{
+  line-height: 40px;
+  font-size: 36px;
+  color: #333;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-weight: 600;
+  justify-items: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 53px;
+}
+
 .action-tab {
   display: flex;
   align-items: center;
@@ -11,62 +24,29 @@
   flex-direction: column;
 }
 
-.page-heading {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-  margin: 20px 0;
-  padding: 0 15px;
-}
 
-/* General button style */
-.icon-button {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between icon and text */
-  font-size: 16px;
-  padding: 10px 15px;
-  background-color: transparent;
-  border-radius: 50px;
-  cursor: pointer;
+.btn {
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
   transition: all 0.3s ease;
-  overflow: hidden; /* Prevent text overflow */
-  white-space: nowrap; /* Prevent text wrapping */
-  border-style: solid;
-  border-color: rgb(240, 210, 0);
-  color: rgb(240, 210, 0);
+  width: 100%;
+  background-color: rgb(240,210,0);
+  font-size: 30px;
+  height: 5vh;
+  margin-top: 1vh;
 }
 
-/* SVG icon style */
-.icon-button svg {
-  width: 20px;
-  height: 20px;
-  justify-self: center;
-  fill: currentColor; /* Match the button text color */
-  transition: 0.3s ease-in rgb(240,210,0) ;
-
-
+.create-btn:hover {
+  background-color: rgb(240,210,0);
+  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
 }
 
-/* Text (hidden by default) */
-.icon-button span {
-  position: absolute;
-  left: 52%;
-  opacity: 0; /* Fully hidden */
-  transform: translateX(-12px); /* Slide left */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.create-btn:active {
+  transform: translateY(3px);
+  box-shadow: none;
 }
 
-/* Hover effect */
-.icon-button:hover span {
-  opacity: 1; /* Fully visible */
-  transform: translateX(0); /* Reset position */
-}
-
-.icon-button:hover svg {
-  transform: rotate(90deg); /* Rotate icon */
-}
 
 @media (max-width: 768px) {
   .card-container {
