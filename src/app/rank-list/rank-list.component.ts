@@ -1,10 +1,10 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {RankListService} from '../rank-list.service';
-import {Score} from '../score.model';
-import {ScoreComponent} from '../score/score.component';
+import {RankListService} from './rank-list.service';
+import {Score} from '../shared/models/score.model';
+import {ScoreComponent} from './ui/score/score.component';
 import {FormsModule} from '@angular/forms';
-import {Game} from "../game/game";
+import {Game} from "../shared/models/game";
 import {GameService} from "../game/game.service";
 import {first} from "rxjs";
 

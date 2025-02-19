@@ -1,5 +1,5 @@
 import {Component, inject, Input} from '@angular/core';
-import {User} from '../user';
+import {User} from '../shared/models/user';
 import {RouterModule} from '@angular/router';
 
 @Component({

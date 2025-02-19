@@ -4,8 +4,8 @@ import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors} from '@angular/c
 
 
 import { routes } from './app.routes';
-import {NotificationInterceptor} from './notification.interceptor';
-import {NotificationService} from './notification.service';
+import {NotificationInterceptor} from './core/notification/notification.interceptor';
+import {NotificationService} from './core/notification/notification.service';
 import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
