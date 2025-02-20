@@ -31,12 +31,13 @@
     {
       "name": "api-cache",
       "urls": [
-        "^(http|https)://gamertrack-backend.apps.cloudscale-lpg-2.appuio.cloud"
+        "^(http|https)://gamertrack-backend.apps.cloudscale-lpg-2.appuio.cloud/*"
       ],
       "cacheConfig": {
-        "maxSize": 200,
-        "maxAge": "1h",
+        "maxSize": 500,
+        "maxAge": "1d",
         "timeout": "5s",
+        "refreshAhead": "12h",
         "strategy": "freshness"
       }
     }
