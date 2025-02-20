@@ -3,7 +3,6 @@
 }
 
 .match-history-list-heading {
-  line-height: 40px;
   font-size: 36px;
   color: #333;
   overflow: hidden;
@@ -12,7 +11,11 @@
   justify-items: center;
   align-items: center;
   max-width: 100%;
-  min-height: 53px;
+  height: 17%;
+}
+
+.match-history-container{
+  height: 100%;
 }
 
 html, body {
@@ -35,7 +38,7 @@ html, body {
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
-  margin-bottom: 20px;
+  height: 83%;
 
 }
 
@@ -58,3 +61,33 @@ html, body {
   font-weight: normal;
   font-size: 20px;
 }
+
+@media (max-width: 1240px) {
+  .match-game {
+    font-size: 20px
+  }
+  .match-history-list-item {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 740px) {
+  .match-game {
+    font-size: 15px;
+  }
+  .match-history-list-item-user {
+    font-size: 15px;
+  }
+}
+
+@media (max-height: 940px) {
+  .match-history-list-heading {
+    font-size: 27px;
+  }
+}
+@media (max-height: 580px) {
+  .match-history-list-heading {
+    font-size: 20px;
+  }
+}
+

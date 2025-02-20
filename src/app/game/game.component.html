@@ -1,8 +1,9 @@
-<div class="game-heading">
-  <h2>Games</h2>
+<div class="game-container">
+  <div class="game-heading">
+    <h2>Games</h2>
+  </div>
+  <section class="game-list">
+    <app-game-list [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
+    <button class="btn create-btn" (click)="createGame()" >Create</button>
+  </section>
 </div>
-<section class="game-list">
-  <app-game-list [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
-  <button class="btn create-btn" (click)="createGame()" >Create</button>
-</section>
-

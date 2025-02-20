@@ -12,6 +12,13 @@
   width: 100%;
   justify-content: center;
   justify-self: center;
+  height: 90%;
 }
+
+.header-container{
+  height: 10%;
+  background-color: red;
+}
+
 
 

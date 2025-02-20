@@ -33,7 +33,7 @@
   width: 100%;
   background-color: rgb(240,210,0);
   font-size: 30px;
-  height: 5vh;
+  height: 52px;
   margin-top: 1vh;
 }
 
@@ -47,6 +47,10 @@
   box-shadow: none;
 }
 
+.game-container{
+  height: 80%;
+}
+
 
 @media (max-width: 768px) {
   .card-container {
@@ -56,6 +60,16 @@
 @media (max-width: 480px) {
   .card-container {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-height: 940px) {
+  .game-heading {
+    font-size: 27px;
+  }
+}
+@media (max-height: 580px) {
+  .game-heading {
+    font-size: 20px;
   }
 }
 

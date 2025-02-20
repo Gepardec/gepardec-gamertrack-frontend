@@ -3,10 +3,12 @@
 }
 
 html, body {
-  height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f6fa;
   max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .ranking-list {
@@ -18,7 +20,7 @@ html, body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 100%;
-  max-height: 71%;
+  flex-grow: 1;
   padding-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
@@ -27,33 +29,31 @@ html, body {
 
 .ranking-heading {
   line-height: 40px;
-  font-size: 36px;
+  font-size: 34px;
   color: #333;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 0.5vh;
   font-weight: 600;
   justify-items: center;
-  align-items: center;
+  align-items: end;
   max-width: 100%;
-  min-height: 53px;
+  height: 15vh;
+  flex-shrink: 0;
 }
-
 
 .selection-container {
   display: flex;
   gap: 20px;
+  height: 15vh;
+  flex-shrink: 0;
 }
 
 .game-selection, .score-count-selection {
   display: flex;
   flex-direction: column;
-  margin-bottom: 25px;
   width: 70%;
-  max-width: 100%;
   font-size: 40px;
-
 }
-
 
 label {
   font-size: 18px;
@@ -97,8 +97,6 @@ option {
   margin-bottom: 12px;
 }
 
-
-
 .rank {
   font-size: 30px;
   font-weight: bold;
@@ -126,8 +124,6 @@ option {
   color: #333;
   font-weight: 600;
 }
-
-
 
 .ranking-item .score {
   font-size: 20px;
@@ -158,10 +154,16 @@ option {
 }
 
 .rank-list-container {
-  height: 100%;
+  flex-direction: column;
+  display: flex;
+  height: 75vh;
 }
 
 @media (max-width: 768px) {
+  html, body {
+    flex-direction: column;
+  }
+
   .ranking-item {
     flex-direction: column;
     text-align: center;
@@ -175,5 +177,16 @@ option {
   .user-details p {
     padding-left: 0;
     text-align: center;
+  }
+}
+
+@media (max-height: 940px) {
+  .ranking-heading {
+    font-size: 27px;
+  }
+}
+@media (max-height: 580px) {
+  .ranking-heading {
+    font-size: 20px;
   }
 }

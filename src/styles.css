@@ -11,14 +11,6 @@ html, body {
   overflow: hidden; /* Prevents scrolling */
   justify-content: center;
 }
-
-@media (max-width: 1024px) {
-  html, body {
-    width: 90vw;
-    justify-self: center;
-  }
-}
-
 @media (max-width:  3440px) {
   html, body {
     width: 30vw;
@@ -32,18 +24,26 @@ html, body {
     justify-self: center;
   }
 }
-
-
-@media (max-height: 1440px) {
+@media (max-width: 1024px) {
   html, body {
-    height: 95vh;
+    width: 80vw;
     justify-self: center;
   }
 }
 
-@media (max-height: 7440px) {
+
+
+
+@media (max-height: 1440px) {
   html, body {
-    height: 92vh;
+    height: 85vh;
+    justify-self: center;
+  }
+}
+
+@media (max-height: 744px) {
+  html, body {
+    height: 95vh;
     justify-self: center;
   }
 }
