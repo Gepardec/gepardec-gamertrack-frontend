@@ -21,7 +21,7 @@ export class AuthService {
   login(username: string, password: string) {
     const body = { username, password };
     console.log('Trying to login');
-    return this.httpClient.post<HttpResponse<any>>(this.configService.getBackendUrlWithContext(`${this.loginUrl}`), body,{ observe: 'response' })
+    return this.httpClient.post<any>(this.configService.getBackendUrlWithContext(`${this.loginUrl}`), body,{ observe: 'response' })
       .pipe(
         catchError(error => {
           console.error('Login failed', error);
@@ -30,7 +30,9 @@ export class AuthService {
       ).subscribe(
         (response) => {
           if (response.headers) {
-            const authHeader = response.headers.get('Authorization');
+            const authHeader = response.body.token;
+            console.log(authHeader + "HEADER")
+            this.token = authHeader;
             if (authHeader && authHeader.startsWith('Bearer ')) {
               this.token = authHeader.slice(7);
             }
