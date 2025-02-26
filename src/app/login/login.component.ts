@@ -32,7 +32,7 @@ export class LoginComponent {
     this.authService.logout();
   }
 
-  isAuthenticated() {
+  isAuthorized() {
     return this.authService.isAuthenticated();
   }
 

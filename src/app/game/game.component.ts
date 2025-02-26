@@ -5,6 +5,7 @@ import {Game} from '../shared/models/game';
 import {NgForOf, NgIf} from '@angular/common';
 import {Router} from '@angular/router';
 import {GameListComponent} from '../shared/ui/game-list/game-list.component';
+import {AuthService} from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-game',
@@ -17,6 +18,7 @@ export class GameComponent implements OnInit {
   gameList: Game[] = [];
   gameService: GameService = inject(GameService)
   router = inject(Router)
+  private authService = inject(AuthService);
 
 
   ngOnInit() {
@@ -32,4 +34,9 @@ export class GameComponent implements OnInit {
   openGame(token: String) {
     this.router.navigate([`/games/${token}`]);
   }
+
+  isAuthorized() {
+    return this.authService.isAuthenticated()
+  }
+
 }

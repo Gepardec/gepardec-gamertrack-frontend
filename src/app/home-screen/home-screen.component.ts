@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import {RankListComponent} from '../rank-list/rank-list.component';
+import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {MatchHistoryListComponent} from './ui/match-history-list/match-history-list.component';
+import {AuthService} from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-home-screen',
@@ -13,5 +13,10 @@ import {MatchHistoryListComponent} from './ui/match-history-list/match-history-l
   styleUrl: './home-screen.component.css'
 })
 export class HomeScreenComponent {
+  authService = inject(AuthService);
 
+  isAuthorized() {
+    console.log(this.authService.isAuthenticated());
+    return this.authService.isAuthenticated();
+  }
 }

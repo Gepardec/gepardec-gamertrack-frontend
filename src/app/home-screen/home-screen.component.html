@@ -2,5 +2,9 @@
   <div class="match-history-container">
     <app-match-history-list></app-match-history-list>
   </div>
-
+  @if (isAuthorized()) {
+    <div class="match-history-button-container">
+      <button class="btn create-btn" routerLink="/matches/new">Create Match</button>
+    </div>
+  }
 </div>

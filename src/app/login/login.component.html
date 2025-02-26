@@ -42,7 +42,7 @@
   </form>
 
   <button
-    *ngIf="isAuthenticated()"
+    *ngIf="isAuthorized()"
     (click)="onLogout()"
     class="btn btn-danger mt-3">
     Log Out

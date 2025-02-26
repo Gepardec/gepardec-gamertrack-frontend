@@ -7,6 +7,7 @@ import {MatchService} from '../../../match/match.service';
 import {FormsModule} from '@angular/forms';
 import {NgClass, NgIf} from '@angular/common';
 import {MatchListComponent} from '../match-list/match-list.component';
+import {AuthService} from '../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-game-details',
@@ -25,10 +26,11 @@ export class GameDetailComponent implements OnInit{
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
   gameService = inject(GameService);
+  matchService = inject(MatchService)
+  authService = inject(AuthService);
   game: Game | undefined
   openWarningDialog: boolean = false;
   matchAmount: number = 0;
-  matchService = inject(MatchService)
   inputText: string = '';
   dialogInputIsValid: boolean = false;
   currentTab: string = 'Rules';
@@ -90,4 +92,8 @@ export class GameDetailComponent implements OnInit{
   }
 
   protected readonly MatchListComponent = MatchListComponent;
+
+  isAuthorized() {
+    return this.authService.isAuthenticated();
+  }
 }
