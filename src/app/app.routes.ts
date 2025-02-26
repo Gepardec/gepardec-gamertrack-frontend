@@ -17,7 +17,7 @@ export const routes: Routes = [
   { path: 'users', component: UserListComponent, title: 'AllUser' },
   { path: 'details/:token', component: UserDetailsComponent, title: 'user' },
   { path: 'updateUser/:token', component: UpdateUserComponent, title: 'Update User' },
-  { path: 'new', component: CreateUserComponent, title: 'Create User' },
+  { path: 'users/new', component: CreateUserComponent, title: 'Create User' },
   {
     path: 'games/new',
     component: GameCreateFormComponent,
