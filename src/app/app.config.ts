@@ -11,12 +11,15 @@ import {PromptUpdate} from './core/serviceWorker/promptUpdate';
 import {UpdateService} from './core/serviceWorker/update.service';
 import {LogUpdateService} from './core/serviceWorker/logUpdate.service';
 import {authInterceptor} from './core/auth/auth.interceptor';
+import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideHttpClient(
       withInterceptors([NotificationInterceptor, authInterceptor]),
     ),
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     NotificationService,
     provideServiceWorker('ngsw-worker.js', {
             enabled: !isDevMode(),
