@@ -3,7 +3,6 @@
   justify-content: center;
   height: 60vh ;
   padding: 10vh;
-  background-color: green;
 }
 
 .user-detail-card {
@@ -171,6 +170,14 @@
 @media (max-height: 1400px) {
   .user-detail-card {
     max-height: 50vh;
+  }
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 3vh;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
 }
 

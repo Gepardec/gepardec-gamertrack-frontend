@@ -3,13 +3,15 @@ import {ActivatedRoute, RouterLink} from "@angular/router";
 import {UserService} from '../user.service';
 import {User} from '../user';
 import {FormsModule} from '@angular/forms';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-update-user',
-  imports: [
-    RouterLink,
-    FormsModule
-  ],
+    imports: [
+        RouterLink,
+        FormsModule,
+        NgIf
+    ],
   templateUrl: './update-user.component.html',
   styleUrl: './update-user.component.css'
 })
