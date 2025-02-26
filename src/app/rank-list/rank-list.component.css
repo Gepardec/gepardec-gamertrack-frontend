@@ -159,6 +159,12 @@ option {
   height: 75vh;
 }
 
+.no-scores-message {
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
+
 @media (max-width: 768px) {
   html, body {
     flex-direction: column;

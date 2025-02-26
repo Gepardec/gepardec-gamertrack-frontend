@@ -1,5 +1,5 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {RankListService} from '../rank-list.service';
 import {Score} from '../score.model';
 import {ScoreComponent} from '../score/score.component';
@@ -14,6 +14,7 @@ import {first} from "rxjs";
   imports: [
     NgForOf,
     FormsModule,
+    NgIf,
   ],
   templateUrl: './rank-list.component.html',
   styleUrl: './rank-list.component.css'

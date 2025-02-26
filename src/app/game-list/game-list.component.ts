@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {GameCardComponent} from '../game-card/game-card.component';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {Game} from '../game/game';
 
 @Component({
   selector: 'app-game-list',
-  imports: [
-    GameCardComponent,
-    NgForOf
-  ],
+    imports: [
+        GameCardComponent,
+        NgForOf
+    ],
   templateUrl: './game-list.component.html',
   styleUrl: './game-list.component.css'
 })

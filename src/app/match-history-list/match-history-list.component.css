@@ -61,6 +61,11 @@ html, body {
   font-weight: normal;
   font-size: 20px;
 }
+.no-matches-message {
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
 
 @media (max-width: 1240px) {
   .match-game {

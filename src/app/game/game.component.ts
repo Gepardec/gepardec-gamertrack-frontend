@@ -2,13 +2,13 @@ import {Component, inject, OnInit} from '@angular/core';
 import {GameService} from './game.service';
 import {GameCardComponent} from '../game-card/game-card.component';
 import {Game} from './game';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {Router} from '@angular/router';
 import {GameListComponent} from '../game-list/game-list.component';
 
 @Component({
   selector: 'app-game',
-  imports: [GameListComponent],
+    imports: [GameListComponent, NgIf],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })

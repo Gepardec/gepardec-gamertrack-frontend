@@ -1,6 +1,6 @@
 import {Component, Input, inject} from '@angular/core';
 import {User} from '../user';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {UserComponent} from '../user/user.component';
 import {UserService} from '../user.service';
 import {RouterModule} from '@angular/router';
@@ -12,7 +12,8 @@ import {RouterModule} from '@angular/router';
   imports: [
     NgForOf,
     UserComponent,
-    RouterModule
+    RouterModule,
+    NgIf
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'

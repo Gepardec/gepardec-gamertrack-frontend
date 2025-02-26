@@ -51,6 +51,12 @@
   height: 80%;
 }
 
+.no-games-message {
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
+
 
 @media (max-width: 768px) {
   .card-container {

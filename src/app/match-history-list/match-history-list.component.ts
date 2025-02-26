@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {Score} from '../score.model';
 import {Match} from '../match';
 import {MatchService} from '../match.service';
@@ -7,7 +7,8 @@ import {MatchService} from '../match.service';
 @Component({
   selector: 'app-match-history-list',
     imports: [
-        NgForOf
+        NgForOf,
+        NgIf
     ],
   templateUrl: './match-history-list.component.html',
   styleUrl: './match-history-list.component.css'

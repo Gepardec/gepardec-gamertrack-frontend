@@ -3,7 +3,10 @@
     <h2>Games</h2>
   </div>
   <section class="game-list">
-    <app-game-list [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
+    <app-game-list *ngIf="gameList.length > 0" [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
+    <div *ngIf="gameList.length === 0" class="no-games-message">
+      <p>No games available.</p>
+    </div>
     <button class="btn create-btn" (click)="createGame()" >Create</button>
   </section>
 </div>

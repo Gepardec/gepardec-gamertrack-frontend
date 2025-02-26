@@ -2,7 +2,7 @@
   <div class="ranking-heading">
     <h2>Rank List {{selectedGame.name}}</h2>
   </div>
-  <div class="selection-container">
+  <div *ngIf="scores.length > 0" class="selection-container">
     <div class="game-selection">
       <select class="selectionsBox" id="game" [(ngModel)]="selectedGame" (ngModelChange)="filterScores()">
         <option value="" disabled selected>Spiel auswählen</option>
@@ -17,9 +17,11 @@
       </select>
     </div>
   </div>
+  <div *ngIf="scores.length === 0" class="no-scores-message">
+    <p>No scores available.</p>
+  </div>
 
-
-  <div class="ranking-list">
+  <div *ngIf="scores.length > 0" class="ranking-list">
 
     <div *ngFor="let score of scores; let i = index" class="ranking-item">
       <div class="rank">
