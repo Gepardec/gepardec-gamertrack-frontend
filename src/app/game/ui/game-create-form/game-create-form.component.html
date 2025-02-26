@@ -1,8 +1,7 @@
 <section class="create-game-form">
   <div class="create-card">
   <h2 class="create-game-form-heading">Create a new Game</h2>
-    <form [formGroup]="createGameForm" #formDir="ngForm" (submit)="submitNewGame()">
-
+    <form [formGroup]="createGameForm" (submit)="submitNewGame()">
       <div class="cross-validation"
            [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
 

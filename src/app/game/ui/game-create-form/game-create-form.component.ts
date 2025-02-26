@@ -8,8 +8,6 @@ import {
 import {GameService} from '../../game.service';
 import {NgIf} from '@angular/common';
 import {Router} from '@angular/router';
-import {Game} from '../../../shared/models/game';
-import {GameComponent} from '../../game.component';
 
 @Component({
   selector: 'app-game-create-form',

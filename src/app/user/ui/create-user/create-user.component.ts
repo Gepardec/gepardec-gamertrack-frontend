@@ -1,9 +1,8 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserComponent} from '../user/user.component';
-import {RouterModule, RouterOutlet} from '@angular/router';
-import {UserService} from '../user.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 import {NgIf} from '@angular/common';
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'app-create-user',
