@@ -15,8 +15,8 @@ import {RankListComponent} from './rank-list/rank-list.component';
 export const routes: Routes = [
   { path: '', component: HomeScreenComponent, title: 'Home' },
   { path: 'users', component: UserListComponent, title: 'AllUser' },
-  { path: 'details/:token', component: UserDetailsComponent, title: 'user' },
-  { path: 'updateUser/:token', component: UpdateUserComponent, title: 'Update User' },
+  { path: 'users/details/:token', component: UserDetailsComponent, title: 'user' },
+  { path: 'users/update/:token', component: UpdateUserComponent, title: 'Update User' },
   { path: 'users/new', component: CreateUserComponent, title: 'Create User' },
   {
     path: 'games/new',
