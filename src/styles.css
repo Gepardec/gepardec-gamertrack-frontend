@@ -18,7 +18,7 @@ html, body {
   }
 }
 
-@media (max-width: 2560px) {
+@media (max-width: 2860px) {
   html, body {
     width: 60vw;
     justify-self: center;
@@ -30,8 +30,6 @@ html, body {
     justify-self: center;
   }
 }
-
-
 
 
 @media (max-height: 1440px) {
