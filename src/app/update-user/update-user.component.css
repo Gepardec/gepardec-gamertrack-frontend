@@ -156,6 +156,7 @@ button:disabled {
 
 .error-container {
   height: 1vh;
+  padding-bottom: 3px;
 }
 
 .update-btn:active {
@@ -245,7 +246,7 @@ button:disabled {
 
 
 
-@media (max-height: 1400px) {
+@media (max-height: 1500px) {
   .user-detail-card {
     max-height: 50vh;
   }
