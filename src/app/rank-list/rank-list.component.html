@@ -2,7 +2,7 @@
   <div class="ranking-heading">
     <h2>Rank List {{selectedGame.name}}</h2>
   </div>
-  <div *ngIf="scores.length > 0" class="selection-container">
+  <div class="selection-container">
     <div class="game-selection">
       <select class="selectionsBox" id="game" [(ngModel)]="selectedGame" (ngModelChange)="filterScores()">
         <option value="" disabled selected>Spiel auswählen</option>
@@ -33,6 +33,11 @@
       </div>
       <div class="user-details">
         {{score.score}}
+      </div>
+      <div class="user-details">
+        <div class="default-score" [ngClass]="{'never-played': score.defaultScore, 'played': !score.defaultScore}">
+          {{ score.defaultScore ? 'default score': '' }}
+        </div>
       </div>
     </div>
   </div>

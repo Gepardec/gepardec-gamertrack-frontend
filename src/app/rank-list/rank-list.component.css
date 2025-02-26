@@ -165,6 +165,15 @@ option {
   color: #999;
 }
 
+
+.default-score.never-played{
+  background-color: #e0e0e0;
+  color: #757575;
+  padding: 6px;
+  border-radius: 12px;
+  width: 140px;
+}
+
 @media (max-width: 768px) {
   html, body {
     flex-direction: column;
