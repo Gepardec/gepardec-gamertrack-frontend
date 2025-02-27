@@ -14,9 +14,4 @@ import {AuthService} from '../core/auth/auth.service';
 })
 export class HomeScreenComponent {
   authService = inject(AuthService);
-
-  isAuthorized() {
-    console.log(this.authService.isAuthenticated());
-    return this.authService.isAuthenticated();
-  }
 }
