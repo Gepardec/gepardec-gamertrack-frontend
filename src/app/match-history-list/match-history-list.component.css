@@ -16,6 +16,7 @@
 
 .match-history-container{
   height: 100%;
+  max-height: 1000px;
 }
 
 html, body {

@@ -4,14 +4,15 @@
   border: none;
   transition: all 0.3s ease;
   width: 100%;
-  background-color: rgb(240,210,0);
+  background-color: rgb(240, 210, 0);
   font-size: 30px;
   height: 52px;
   margin-top: 1vh;
 }
 
 .user-List-container{
-  height: 80%;
+  height: 85%;
+  max-height: 950px;
   display: flex;
   flex-direction: column;
 }
@@ -37,12 +38,14 @@
   max-width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: 70%;
-  overflow-y: auto;
+  padding-right: 1px;
+  max-height: 75%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border: 1px solid #ccc;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  height: 60%;
+  width: 99%;
 }
 
 .user-heading {
@@ -64,33 +67,24 @@
   color: #999;
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 768px) {
   .userList {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .user-heading {
-    font-size: 30px;
-  }
-
-  .btn {
-    font-size: 24px;
-    height: 4vh;
+}@media (max-width: 1080px) {
+  .userList {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
-@media (max-width: 750px) {
+@media (max-width: 480px) {
   .userList {
     grid-template-columns: 1fr;
   }
-
-  .user-heading {
-    font-size: 24px;
-  }
-
-  .btn {
-    font-size: 20px;
-    height: 6vh;
+}
+@media (max-height: 580px) {
+  .userList {
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 }
 
@@ -102,5 +96,6 @@
 @media (max-height: 580px) {
   .user-heading {
     font-size: 20px;
+    padding-bottom: 5px;
   }
 }

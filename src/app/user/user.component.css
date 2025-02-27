@@ -1,10 +1,15 @@
 .user-card {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  border: 1px solid #ddd;
+  align-content: center;
+  justify-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #ccc;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  height: 15vh;
+  max-height: 150px;
+  min-height: 80px;
 }
 
 .user-card:hover {
@@ -75,14 +80,18 @@
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 30%;
+  width: 50px;
+  justify-self: center;
+
 }
 
 .status-label.deactivated {
   background-color: #dc3545;
-
+  width: 100px;
+  justify-self: center;
 
 }
+
 
 
 .user-actions {
