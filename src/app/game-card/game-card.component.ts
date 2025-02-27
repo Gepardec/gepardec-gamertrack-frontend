@@ -1,9 +1,12 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {Game} from '../game/game';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-game-card',
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './game-card.component.html',
   styleUrl: './game-card.component.css'
 })
