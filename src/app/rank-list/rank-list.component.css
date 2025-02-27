@@ -145,7 +145,7 @@ option {
 .rank-list-container {
   flex-direction: column;
   display: flex;
-  height: 35vh;
+  max-height: 1200px;
 }
 
 .no-scores-message {
@@ -184,12 +184,12 @@ option {
   }
 }
 
-@media (max-height: 940px) {
+@media (max-height: 1380px) {
   .ranking-heading {
     font-size: 27px;
   }
   .rank-list-container {
-    height: 75vh;
+    height: 72vh;
 
   }
 }
