@@ -1,44 +1,14 @@
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 20px;
-  font-weight: 600;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  width: 100%;
-  background-color: rgb(240,210,0);
-  color: black;
-  font-size: 30px;
-  height: 45px;
-}
 
-
-.create-btn:hover {
-  background-color: rgb(240,210,0);
-  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
-}
-
-.create-btn:active {
-  transform: translateY(1px);
-  box-shadow: none;
-}
 
 .home-screen {
   width: 100%;
   max-width: 100%;
-  max-height: 100%;
+  height: 80vh;
   text-align: center;
-  display: contents;
+  display: flex;
+  flex-direction: column;
 }
 
 .match-history-container{
-  height: 87%;
-}
-.match-history-button-container{
-  height: 13%;
+  height: 85%;
 }

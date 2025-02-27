@@ -67,6 +67,38 @@ html, body {
   color: #999;
 }
 
+.create-btn-container {
+  padding-top: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: rgb(240,210,0);
+  color: black;
+  font-size: 30px;
+  height: 45px;
+}
+
+.create-btn:hover {
+  background-color: rgb(240,210,0);
+  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
+}
+
+.create-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
 @media (max-width: 1240px) {
   .match-game {
     font-size: 20px

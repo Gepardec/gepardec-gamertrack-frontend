@@ -3,12 +3,14 @@ import {NgForOf, NgIf} from "@angular/common";
 import {Score} from '../score.model';
 import {Match} from '../match';
 import {MatchService} from '../match.service';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-match-history-list',
     imports: [
         NgForOf,
-        NgIf
+        NgIf,
+        RouterLink
     ],
   templateUrl: './match-history-list.component.html',
   styleUrl: './match-history-list.component.css'
