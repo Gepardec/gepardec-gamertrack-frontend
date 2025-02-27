@@ -1,30 +1,42 @@
 <section class="create-game-form">
+  <div class="create-card">
   <h2 class="create-game-form-heading">Create a new Game</h2>
-  <form [formGroup]="createGameForm" #formDir="ngForm" (submit)="submitNewGame()">
-    <div class="cross-validation"
-         [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
+    <form [formGroup]="createGameForm" #formDir="ngForm" (submit)="submitNewGame()">
 
+      <div class="cross-validation"
+           [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
 
-      <label for="name">Name</label>
-      <input class="form-control" id="name" type="text" formControlName="name" required/>
-      <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="alert alert-danger">
-        <div *ngIf="name.hasError('required')">
-          A name is required
+        <div class="info-row">
+          <label class="info-label" for="name">Name</label>
+          <div class="info-value">
+
+            <input class="input-field" placeholder="Enter game name" id="name" type="text" formControlName="name" required/>
+            <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="error-container">
+                <div class="error" *ngIf="name.hasError('required')">
+                  A name is required
+                </div>
+                <div class="error" *ngIf="name.hasError('minlength')">
+                  Name must be at least 1 character long
+                </div>
+                <div class="error" *ngIf="name.hasError('pattern')">
+                  Name can't be blank
+                </div>
+            </div>
+          </div>
         </div>
-        <div *ngIf="name.hasError('minlength')">
-          Name must be at least 1 character long
+
+        <div class="info-row">
+          <label class="info-label" for="rules">Rules</label>
+          <div class="info-value">
+            <input class="input-field" placeholder="Enter game rules" id="rules" type="text" formControlName="rules"/>
+          </div>
         </div>
-        <div *ngIf="name.hasError('pattern')">
-          Name can't be blank
+
+        <div class="form-actions ">
+          <button [disabled]="createGameForm.invalid" type="submit" class="btn create-btn">Create</button>
+          <button type="button" onClick="history.back()" class="btn back-btn">Back</button>
         </div>
       </div>
-      <label for="rules">Rules</label>
-      <input id="rules" type="text" formControlName="rules"/>
-      <div class="button-group">
-        <button [disabled]="createGameForm.invalid" type="submit" class="primary">Create Game</button>
-        <button type="button" onClick="history.back()" class="secondary">Back</button>
-      </div>
-    </div>
-  </form>
-
+    </form>
+  </div>
 </section>
