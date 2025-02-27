@@ -141,6 +141,11 @@ input {
   background-color: rgb(240,220,0);
 }
 
+button:disabled {
+  width: 100%;
+  background-color: #ccc;
+}
+
 @media (max-width: 650px) {
   .form-container {
     width: 95%;
