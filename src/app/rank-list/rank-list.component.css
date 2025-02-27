@@ -2,15 +2,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f6fa;
-  max-width: 100%;
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
-}
-
 .ranking-list {
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -20,6 +11,7 @@ html, body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 100%;
+  height: 100%;
   flex-grow: 1;
   padding-top: 10px;
   padding-left: 30px;
@@ -37,15 +29,12 @@ html, body {
   justify-items: center;
   align-items: end;
   max-width: 100%;
-  height: 15vh;
-  flex-shrink: 0;
 }
 
 .selection-container {
   display: flex;
   gap: 20px;
-  height: 15vh;
-  flex-shrink: 0;
+  padding-bottom: 15px;
 }
 
 .game-selection, .score-count-selection {
@@ -156,7 +145,7 @@ option {
 .rank-list-container {
   flex-direction: column;
   display: flex;
-  height: 75vh;
+  height: 35vh;
 }
 
 .no-scores-message {
@@ -198,6 +187,10 @@ option {
 @media (max-height: 940px) {
   .ranking-heading {
     font-size: 27px;
+  }
+  .rank-list-container {
+    height: 75vh;
+
   }
 }
 @media (max-height: 580px) {
