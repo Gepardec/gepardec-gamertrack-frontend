@@ -12,7 +12,7 @@
 
 .user-List-container{
   height: 85%;
-  max-height: 950px;
+  max-height: 1850px;
   display: flex;
   flex-direction: column;
 }
@@ -88,7 +88,7 @@
   }
 }
 
-@media (max-height: 940px) {
+@media (max-height: 1380px) {
   .user-heading {
     font-size: 27px;
   }

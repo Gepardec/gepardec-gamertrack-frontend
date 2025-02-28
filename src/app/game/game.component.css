@@ -62,7 +62,7 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-height: 940px) {
+@media (max-height: 1380px) {
   .game-heading {
     font-size: 27px;
   }
