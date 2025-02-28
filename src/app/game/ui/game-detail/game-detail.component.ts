@@ -51,7 +51,9 @@ export class GameDetailComponent implements OnInit{
   openDialog() {
     this.matchService.getMatchCount(this.game?.token!).subscribe({
       next: (matchesAmount) => {
-      this.matchAmount = matchesAmount;
+        if (matchesAmount) {
+          this.matchAmount = matchesAmount;
+        }
       }
     });
     this.openWarningDialog = true;
