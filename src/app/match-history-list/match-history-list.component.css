@@ -6,7 +6,6 @@
   font-size: 36px;
   color: #333;
   overflow: hidden;
-  margin-bottom: 20px;
   font-weight: 600;
   justify-items: center;
   align-items: center;
@@ -87,6 +86,7 @@ html, body {
   background-color: rgb(240,210,0);
   color: black;
   font-size: 30px;
+  margin-top: 1vh;
   height: 45px;
 }
 

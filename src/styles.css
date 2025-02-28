@@ -39,7 +39,7 @@ html, body {
   }
 }
 
-@media (max-height: 744px) {
+@media (max-height: 854px) {
   html, body {
     height: 95vh;
     justify-self: center;

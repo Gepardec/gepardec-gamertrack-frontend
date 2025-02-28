@@ -17,6 +17,9 @@
   <div class="content">
     <app-notification></app-notification>
     <router-outlet></router-outlet>
+    <button *ngIf="!isNewMatchRoute() "class="fixed-button" routerLink="/matches/new">
+      +
+    </button>
   </div>
 </main>
 

@@ -6,7 +6,7 @@
       <div *ngFor="let match of matches;" class="match-history-list-item">
         <div class="user-details">
           <p class="match-game"> {{match.game.name}}:
-            <span><span class="match-history-list-item-user" *ngFor="let user of match.users; let i = index">{{ i + 1 }}. {{ user.firstname }} </span></span>
+            <span><span class="match-history-list-item-user" *ngFor="let user of match.users; let i = index">{{ i + 1 }}.{{ user.firstname }} </span></span>
           </p>
         </div>
       </div>
