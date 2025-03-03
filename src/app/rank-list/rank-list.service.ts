@@ -1,8 +1,8 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
-import {Score} from '../shared/models/score.model';
-import {ConfigService} from '../shared/service/config.service';
+import {Score} from '../core/models/score';
+import {ConfigService} from '../core/config/config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class RankListService {
   constructor(private httpClient: HttpClient) { }
 
   getTopScoresByGame(gameToken: string, scoreCount: number): Observable<Score[]> {
-    console.log('Getting TopScoresByGame');
+
     return this.httpClient.get<Score[]>(this.configService.getBackendUrlWithContext(`${this.url}/${gameToken}?top=${scoreCount}`));
   }
 }

@@ -1,8 +1,8 @@
 import {inject, Injectable} from '@angular/core';
-import {CreateGame, Game} from '../shared/models/game';
+import {CreateGame, Game} from '../core/models/game';
 import {HttpClient} from '@angular/common/http';
-import {config, map, Observable, tap} from 'rxjs';
-import {ConfigService} from "../shared/service/config.service";
+import {Observable} from 'rxjs';
+import {ConfigService} from "../core/config/config.service";
 
 class UpdateGame {
 }

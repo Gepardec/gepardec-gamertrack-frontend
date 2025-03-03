@@ -1,12 +1,11 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {RankListService} from './rank-list.service';
-import {Score} from '../shared/models/score.model';
+import {Score} from '../core/models/score';
 import {ScoreComponent} from './ui/score/score.component';
 import {FormsModule} from '@angular/forms';
-import {Game} from "../shared/models/game";
+import {Game} from "../core/models/game";
 import {GameService} from "../game/game.service";
-import {first} from "rxjs";
 
 
 @Component({
@@ -24,7 +23,7 @@ export class RankListComponent implements OnInit{
   scores: Score[] = [];
   games: Game[] = [];
   scoreCounts = [5, 10, 15, 20];
-  selectedGame!: Game;
+  selectedGame!: Game | undefined;
   selectedScoreCount: number = this.scoreCounts[1];
 
   gameService = inject(GameService);
@@ -42,21 +41,15 @@ export class RankListComponent implements OnInit{
           this.filterScores()
         }
       },
-      error: err => {
-        console.log("Could not fetch games: " + err);
-      }
     });
   }
 
   filterScores() {
-    this.rankListService.getTopScoresByGame(this.selectedGame.token, this.selectedScoreCount).subscribe( {
+    this.rankListService.getTopScoresByGame(this.selectedGame!.token, this.selectedScoreCount).subscribe( {
       next: scores => {
-        console.log('Getting Scores', scores)
+
         this.scores = scores;
       },
-      error: err => {
-        console.log('Could not fetch scores: ', err);
-      }
     });
   }
 }

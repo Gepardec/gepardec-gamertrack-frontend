@@ -1,10 +1,10 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatchService} from '../../../match/match.service';
-import {Match} from '../../../shared/models/match';
-import {Game} from '../../../shared/models/game';
+import {Match} from '../../../core/models/match';
+import {Game} from '../../../core/models/game';
 import {UserService} from "../../../user/user.service";
-import {User} from "../../../shared/models/user";
+import {User} from "../../../core/models/user";
 
 @Component({
   selector: 'app-match-list',
@@ -33,59 +33,40 @@ export class MatchListComponent implements OnInit {
       next: (match: Match[]) => {
         this.matches = match;
       },
-      error: err => {
-        console.log(err)
-        this.throwAlert=true;
-        this.errorMessage = 'Something went wrong while fetching matches. Try again later.';
-      }
     });
     this.userService.getAllUsers().subscribe({
       next: (users) => {
-        console.log(this.selectedUser)
-        users.forEach(user => console.log(user))
         this.users = users;
       },
-      error: err => {
-        this.throwAlert=true;
-        this.errorMessage = 'Something went wrong while fetching matches. Try again later.';
-      }
     });
   }
 
 
-  refreshMatches(value: number, user?: User) {
-    console.log('making request')
+  refreshMatches(value: number) {
+
     if (this.selectedUser) {
       this.matchService.getXAmountOfLastMatchesForUser(this.game?.token!, this.selectedValue, this.selectedUser?.token!).subscribe({
         next: (match: Match[]) => {
           this.matches = match;
         },
-        error: err => {
-          this.throwAlert=true;
-          this.errorMessage = 'Something went wrong while fetching matches. Try again later.';
-        }
       });
     } else {
       this.matchService.getXAmountOfLastMatches(this.game?.token!, value).subscribe({
         next: (match: Match[]) => {
           this.matches = match;
         },
-        error: err => {
-          this.throwAlert=true;
-          this.errorMessage = 'Something went wrong while fetching matches. Try again later.';
-        }
       });
     }
   }
 
     selectValue(value: number) {
       this.selectedValue = value;
-      this.refreshMatches(value, undefined);
+      this.refreshMatches(value);
     }
 
     selectUser(user: User|undefined) {
         this.selectedUser = user;
-      this.refreshMatches(this.selectedValue, this.selectedUser);
+      this.refreshMatches(this.selectedValue);
     }
 
   }

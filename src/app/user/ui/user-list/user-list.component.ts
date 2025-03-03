@@ -1,5 +1,5 @@
 import {Component, Input, inject} from '@angular/core';
-import {User} from '../../../shared/models/user';
+import {User} from '../../../core/models/user';
 import {NgForOf, NgIf} from '@angular/common';
 import {UserComponent} from '../../user.component';
 import {UserService} from '../../user.service';

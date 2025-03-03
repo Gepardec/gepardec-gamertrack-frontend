@@ -1,8 +1,8 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaderResponse, HttpParams, HttpResponse} from '@angular/common/http';
-import {CreateMatch, Match} from '../shared/models/match';
-import {config, firstValueFrom, map, Observable} from 'rxjs';
-import {ConfigService} from '../shared/service/config.service';
+import {HttpClient, HttpHeaderResponse, HttpParams} from '@angular/common/http';
+import {CreateMatch, Match} from '../core/models/match';
+import {firstValueFrom, map, Observable} from 'rxjs';
+import {ConfigService} from '../core/config/config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class MatchService {
 
 
   createMatch(match: CreateMatch): Observable<Match> {
-    console.log(match)
+
     return this.http.post<Match>(this.configService.getBackendUrlWithContext(`${this.url}`), match);
   }
 

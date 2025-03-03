@@ -1,13 +1,9 @@
-import {Component, Inject, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {GameService} from '../../game.service';
-import {Game, UpdateGame} from '../../../shared/models/game';
-import {rule} from 'postcss';
-import {GameComponent} from '../../game.component';
-import {Subscription} from 'rxjs';
-import {GameCreateFormComponent} from '../game-create-form/game-create-form.component';
+import {Game, UpdateGame} from '../../../core/models/game';
 
 @Component({
   selector: 'app-game-edit-form',
@@ -25,7 +21,6 @@ export class GameEditFormComponent implements OnInit{
   gameService = inject(GameService);
   router = inject(Router)
   game?: Game;
-  gameReceived?: Subscription;
   updateGameForm!: FormGroup
 
   constructor() {
@@ -48,30 +43,25 @@ export class GameEditFormComponent implements OnInit{
           this.game = game;
         this.updateGameForm.patchValue({...this.game})
       },
-      error: (error) => {
-        alert("Game with token: " + gameToken +
-          " does not exist")
-        this.router.navigate(['/games'])
-      }});
+    });
   }
 
   submitEditedGame() {
 
 
-    let updateGame: UpdateGame = { ... this.updateGameForm.value}
-    this.gameService.updateGame(updateGame, this.game?.token ?? ""  ).subscribe({
+    let updateGame: UpdateGame = {...this.updateGameForm.value}
+    this.gameService.updateGame(updateGame, this.game?.token ?? "").subscribe({
       next: (game) => {
         this.router.navigate(["/games", game.token]
         );
       },
-      error: (error) => {
-        console.log(error);
-      }})
-
+    });
   }
 
-  get name() {
-    return this.updateGameForm?.get("name")!;
-  }
+    get
+    name()
+    {
+      return this.updateGameForm?.get("name")!;
+    }
 
-}
+  }

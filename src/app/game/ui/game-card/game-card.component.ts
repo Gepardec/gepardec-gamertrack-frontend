@@ -1,5 +1,5 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
-import {Game} from '../../../shared/models/game';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Game} from '../../../core/models/game';
 import {NgIf} from '@angular/common';
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {GameCardComponent} from '../../../game/ui/game-card/game-card.component';
-import {NgForOf, NgIf} from '@angular/common';
-import {Game} from '../../models/game';
+import {NgForOf} from '@angular/common';
+import {Game} from '../../../core/models/game';
 
 @Component({
   selector: 'app-game-list',
