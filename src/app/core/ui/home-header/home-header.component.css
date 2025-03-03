@@ -41,6 +41,7 @@ nav {
   font-size: 38px;
   flex-shrink: 0;
   position: absolute;
+  cursor: pointer;
 }
 .logo-first-half {
   color:  rgb(240,210,0);

@@ -177,6 +177,12 @@ span.ranking-number {
   margin-bottom: 20px;
 }
 
+.empty-list-message {
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
+
 @media (min-width: 1768px) {
   .alert {
     width: 25%;

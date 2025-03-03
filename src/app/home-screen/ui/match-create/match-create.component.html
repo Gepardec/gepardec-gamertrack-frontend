@@ -8,17 +8,20 @@
       <div class="select-heading">
         <p>Select Game</p>
       </div>
-      <div class="app-game-list">
+      <div *ngIf="gameList.length > 0" class="app-game-list">
         <app-game-list class="game-list" [selectedGame]="selectedGame" [gameList]="gameList"
                        (onCardClick)="onGameSelect($event)">
         </app-game-list>
+      </div>
+      <div *ngIf="gameList.length === 0" class="empty-list-message">
+        <p>No games available.</p>
       </div>
     </div>
     <div class="select-user-container">
       <div class="select-heading">
         <p>Select users</p>
       </div>
-      <div class="match-user-list-container">
+      <div *ngIf="userList.length > 0" class="match-user-list-container">
         <div class="match-user-list" *ngFor="let user of userList"
              (click)="selectedUsers.includes(user) ? onUserDeselect(user) : onUserSelect(user)"
              [class.selected]="selectedUsers.includes(user)">
@@ -29,6 +32,9 @@
             {{ user.firstname }} {{ user.lastname }}
           </span>
         </div>
+      </div>
+      <div *ngIf="userList.length === 0" class="empty-list-message">
+        <p>No users available.</p>
       </div>
     </div>
   </div>
