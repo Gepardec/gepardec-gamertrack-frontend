@@ -30,7 +30,7 @@ export class GameDetailComponent implements OnInit{
   authService = inject(AuthService);
   game: Game | undefined
   openWarningDialog: boolean = false;
-  matchAmount: number = 0;
+  matchAmount: Number = 0;
   inputText: string = '';
   dialogInputIsValid: boolean = false;
   currentTab: string = 'Rules';
@@ -49,12 +49,8 @@ export class GameDetailComponent implements OnInit{
   }
 
   openDialog() {
-    this.matchService.getMatchCount(this.game?.token!).subscribe({
-      next: (matchesAmount) => {
-        if (matchesAmount) {
-          this.matchAmount = matchesAmount;
-        }
-      }
+    this.matchService.getMatchCount(this.game?.token!).then(matchAmount => {
+      this.matchAmount = matchAmount;
     });
     this.openWarningDialog = true;
   }
