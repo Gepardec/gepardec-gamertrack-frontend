@@ -33,24 +33,25 @@
     </div>
   </div>
 
-  <button class="btn back-btn" type="submit" (click)="ifValidOpenDialog()">Create Match</button>
+  <button class="btn create-btn" type="submit" (click)="ifValidOpenDialog()">Create Match</button>
   </div>
-  <app-dialog *ngIf="openDialog" [openDialog]="openDialog"
-              (onConfirmation)="$event ? createMatch() : closeDialog()"
-              class="match-app-dialog">
-    <span>Creating Match with the following Users and their rankings</span>
-    <div>
-      <div *ngFor="let user of selectedUsers; let userRanking = index">
-        <span>{{ userRanking + 1 }} {{ user.firstname }} {{ user.lastname }}</span><br>
+  <div *ngIf="openDialog" class="dialog-background">
+    <app-dialog *ngIf="openDialog" [openDialog]="openDialog"
+                (onConfirmation)="$event ? createMatch() : closeDialog()"
+                class="match-app-dialog">
+      <div class="dialog-heading">
+        Confirm Match for {{ selectedGame?.name }}
       </div>
-    </div>
-    <span>For the game</span>
-    <div>
-      <span>{{ selectedGame?.name }}</span>
-    </div>
-  </app-dialog>
+      <div class="dialog-user-container">
+        <div *ngFor="let user of selectedUsers; let userRanking = index">
+          <span>{{ userRanking + 1 }}. {{ user.firstname }} {{ user.lastname }}</span><br>
+        </div>
+      </div>
+    </app-dialog>
+  </div>
 
   <div class="alert" *ngIf="throwErrorAlert" (click)="this.throwErrorAlert = false">
-    Select at least one game and two users!
+    <div class="alert-heading">WARNING!</div>
+    <div  class="alert-message">Select at least one game and two users!</div>
   </div>
 </div>

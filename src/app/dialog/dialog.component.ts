@@ -8,7 +8,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class DialogComponent {
 
-  @Input() heading: String = 'Confirm'
   @Input() openDialog?: boolean;
   @Input() confirmButtonDisabled?: boolean;
 

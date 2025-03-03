@@ -6,7 +6,6 @@ import {MatchHistoryListComponent} from '../match-history-list/match-history-lis
 @Component({
   selector: 'app-home-screen',
   imports: [
-    RouterLink,
     MatchHistoryListComponent
   ],
   templateUrl: './home-screen.component.html',

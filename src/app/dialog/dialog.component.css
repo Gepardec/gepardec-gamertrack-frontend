@@ -1,8 +1,8 @@
 dialog {
   top: 25%;
   border-radius: 10px;
-  border-width: 2px;
-  border-color: grey;
+  border-width: 4px;
+  border-color: black;
 }
 
 button {
@@ -13,6 +13,7 @@ button {
   display: flex;
   align-content: flex-start;
   flex-direction: column;
+  padding: 7px;
 }
 
 
@@ -56,3 +57,19 @@ button[type="submit"]:disabled {
   box-shadow: none; /* No shadow */
 }
 
+.dialog-button-container {
+  justify-self: center;
+}
+
+@media (max-width: 768px) {
+  .dialog-container {
+    width: 70%;
+    max-width: 400px;
+  }
+}
+
+@media (max-height: 700px) {
+  .dialog-body {
+    padding-bottom: 0px;
+  }
+}

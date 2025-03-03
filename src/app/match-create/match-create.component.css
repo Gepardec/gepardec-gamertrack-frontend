@@ -55,15 +55,6 @@ span.ranking-number {
   background-color: black;
 }
 
-.match-app-dialog span {
-  padding: 10px 0 10px 0;
-}
-.match-app-dialog div span {
-  padding: 20px;
-  margin: 20px;
-  font-size: 15px;
-}
-
 .btn {
   font-weight: 600;
   border-radius: 5px;
@@ -85,20 +76,58 @@ span.ranking-number {
   box-shadow: none;
 }
 
-/* The alert message box */
+
 .alert {
   position: absolute;
   justify-self: center;
-  bottom: 10%;
-  left: 40%;
-  right: 40%;
-  max-width: 100%;
+  align-items: center;
+  align-content: center;
+  bottom: 40%;
+  left: 30%;
+  right: 30%;
   border-radius: 10px;
   border-width: 2px;
-  border-color: grey;
   padding: 20px;
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
   color: white;
+  width: 25%;
+  max-width: 300px;
+  height: 15%;
+  max-height: 200px;
+}
+
+.alert-heading {
+  font-weight: bold;
+  font-size: 20px;
+  justify-self: center;
+  padding-bottom: 20px;
+}
+
+.alert-message {
+  justify-self: center;
+}
+
+.btn {
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: rgb(240,210,0);
+  font-size: 30px;
+  height: 52px;
+  margin-top: 1vh;
+  color: black;
+}
+
+.create-btn:hover {
+  background-color: rgb(240,220,0);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+}
+
+.create-btn:active {
+  transform: translateY(3px);
+  box-shadow: none;
 }
 
 .select-user-container {
@@ -135,9 +164,85 @@ span.ranking-number {
   display: flex;
 }
 
+.dialog-heading {
+  font-weight: bold;
+  font-size: 25px;
+}
+.dialog-user-container {
+  overflow-y: auto;
+  font-size: 18px;
+  padding: 10px;
+  max-height: 27vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1768px) {
+  .alert {
+    width: 25%;
+    max-width: 500px;
+    height: 15%;
+    max-height: 250px;
+  }
+
+  .alert-heading {
+    font-weight: bold;
+    font-size: 40px;
+    justify-self: center;
+    padding-bottom: 20px;
+  }
+  .alert-message {
+    justify-self: center;
+    font-size: 20px;
+  }
+}
+
+.dialog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+@media (min-height: 1024px) {
+  .alert {
+    width: 25%;
+    max-width: 500px;
+    height: 15%;
+    max-height: 250px;
+  }
+
+  .alert-heading {
+    font-weight: bold;
+    font-size: 40px;
+    justify-self: center;
+    padding-bottom: 20px;
+  }
+  .alert-message {
+    justify-self: center;
+    font-size: 20px;
+  }
+}
+
+
 @media (max-width: 768px) {
   app-game-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .alert {
+    width: 60%;
+  }
+}
+@media (max-height: 700px) {
+  .dialog-user-container {
+    padding-bottom: 0px;
   }
 }
 
@@ -155,12 +260,10 @@ span.ranking-number {
     width: 50%;
     height: 30vh;
   }
-
-
   .match-user-list-container {
     height: 22vh;
   }
-
 }
+
 
 
