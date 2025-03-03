@@ -1,3 +1,4 @@
+
 .btn {
   font-weight: 600;
   border-radius: 5px;
@@ -16,11 +17,13 @@
   max-height: 1850px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .create-btn:hover {
   background-color: rgb(240,220,0);
   box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+  color: black;
 }
 
 .create-btn:active {
@@ -47,10 +50,14 @@
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 99%;
+  text-align: center;
 }
 
 .user-heading {
   line-height: 40px;
+  min-height: 53px;
+  padding-bottom: 20px;
+
   font-size: 36px;
   color: #333;
   overflow: hidden;
@@ -58,8 +65,7 @@
   justify-items: center;
   align-items: center;
   max-width: 100%;
-  min-height: 53px;
-  padding-bottom: 20px;
+  height: 17%;
 }
 
 .no-users-message {

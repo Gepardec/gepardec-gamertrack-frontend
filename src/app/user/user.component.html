@@ -3,8 +3,8 @@
   <div class="user-content">
     <div class="user-details">
       <div class="name-status">
-        <p> {{user.firstname}}</p>
-        <p>{{user.lastname}}</p>
+        {{user.firstname}}
+        {{user.lastname}}
       </div>
       <div>
         <p class="status-label" [class.deactivated]="user.deactivated">{{user.deactivated ? 'Deactivated' : 'Active'}}</p>

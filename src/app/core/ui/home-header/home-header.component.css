@@ -1,12 +1,12 @@
 header {
   font-family: Arial, sans-serif;
   position: fixed;
+  display: flex;
   background-color: black;
   top: 0;
   left: 0;
   right: 0;
   height: 90px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
@@ -32,16 +32,13 @@ header li a:hover {
 }
 
 nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .logo {
   font-size: 38px;
   flex-shrink: 0;
-  position: absolute;
   cursor: pointer;
+  width: 15%;
 }
 .logo-first-half {
   color:  rgb(240,210,0);
@@ -69,13 +66,13 @@ nav {
   align-items: center;
 }
 
-.loginContainer{
-  position: absolute;
+.login-container{
   right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-
+  width: 15%;
+  justify-content: end;
 }
+
+
 
 @media (max-width: 1000px) {
   .logo {
@@ -92,6 +89,7 @@ nav {
 @media (max-width: 768px) {
   .logo {
     font-size: 15px;
+    flex-direction: column;
   }
 
   header li a {

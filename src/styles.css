@@ -91,7 +91,7 @@ html, body {
   }
 }
 
-@media (max-width: 512px) {
+@media (max-width: 612px) {
   .left-div-container {
     height: 100%;
     width:10%;
