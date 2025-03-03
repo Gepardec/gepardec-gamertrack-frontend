@@ -1,0 +1,17 @@
+{
+  "name": "gepardec-gamertrack-frontend",
+  "short_name": "gepardec-gamertrack-frontend",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "gamertrack.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RankListComponent} from '../rank-list/rank-list.component';
 import {RouterLink} from '@angular/router';
-import {MatchHistoryListComponent} from '../match-history-list/match-history-list.component';
+import {MatchHistoryListComponent} from './ui/match-history-list/match-history-list.component';
 
 @Component({
   selector: 'app-home-screen',

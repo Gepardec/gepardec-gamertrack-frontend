@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
 import {GameComponent} from './game/game.component';
-import {GameCreateFormComponent} from './game-create-form/game-create-form.component';
-import {GameDetailComponent} from './game-detail/game-detail.component';
-import {GameEditFormComponent} from './game-edit-form/game-edit-form.component';
-import {UserListComponent} from './user-list/user-list.component';
-import {UserDetailsComponent} from './user-details/user-details.component';
-import {CreateUserComponent} from './create-user/create-user.component';
+import {GameCreateFormComponent} from './game/ui/game-create-form/game-create-form.component';
+import {GameDetailComponent} from './game/ui/game-detail/game-detail.component';
+import {GameEditFormComponent} from './game/ui/game-edit-form/game-edit-form.component';
+import {UserListComponent} from './user/ui/user-list/user-list.component';
+import {UserDetailsComponent} from './user/ui/user-details/user-details.component';
+import {CreateUserComponent} from './user/ui/create-user/create-user.component';
 import {HomeScreenComponent} from './home-screen/home-screen.component';
-import {UpdateUserComponent} from './update-user/update-user.component';
-import {MatchCreateComponent} from './match-create/match-create.component';
+import {UpdateUserComponent} from './user/ui/update-user/update-user.component';
+import {MatchCreateComponent} from './home-screen/ui/match-create/match-create.component';
 import {LoginComponent} from './login/login.component';
 import {RankListComponent} from './rank-list/rank-list.component';
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth/auth.service';
 import {HttpResponse} from '@angular/common/http';
 
 @Component({
