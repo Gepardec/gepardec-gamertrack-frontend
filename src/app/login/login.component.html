@@ -42,9 +42,12 @@
   </form>
 
   <button
-    *ngIf="isAuthenticated()"
+    *ngIf="isAuthorized()"
     (click)="onLogout()"
     class="btn btn-danger mt-3">
     Log Out
   </button>
 </div>
+@if (isLoading()) {
+ <app-loading-screen></app-loading-screen>
+}

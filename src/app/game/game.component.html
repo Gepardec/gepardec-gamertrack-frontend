@@ -7,6 +7,8 @@
     <div *ngIf="gameList.length === 0" class="no-games-message">
       <p>No games available.</p>
     </div>
-    <button class="btn create-btn" (click)="createGame()" >Create</button>
+    @if (isAuthorized()) {
+      <button class="btn create-btn" (click)="createGame()" >Create</button>
+    }
   </section>
 </div>

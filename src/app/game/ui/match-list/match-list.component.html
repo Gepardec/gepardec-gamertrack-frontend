@@ -1,5 +1,5 @@
-@if (matches.length > 0) {
-  <div class="select-group">
+@if (matches.length > 0 || selectedUser) {
+<div class="select-group">
     <label class="select-label" for="lastmatches">Amount of past matches: </label>
     <select class="amount-matches" name="lastmatches" id="lastmatches" [(ngModel)]="selectedValue"
             (ngModelChange)="selectValue(selectedValue)">
@@ -15,6 +15,8 @@
       }
     </select>
   </div>
+}
+@if (matches.length > 0) {
 
   <section class="grid">
 

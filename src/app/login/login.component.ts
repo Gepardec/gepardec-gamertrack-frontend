@@ -3,12 +3,14 @@ import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { AuthService } from '../core/auth/auth.service';
 import {HttpResponse} from '@angular/common/http';
+import {LoadingScreenComponent} from '../shared/ui/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-login',
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    LoadingScreenComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -30,7 +32,11 @@ export class LoginComponent {
     this.authService.logout();
   }
 
-  isAuthenticated() {
+  isAuthorized() {
     return this.authService.isAuthenticated();
+  }
+
+  isLoading() {
+    return this.authService.loading();
   }
 }

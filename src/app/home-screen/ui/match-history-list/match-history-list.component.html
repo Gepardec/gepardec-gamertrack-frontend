@@ -6,7 +6,7 @@
       <div *ngFor="let match of matches;" class="match-history-list-item">
         <div class="user-details">
           <p class="match-game"> {{match.game.name}}:
-            <span><span class="match-history-list-item-user" *ngFor="let user of match.users; let i = index">{{ i + 1 }}.{{ user.firstname }} </span></span>
+            <span><span class="match-history-list-item-user" *ngFor="let user of match.users; let i = index">{{ i + 1 }}. {{ user.firstname }} </span></span>
           </p>
         </div>
       </div>
@@ -14,7 +14,9 @@
     <div *ngIf="matches.length === 0" class="no-matches-message">
       <p>No matches available.</p>
     </div>
-  <div class="create-btn-container">
-    <button class="btn create-btn" routerLink="/matches/new">Create Match</button>
-  </div>
+    @if (isAuthorized()) {
+      <div class="create-btn-container">
+        <button class="btn create-btn" routerLink="/matches/new">Create Match</button>
+      </div>
+    }
 </div>
