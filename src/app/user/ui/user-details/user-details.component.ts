@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {UserService} from '../../user.service';
-import {User} from '../../../shared/models/user';
+import {User} from '../../../core/models/user';
 
 @Component({
   selector: 'app-user-details',
@@ -21,12 +21,9 @@ export class UserDetailsComponent {
     this.userService.getUserBytoken(this.userToken)
       .subscribe({
         next: (user) => {
-          console.log("Hier der User",user);
+
           this.user = user;
         },
-        error: (error) => {
-          console.log(error);
-        }
       });
 
   }

@@ -1,8 +1,8 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {GameService} from '../../../game/game.service';
-import {Game} from '../../../shared/models/game';
+import {Game} from '../../../core/models/game';
 import {GameListComponent} from '../../../shared/ui/game-list/game-list.component';
-import {User} from '../../../shared/models/user';
+import {User} from '../../../core/models/user';
 import {NgForOf, NgIf} from '@angular/common';
 import {UserService} from '../../../user/user.service';
 import {MatchService} from '../../../match/match.service';
@@ -63,15 +63,12 @@ export class MatchCreateComponent implements OnInit {
   createMatch() {
     console.log('creating match')
     this.closeDialog()
-    this.selectedGame != null && this.selectedUsers.length > 1 ?
-      this.matchService.createMatch({game: this.selectedGame, users: this.selectedUsers})
+    this.selectedGame != null && this.selectedUsers.length > 1
+      ? this.matchService.createMatch({game: this.selectedGame, users: this.selectedUsers})
         .subscribe({
-          next: match => {
+          next: () => {
             this.router.navigate(["/"])
           },
-          error: err => {
-            console.log("Could not create game: " + err)
-          }
         })
       : alert("No game or users have been selected");
   }

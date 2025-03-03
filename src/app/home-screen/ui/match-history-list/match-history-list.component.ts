@@ -1,7 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
-import {Score} from '../../../shared/models/score.model';
-import {Match} from '../../../shared/models/match';
+import {Match} from '../../../core/models/match';
 import {MatchService} from '../../../match/match.service';
 import {RouterLink} from "@angular/router";
 import {AuthService} from '../../../core/auth/auth.service';
@@ -25,17 +24,13 @@ export class MatchHistoryListComponent {
   async ngOnInit() {
     this.matchService.getAllMatches().subscribe( {
       next: matches => {
-        console.log('Getting Matches', matches)
+
         this.matches = matches;
       },
-      error: err => {
-        console.log('Could not fetch Matches: ', err);
-      }
     });
   }
 
   isAuthorized() {
-    console.log(this.authService.isAuthenticated());
     return this.authService.isAuthenticated();
   }
 }

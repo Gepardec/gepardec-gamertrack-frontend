@@ -1,8 +1,5 @@
-import {Component, inject, Input} from '@angular/core';
-import {RouterLink} from '@angular/router';
-import {UserService} from '../../../user/user.service';
-import {User} from '../../../shared/models/user';
-import {Score} from '../../../shared/models/score.model';
+import {Component, Input} from '@angular/core';
+import {Score} from '../../../core/models/score';
 
 @Component({
   selector: 'app-score',

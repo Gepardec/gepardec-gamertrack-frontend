@@ -1,13 +1,10 @@
 import {
-  HttpInterceptorFn,
   HttpRequest,
-  HttpHandler,
   HttpEvent,
   HttpHandlerFn,
-  HttpInterceptor, HttpErrorResponse, HttpResponse, HttpHeaderResponse
-} from '@angular/common/http';
+  HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {catchError, Observable, tap} from 'rxjs';
-import {inject, Injectable} from '@angular/core';
+import {inject} from '@angular/core';
 import {NotificationService} from './notification.service';
 
 
@@ -18,8 +15,6 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
     tap({
       next: (response) => {
         if ((response as HttpResponse<unknown>).status === 201) {
-
-
           if (response instanceof HttpResponse) {
             let message = `${response.statusText}: Successfully`;
 
@@ -27,15 +22,14 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
             notificationsService.showNotification(message, colorClass);
             }
         }
-        console.log('Response:', response);
       }
     }),
 
     catchError((error: HttpErrorResponse) => {
-      let message = 'Ein Fehler ist aufgetreten';
+      let message: string;
       let colorClass = 'error';
 
-      console.log("Drinnen");
+
 
       if (error.error) {
         message = error.error.message

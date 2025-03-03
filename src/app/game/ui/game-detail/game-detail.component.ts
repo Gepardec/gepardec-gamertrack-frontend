@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../../game.service';
-import {Game} from '../../../shared/models/game';
+import {Game} from '../../../core/models/game';
 import {DialogComponent} from '../../../shared/ui/dialog/dialog.component';
 import {MatchService} from '../../../match/match.service';
 import {FormsModule} from '@angular/forms';
@@ -42,9 +42,6 @@ export class GameDetailComponent implements OnInit{
         next: (game) => {
           this.game = game;
         },
-        error: (error) => {
-          console.log(error);
-        }
       });
   }
 
@@ -63,12 +60,9 @@ export class GameDetailComponent implements OnInit{
 
   deleteGame(game: Game) {
       this.gameService.deleteGame(game.token).subscribe({
-        next: (response) => {
+        next: () => {
             this.router.navigate(["/games"]);
         },
-        error: (error) => {
-          alert("Could not remove game with token it has either been deleted already or does not exist");
-        }
       });
     this.closeDialog()
   }

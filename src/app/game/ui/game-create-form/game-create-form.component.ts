@@ -47,9 +47,7 @@ export class GameCreateFormComponent implements OnInit{
         this.router.navigate(["/games", game.token]
         );
       },
-      error: (error) => {
-        console.log(error);
-      }})
+    });
   }
 
   get name() {
