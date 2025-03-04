@@ -34,7 +34,7 @@ export const routes: Routes = [
   {
     path: 'games/:id',
     component: GameDetailComponent,
-    title: "Placeholder"
+    title: "Game Detail"
   },
   {
     path: 'games',

@@ -33,14 +33,14 @@
     </div>
 </section>
 
-
-
-
+<div *ngIf="openWarningDialog" class="dialog-background">
   <app-dialog class="warning-dialog" [confirmButtonDisabled]="!dialogInputIsValid" [openDialog]="openWarningDialog" (onConfirmation)="$event && game?.name === this.inputText ? deleteGame(game!) : closeDialog()">
-    <span>This action is irreversible and will delete {{ this.matchAmount}} matches with it</span>
-    <span>
+    <div class="warning-header">Warning!</div>
+    <div class="warning-message">You are about to&nbsp;<b>delete {{game?.name}}</b>&nbsp;with <b>{{ this.matchAmount}}</b> matches <b class="danger">forever</b>.</div>
+
     <label for="gameName">Provide the exact game name in order to confirm the action</label>
     <input [class.disarmed]="dialogInputIsValid" [(ngModel)]="this.inputText" (ngModelChange)="isDialogInputValid()" id="gameName" type="text" placeholder="Provide the game name">
-    </span>
+
   </app-dialog>
 <button type="button" (click)="goToGamesOverview()" class="secondary">Games Overview</button>
+</div>
