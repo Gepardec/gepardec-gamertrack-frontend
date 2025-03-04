@@ -99,10 +99,11 @@ export class AuthService {
       {observe: 'response'}
     ).subscribe({
       next: (response: HttpResponse<any>) => {
-        this.state.update((s) => ({...s, isAuthenticated: response.status === 200}));
+        this.state.update((state) => ({...state, isAuthenticated: response.status === 200}));
       },
       error: () => {
-        this.state.update((s) => ({...s, isAuthenticated: false}));
+        this.state.update((state) => ({...state, isAuthenticated: false}));
+        localStorage.removeItem(this.accessTokenKey)
       }
     });
   }
