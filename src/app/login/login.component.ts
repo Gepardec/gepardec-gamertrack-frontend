@@ -4,13 +4,15 @@ import {NgIf} from '@angular/common';
 import { AuthService } from '../core/auth/auth.service';
 import {HttpResponse} from '@angular/common/http';
 import {LoadingScreenComponent} from '../shared/ui/loading-screen/loading-screen.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   imports: [
     FormsModule,
     NgIf,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
