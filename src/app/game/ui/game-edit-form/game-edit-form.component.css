@@ -1,77 +1,292 @@
-.button-group {
+.game-detail-container {
   display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: center;
+  height: 60vh ;
+  padding: 10vh;
 }
 
-label {
-  display: block;
-  font-size: 14px; /* Adjust font size as needed */
-  font-weight: bold; /* Optional for emphasis */
-  margin-bottom: 6px; /* Adds spacing between the label and input */
-  color: #333; /* Label color */
-}
-
-input {
+.game-detail-card {
+  background-color: #fff;
   width: 100%;
-  max-width: 400px;
-  padding: 12px 15px;
-  margin: 8px 0;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-button[type="submit"] {
-  display: inline-block;
-  background-color:  rgb(240,210,0); /* Primary color */
-  color: #fff; /* Text color */
-  padding: 12px 20px; /* Button padding */
-  font-size: 16px; /* Font size */
-  font-family: Arial, sans-serif;
-  font-weight: bold; /* Bold text */
-  text-align: center;
-  border: none; /* No border */
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-right: 10px;
-}
-
-button[type="button"] {
-  display: inline-block;
-  background-color: #f8f9fa; /* Light gray background */
-  color: #333; /* Darker text color */
-  padding: 12px 20px; /* Button padding */
-  font-size: 16px; /* Font size */
-  font-family: Arial, sans-serif;
-  text-align: center;
-  font-weight: bold; /* Bold text */
-  border: none; /* Border with a light gray color */
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
-}
-
-button[type="submit"]:disabled {
-  background-color: #ccc; /* Gray background */
-  color: #666; /* Dimmed text color */
-  cursor: not-allowed; /* Not-allowed cursor */
-  box-shadow: none; /* No shadow */
-}
-
-.edit-game-form {
-  max-width: 100%;
-  width: 50%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-self: center;
-  justify-content: center;
+  transition: box-shadow 0.3s ease;
+  max-height: 30vh;
 }
+
+.game-detail-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.game-title {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.game-info {
+  margin-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.info-label {
+  font-weight: bold;
+  font-size: 20px;
+  align-content: center;
+  color: #555;
+  width: 30%;
+}
+
+.info-value {
+  font-size: 20px;
+  color: #333;
+  width: 65%;
+  font-weight: 400;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 48px;
+  margin-top: 1vh;
+}
+
+.update-btn {
+  background-color: rgb(240,210,0);
+  color: white;
+}
+
+.update-btn:hover:not(:disabled) {
+  background-color: rgb(240,220,0);
+}
+
+
+button:disabled {
+  width: 100%;
+  background-color: #ccc;
+}
+
+.error {
+  padding-top: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+.error-container {
+  height: 1vh;
+  padding-bottom: 3px;
+}
+
+.update-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.back-btn {
+  background-color: #bab6b6;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: gray;
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.2);
+}
+
+.back-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e73935;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+}
+
+.delete-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+  flex-wrap: wrap;
+  padding-top: 3vh;
+}
+
+@media (max-width: 768px) {
+  .game-detail-card {
+    padding: 20px;
+    min-width: 100%;
+  }
+
+
+}
+@media (max-width: 650px) {
+  .form-container {
+    width: 95%;
+  }
+  .info-label {
+    font-size: 17px;
+  }
+  .info-value {
+    font-size: 17px;
+  }
+  .game-title {
+    font-size: 25px;
+  }
+  .btn {
+    font-size: 17px;
+    width: 100%;
+  }
+  .game-detail-container {
+    padding: 5vh;
+  }
+  .input-field {
+    font-size: 17px;
+    width: 100%;
+  }
+  .game-info {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .info-value {
+    padding-left: 3vh;
+
+  }
+}
+
+
+
+@media (max-height: 1500px) {
+  .game-detail-card {
+    max-height: 50vh;
+  }
+}
+
+@media (max-height: 850px) {
+  .game-detail-card {
+    padding-bottom: 5px;
+    min-width: 100%;
+    max-height: 50vh;
+  }
+  .game-title {
+    font-size: 25px;
+    margin-bottom: 0px;
+
+  }
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3vh;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .btn {
+    font-size: 17px;
+    height: 40px;
+    width: 100%;
+  }
+  .form-actions {
+    padding-top: 20px;
+  }
+  .game-info {
+    margin-bottom: 5px;
+  }
+  .info-label {
+    font-size: 17px;
+  }
+}
+
+
+
 
