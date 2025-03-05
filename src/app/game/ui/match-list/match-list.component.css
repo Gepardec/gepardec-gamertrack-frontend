@@ -41,7 +41,8 @@ select {
   padding: 0 5px 5px 5px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 100%;
+  height: 10%;
+  max-height: 200px;
   scrollbar-width: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   width: 100%;
@@ -71,6 +72,7 @@ select {
   text-align: center;
   position: relative;
   display: contents;
+  background-color: green;
 
 }
 
@@ -115,4 +117,28 @@ select {
   align-items: center;
   gap: 10px;
   margin: 10px;
+}
+@media (max-height: 740px) {
+  .select-label {
+    font-size: 12px;
+  }
+  .select-group {
+    margin: 0px;
+  }
+  .grid{
+    font-size: 13px;
+    max-height: 25vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .select-label {
+    font-size: 12px;
+  }
+  .select-group {
+    margin: 0px;
+  }
+  .grid{
+    font-size: 13px;
+  }
 }

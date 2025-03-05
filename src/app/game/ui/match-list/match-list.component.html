@@ -19,13 +19,13 @@
 @if (matches.length > 0) {
 
   <section class="grid">
-
     <div class="grid-column-header grid-row">
       <div> No.</div>
       <div> No. of Players</div>
       <div> Winner</div>
       <div> Players</div>
     </div>
+
     @for (match of matches; track match.token; let idx = $index) {
       <div class="grid-row">
         <div class="grid-item">{{ idx + 1 }}</div>

@@ -1,14 +1,32 @@
-/* Main container for the game section */
+.game-detail-container {
+  display: flex;
+  justify-content: center;
+  height: 67vh ;
+  padding: 5vh;
+}
+
+.game-detail-card {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  max-height: 450px;
+}
+
 .game-section {
   display: flex;
   justify-content: space-between; /* Space between left (info) and right (actions) */
   align-items: flex-start; /* Align items to the top */
-  max-width: 100%; /* Full width */
   font-family: 'Arial', sans-serif;
   margin: 20px 0; /* Add spacing above and below the container */
   border-bottom: gray;
   border-width: 0 0 2px 0;
   border-style: solid;
+  width: 100%;
 }
 
 
@@ -17,12 +35,16 @@
   display: inline-flex;
   flex-direction: column; /* Stack title and rules vertically */
   align-items: flex-start; /* Align text to the left */
-  width: auto; /* Adjust to fit buttons */
+  width: 100%; /* Adjust to fit buttons */
 }
 
 .game-name {
-  padding: 0;
   margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  width: 90%;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 /* Game name style */
@@ -188,5 +210,37 @@ b{
   z-index: 999;
 }
 
+@media (max-height: 740px) {
+  .game-detail-card {
+    padding-bottom: 5px;
+  }
+  .tablink{
+    font-size: 12px;
+  }
+  .game-name {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  .game-detail-card{
+    padding-top: 5px;
+  }
+}
 
+@media (max-width: 740px) {
+  .game-name {
+    font-size: 24px;
+  }
+  .game-info{
+    width: 40%;
+  }
+  .game-actions {
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-left: 20px;
+  }
+  .game-actions button svg {
+    width: 20px;
+    height: 20px;
 
+  }
+}
