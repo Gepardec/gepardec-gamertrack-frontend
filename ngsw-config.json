@@ -29,15 +29,15 @@
   ],
   "dataGroups": [
     {
-      "name": "api-cache",
+      "name": "matches",
       "urls": [
-        "^(http|https)://gamertrack-backend.apps.cloudscale-lpg-2.appuio.cloud/api/v1/matches/*"
+        "/gepardec-gamertrack/api/v1/matches/**"
       ],
       "cacheConfig": {
-        "maxSize": 500,
+        "maxSize": 1000,
         "maxAge": "1d",
-        "timeout": "10s",
-        "refreshAhead": "12h",
+        "timeout": "5s",
+        "refreshAhead": "20h",
         "strategy": "freshness"
       }
     }
