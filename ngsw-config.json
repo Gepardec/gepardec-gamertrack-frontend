@@ -31,7 +31,7 @@
     {
       "name": "matches",
       "urls": [
-        "/gepardec-gamertrack/api/v1/matches/**"
+        "api/matches/**"
       ],
       "cacheConfig": {
         "maxSize": 1000,
