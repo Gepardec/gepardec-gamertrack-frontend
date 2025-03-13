@@ -8,15 +8,16 @@ import {NotificationInterceptor} from './core/notification/notification.intercep
 import {NotificationService} from './core/notification/notification.service';
 import { provideServiceWorker } from '@angular/service-worker';
 import {PromptUpdate} from './core/serviceWorker/promptUpdate';
-import {ServiceWorkerService} from './core/serviceWorker/serviceWorker.service';
+import {CacheStatusService} from './core/serviceWorker/cacheStatus.service';
 import {LogUpdateService} from './core/serviceWorker/logUpdate.service';
 import {authInterceptor} from './core/auth/auth.interceptor';
 import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
+import {cacheInterceptor} from './core/serviceWorker/cache.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideHttpClient(
-      withInterceptors([NotificationInterceptor, authInterceptor]),
+      withInterceptors([NotificationInterceptor, authInterceptor, cacheInterceptor]),
     ),
     JwtHelperService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
@@ -26,7 +27,7 @@ export const appConfig: ApplicationConfig = {
             registrationStrategy: 'registerWhenStable:30000'
     }),
     LogUpdateService,
-    ServiceWorkerService,
+    CacheStatusService,
     PromptUpdate,
   ]
 };
