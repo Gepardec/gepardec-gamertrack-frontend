@@ -8,7 +8,7 @@ import {NotificationInterceptor} from './core/notification/notification.intercep
 import {NotificationService} from './core/notification/notification.service';
 import { provideServiceWorker } from '@angular/service-worker';
 import {PromptUpdate} from './core/serviceWorker/promptUpdate';
-import {UpdateService} from './core/serviceWorker/update.service';
+import {ServiceWorkerService} from './core/serviceWorker/serviceWorker.service';
 import {LogUpdateService} from './core/serviceWorker/logUpdate.service';
 import {authInterceptor} from './core/auth/auth.interceptor';
 import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
             registrationStrategy: 'registerWhenStable:30000'
     }),
     LogUpdateService,
-    UpdateService,
+    ServiceWorkerService,
     PromptUpdate,
   ]
 };

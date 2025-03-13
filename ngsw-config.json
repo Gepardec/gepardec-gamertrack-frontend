@@ -29,12 +29,28 @@
   ],
   "dataGroups": [
     {
-      "name": "matches",
+      "name": "matches-ranklist",
       "urls": [
-        "/gepardec-gamertrack/api/v1/matches"
+        "/gepardec-gamertrack/api/v1/matches",
+        "/gepardec-gamertrack/api/v1/ranklist",
+        "/gepardec-gamertrack/api/v1/games"
       ],
       "cacheConfig": {
-        "maxSize": 1000,
+        "maxSize": 10,
+        "maxAge": "1d",
+        "timeout": "5s",
+        "refreshAhead": "20h",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "matches-ranklist-queries",
+      "urls": [
+        "/gepardec-gamertrack/api/v1/matches?*",
+        "/gepardec-gamertrack/api/v1/ranklist?*"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
         "maxAge": "1d",
         "timeout": "5s",
         "refreshAhead": "20h",
