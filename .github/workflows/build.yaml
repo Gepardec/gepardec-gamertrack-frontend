@@ -37,6 +37,7 @@ jobs:
         with:
           image: gepardec-gamertrack-frontend
           registry: ghcr.io
+          enableBuildKit: true
           multiPlatform: true
           platform: linux/amd64,linux/arm64
           username: ${{ github.repository }}
