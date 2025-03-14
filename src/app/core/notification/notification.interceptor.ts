@@ -2,7 +2,8 @@ import {
   HttpRequest,
   HttpEvent,
   HttpHandlerFn,
-  HttpErrorResponse, HttpResponse} from '@angular/common/http';
+  HttpErrorResponse, HttpResponse, HttpStatusCode
+} from '@angular/common/http';
 import {catchError, Observable, tap} from 'rxjs';
 import {inject} from '@angular/core';
 import {NotificationService} from './notification.service';
@@ -22,25 +23,27 @@ export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHan
             notificationsService.showNotification(message, colorClass);
             }
         }
+
+        if ((response as HttpResponse<unknown>) === null) {
+          if (response instanceof HttpResponse) {
+            notificationsService.showNotification('Backen unreachable, Cached Data is being served', 'warning');
+            }
+        }
       }
     }),
 
     catchError((error: HttpErrorResponse) => {
-      let message: string;
+      let message: string = error.statusText;
       let colorClass = 'error';
 
-
-
       if (error.error) {
-        message = error.error.message
-      } else {
-        message = `Error ${error.status}: ${error.error.message}`;
+        message = message +`: ${error.error.message}`;
       }
 
-
-      if (error.status === 401 || error.status === 402 || error.status === 403) {
+      if (error.status in [401, 402, 403]) {
         colorClass = 'error';
-      } else if (error.status === 500) {
+      } else if (error.status in [500, 503]) {
+        message = `${error.statusText}, Cached Data is being served`;
         colorClass = 'warning';
       }
 

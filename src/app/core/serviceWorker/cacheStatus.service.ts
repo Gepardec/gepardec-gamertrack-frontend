@@ -20,5 +20,6 @@ export class CacheStatusService {
           .then(cache => cache.match(url))))) {
       this.notificationService.showNotification(CACHE_USED_MESSAGE, 'warning');
     }
+
   }
 }
