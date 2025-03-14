@@ -8,7 +8,7 @@ RUN npm install -g @angular/cli
 COPY . .
 RUN npm run build --configuration=production
 
-FROM bitnami/nginx:1.27.3-debian-12-r5
+FROM --platform=$TARGETPLATFORM bitnami/nginx:1.27.3-debian-12-r5
 COPY nginx.conf /opt/bitnami/nginx/conf/nginx.conf
 COPY --from=build /usr/src/app/dist/gepardec-gamertrack-frontend/browser /opt/bitnami/nginx/html/
 
