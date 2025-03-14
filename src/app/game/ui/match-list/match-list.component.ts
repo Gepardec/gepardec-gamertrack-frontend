@@ -5,6 +5,7 @@ import {Match} from '../../../core/models/match';
 import {Game} from '../../../core/models/game';
 import {UserService} from "../../../user/user.service";
 import {User} from "../../../core/models/user";
+import {DateFormatterService} from '../../../shared/utility/date-formatter.service';
 
 @Component({
   selector: 'app-match-list',
@@ -23,6 +24,7 @@ export class MatchListComponent implements OnInit {
 
   matchService = inject(MatchService);
   userService = inject(UserService);
+  dateFormatterService= inject(DateFormatterService);
 
   matches: Match[] = [];
   @Input() game: Game | undefined;
@@ -68,5 +70,4 @@ export class MatchListComponent implements OnInit {
         this.selectedUser = user;
       this.refreshMatches(this.selectedValue);
     }
-
   }

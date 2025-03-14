@@ -21,21 +21,23 @@
   <section class="grid">
     <div class="grid-column-header grid-row">
       <div> No.</div>
-      <div> No. of Players</div>
       <div> Winner</div>
       <div> Players</div>
+      <div> Date</div>
+
     </div>
 
     @for (match of matches; track match.token; let idx = $index) {
       <div class="grid-row">
         <div class="grid-item">{{ idx + 1 }}</div>
-        <div class="grid-item">{{ match.users.length }}</div>
         <div class="grid-item">{{ match.users[0].firstname + ' ' + match.users[0].lastname }}</div>
         <div class="grid-item">
           @for (user of match.users; track user.token; let idx = $index) {
             <span>{{ user.firstname + ' ' + user.lastname }}</span>
           }
         </div>
+        <div class="grid-item">{{ dateFormatterService.formatDate(match.createdOn) }}</div>
+
       </div>
 
     }

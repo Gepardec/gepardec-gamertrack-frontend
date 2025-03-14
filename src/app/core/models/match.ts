@@ -3,6 +3,8 @@ import {User} from './user';
 
 export interface Match {
   token: string
+  createdOn: string
+  updatedOn: string
   game: Game
   users: User[]
 }

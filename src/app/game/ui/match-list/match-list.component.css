@@ -42,7 +42,7 @@ select {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 10%;
-  max-height: 200px;
+  max-height: 430px;
   scrollbar-width: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   width: 100%;
@@ -118,6 +118,19 @@ select {
   gap: 10px;
   margin: 10px;
 }
+
+@media (max-height: 1080px) {
+  .grid{
+    max-height: 30vh;
+  }
+}
+
+@media (max-height: 880px) {
+  .grid{
+    max-height: 25vh;
+  }
+}
+
 @media (max-height: 740px) {
   .select-label {
     font-size: 12px;
@@ -127,7 +140,13 @@ select {
   }
   .grid{
     font-size: 13px;
-    max-height: 25vh;
+    max-height: 32vh;
+  }
+}
+
+@media (max-height: 650px) {
+  .grid{
+    max-height: 19vh;
   }
 }
 

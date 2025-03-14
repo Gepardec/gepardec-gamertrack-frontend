@@ -4,6 +4,7 @@ import {Match} from '../../../core/models/match';
 import {MatchService} from '../../../match/match.service';
 import {RouterLink} from "@angular/router";
 import {AuthService} from '../../../core/auth/auth.service';
+import {DateFormatterService} from '../../../shared/utility/date-formatter.service';
 
 @Component({
   selector: 'app-match-history-list',
@@ -20,6 +21,7 @@ export class MatchHistoryListComponent {
 
   matchService = inject(MatchService);
   authService = inject(AuthService);
+  dateFormatterService = inject(DateFormatterService);
 
   async ngOnInit() {
     this.matchService.getAllMatches().subscribe( {
@@ -29,6 +31,7 @@ export class MatchHistoryListComponent {
       },
     });
   }
+
 
   isAuthorized() {
     return this.authService.isAuthenticated();

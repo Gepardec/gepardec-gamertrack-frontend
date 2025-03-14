@@ -27,7 +27,7 @@ html, body {
 }
 
 .match-history-list {
-  overflow: auto;
+  overflow-y: auto;
   border: 1px solid #ccc;
   background-color: #ffffff;
   border-radius: 12px;
@@ -54,7 +54,10 @@ html, body {
 
 .match-game{
   font-size: 25px;
-
+}
+.match-createdOn{
+  font-size: 23px;
+  color: gray;
 }
 
 .match-history-list-item-user {
@@ -104,6 +107,9 @@ html, body {
   .match-game {
     font-size: 20px
   }
+  .match-createdOn{
+    font-size: 17px
+  }
   .match-history-list-item {
     font-size: 20px;
   }
@@ -112,6 +118,9 @@ html, body {
 @media (max-width: 740px) {
   .match-game {
     font-size: 15px;
+  }
+  .match-createdOn{
+    font-size: 12px;
   }
   .match-history-list-item-user {
     font-size: 15px;
