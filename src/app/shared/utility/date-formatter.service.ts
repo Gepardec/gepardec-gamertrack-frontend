@@ -9,8 +9,6 @@ export class DateFormatterService {
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const currentDate = new Date();
-    console.log(date.getDate())
-    console.log(currentDate.getDate())
 
     const daysDifference = currentDate.getDate() - date.getDate();
 

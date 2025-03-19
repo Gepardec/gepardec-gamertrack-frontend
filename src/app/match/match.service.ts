@@ -60,6 +60,6 @@ export class MatchService {
   getLastMatches(): Observable<Match[]> {
     return this.http.get<Match[]>(
       this.configService.getBackendUrlWithContext(this.url),
-      {params: new HttpParams().set("pageNumber", 1).set("pageSize", 10)});
+      {params: new HttpParams().set("pageNumber", 1).set("pageSize", 15)});
   }
 }
