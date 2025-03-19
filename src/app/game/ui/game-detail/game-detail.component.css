@@ -209,6 +209,12 @@ b{
   align-items: center;
   z-index: 999;
 }
+.no-game-message {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
 
 @media (max-height: 740px) {
   .game-detail-card {
