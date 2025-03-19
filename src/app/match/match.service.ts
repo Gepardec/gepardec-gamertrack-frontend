@@ -57,4 +57,9 @@ export class MatchService {
       this.configService.getBackendUrlWithContext(this.url),
       {params: new HttpParams()});
   }
+  getLastMatches(): Observable<Match[]> {
+    return this.http.get<Match[]>(
+      this.configService.getBackendUrlWithContext(this.url),
+      {params: new HttpParams().set("pageNumber", 1).set("pageSize", 10)});
+  }
 }

@@ -11,9 +11,7 @@ import {RouterLink} from '@angular/router';
   imports: [
     FormsModule,
     NgIf,
-    LoadingScreenComponent,
-    RouterLink
-  ],
+    LoadingScreenComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -24,7 +24,7 @@ export class MatchHistoryListComponent {
   dateFormatterService = inject(DateFormatterService);
 
   async ngOnInit() {
-    this.matchService.getAllMatches().subscribe( {
+    this.matchService.getLastMatches().subscribe( {
       next: matches => {
 
         this.matches = matches;
