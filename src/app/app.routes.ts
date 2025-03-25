@@ -12,10 +12,12 @@ import {MatchCreateComponent} from './home-screen/ui/match-create/match-create.c
 import {LoginComponent} from './login/login.component';
 import {RankListComponent} from './rank-list/rank-list.component';
 import {AuthGuard} from './core/auth/auth.guard';
+import {StatisticsComponent} from './user/ui/statistics/statistics.component';
 
 export const routes: Routes = [
   { path: '', component: HomeScreenComponent, title: 'Home' },
   { path: 'users', component: UserListComponent, title: 'AllUser', canActivate: [AuthGuard] },
+  { path: 'users/stats/:token', component: StatisticsComponent, title: "User Statistics", canActivate: [AuthGuard]},
   { path: 'users/details/:token', component: UserDetailsComponent, title: 'user', canActivate: [AuthGuard] },
   { path: 'users/update/:token', component: UpdateUserComponent, title: 'Update User', canActivate: [AuthGuard] },
   { path: 'users/new', component: CreateUserComponent, title: 'Create User', canActivate: [AuthGuard] },
