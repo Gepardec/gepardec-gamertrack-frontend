@@ -153,11 +153,13 @@ export class StatisticsComponent implements OnInit {
       dataSets.push({
         label: `${game} Matches Played`,
         data: allDates.map(date => matchesPerDayByGame[game][date] || 0),
+        hidden: true,
       });
 
       dataSets.push({
         label: `${game} Matches Won`,
         data: allDates.map(date => matchesWonPerDayByGame[game]?.[date] || 0),
+        hidden: true,
       });
     }
 
