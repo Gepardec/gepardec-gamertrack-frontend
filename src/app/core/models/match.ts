@@ -1,5 +1,6 @@
 import {Game} from './game';
 import {User} from './user';
+import {Timestamp} from 'rxjs';
 
 export interface Match {
   token: string
