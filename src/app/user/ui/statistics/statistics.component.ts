@@ -21,8 +21,6 @@ export class StatisticsComponent implements OnInit {
   route = inject(ActivatedRoute)
   userService = inject(UserService);
   matchService = inject(MatchService);
-  matchesPerDay: Record<string, number> = {};
-  matchesPerDayWon: Record<string, number> = {};
 
   user?: User;
   chartType: ChartType = 'line'
@@ -51,53 +49,129 @@ export class StatisticsComponent implements OnInit {
 
     userObservable.then(user => {
       this.user = user;
-
-      this.matchService.getAllMatches().subscribe({
-        next: matches => {
-
-          const matchesPlayed = matches
-            .filter(match => match.users.some(u => u.token === this.user!.token))
-            .sort((a, b) => this.sortByDateChronologically(a.createdOn, b.createdOn));
-
-          matchesPlayed.forEach(match => {
-            const date = new Date(match.createdOn).toISOString().split('T')[0];
-            const userIndex = match.users.findIndex(u => u.token === this.user!.token);
-
-            this.matchesPerDay[date] = (this.matchesPerDay[date] || 0) + 1;
-
-            this.matchesPerDayWon[date] = this.matchesPerDayWon[date] || 0;
-
-            if (userIndex === 0) {
-              this.matchesPerDayWon[date]++;
-            }
-          });
-
-          const allDates = Array.from(new Set([
-            ...Object.keys(this.matchesPerDay),
-            ...Object.keys(this.matchesPerDayWon)
-          ])).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-          this.data = {
-            labels: allDates,
-            datasets: [
-              {
-                label: 'Matches Played',
-                data: allDates.map(date => this.matchesPerDay[date] || 0)
-              },
-              {
-                label: 'Matches Won',
-                data: allDates.map(date => this.matchesPerDayWon[date] || 0)
-              }
-            ]
-          };
-        }
-      });
+      this.loadAndProcessMatches();
     }).catch(() => this.router.navigate(['/users']));
+  }
+
+  loadAndProcessMatches() {
+    this.matchService.getAllMatches().subscribe({
+      next: matches => {
+        const matchesPlayed = this.getMatchesPlayedByUser(this.user!, matches)
+        const { matchesPerDayByGame, matchesWonPerDayByGame } = this.buildGameStats(matchesPlayed);
+
+        const matchesTotalPerDay = this.calculateTotalsByDate(matchesPerDayByGame)
+        const matchesTotalPerDayWon = this.calculateTotalsByDate(matchesWonPerDayByGame);
+
+
+        const allDates = this.getAllUniqueDates([matchesPerDayByGame, matchesWonPerDayByGame]);
+
+        const dataSets = this.buildChartDatasets(
+          matchesPerDayByGame,
+          matchesWonPerDayByGame,
+          matchesTotalPerDay,
+          matchesTotalPerDayWon,
+          allDates
+        )
+
+        this.data = {
+          labels: allDates,
+          datasets: dataSets,
+        };
+      },
+      error: () => {
+        this.router.navigate(['/users']);
+      }
+    });
   }
 
   sortByDateChronologically(a: string, b: string) {
     return new Date(a).getTime() - new Date(b).getTime();
   }
 
+  getMatchesPlayedByUser(user: User, matches: Match[]): Match[] {
+    return matches
+      .filter(match => match.users.some(u => u.token === user.token))
+      .sort((a, b) => this.sortByDateChronologically(a.createdOn, b.createdOn));
+  }
+
+  buildGameStats(matchesPlayed: Match[]) {
+    const matchesPerDayByGame: Record<string, Record<string, number>> = {};
+    const matchesWonPerDayByGame: Record<string, Record<string, number>> = {};
+
+    for (const match of matchesPlayed) {
+      const date = new Date(match.createdOn).toISOString().split('T')[0];
+      const game = match.game?.name || 'Unknown Game';
+      const userIndex = match.users.findIndex(u => u.token === this.user!.token);
+
+      matchesPerDayByGame[game] = matchesPerDayByGame[game] || {};
+      matchesPerDayByGame[game][date] = (matchesPerDayByGame[game][date] || 0) + 1;
+
+      matchesWonPerDayByGame[game] = matchesWonPerDayByGame[game] || {};
+      matchesWonPerDayByGame[game][date] = matchesWonPerDayByGame[game][date] || 0;
+
+      if (userIndex === 0) {
+        matchesWonPerDayByGame[game][date]++;
+      }
+    }
+
+    return { matchesPerDayByGame, matchesWonPerDayByGame}
+  }
+
+  calculateTotalsByDate(byGame: Record<string, Record<string, number>>) {
+    const totals: Record<string, number> = {};
+
+    for (const gameStats of Object.values(byGame)) {
+      for (const [date, count] of Object.entries(gameStats)) {
+        totals[date] = (totals[date] || 0) + count;
+      }
+    }
+
+    return totals;
+  }
+
+  getAllUniqueDates(sources: Record<string, Record<string, number>>[]): string[] {
+    const allDates = new Set<string>();
+
+    for (const stats of sources) {
+      for (const date of Object.values(stats).flatMap(obj => Object.keys(obj))) {
+        allDates.add(date)
+      }
+    }
+
+    return Array.from(allDates).sort((a,b) => this.sortByDateChronologically(a, b));
+  }
+
+  private buildChartDatasets(matchesPerDayByGame: Record<string, Record<string, number>>,
+                             matchesWonPerDayByGame: Record<string, Record<string, number>>,
+                             matchesTotalPerDay: Record<string, number>,
+                             matchesTotalPerDayWon: Record<string, number>,
+                             allDates: string[]): any[] {
+
+    const dataSets = [];
+
+    for (const game of Object.keys(matchesPerDayByGame)) {
+      dataSets.push({
+        label: `${game} Matches Played`,
+        data: allDates.map(date => matchesPerDayByGame[game][date] || 0),
+      });
+
+      dataSets.push({
+        label: `${game} Matches Won`,
+        data: allDates.map(date => matchesWonPerDayByGame[game]?.[date] || 0),
+      });
+    }
+
+    dataSets.push({
+      label: 'Total Matches Played',
+      data: allDates.map(date => matchesTotalPerDay[date] || 0),
+    })
+
+    dataSets.push({
+      label: 'Total Matches Won',
+      data: allDates.map(date => matchesTotalPerDayWon[date] || 0),
+    });
+
+    return dataSets;
+    }
 }
 
