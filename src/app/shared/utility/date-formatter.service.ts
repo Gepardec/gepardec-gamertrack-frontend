@@ -10,7 +10,10 @@ export class DateFormatterService {
     const date = new Date(dateString);
     const currentDate = new Date();
 
-    const daysDifference = currentDate.getDate() - date.getDate();
+    const timeDifference = currentDate.getTime() - date.getTime();
+
+    const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+
 
     if (daysDifference < 7) {
       if(daysDifference == 0){
