@@ -4,9 +4,9 @@ test('test', async ({ page }) => {
   await page.goto('http://localhost:4200/');
   await page.getByRole('button', { name: 'Create Match' }).click();
   await page.getByText('Dart split half score').click();
-  await page.locator('.match-user-list-container > div:nth-child(3)').click();
-  await page.getByRole('button', { name: 'Create Match' }).click();
-  await page.locator('.match-user-list').first().click();
+
+  await page.getByText('Erhard Siegl').first().click();
+  await page.getByText('Andreas Novak').first().click();
   await page.getByRole('button', { name: 'Create Match' }).click();
   await page.getByText('Confirm Match for Dart 1. Erhard Siegl2. Andreas Novak Confirm Cancel').click({
     button: 'right'

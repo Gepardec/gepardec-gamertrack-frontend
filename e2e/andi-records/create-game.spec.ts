@@ -11,7 +11,6 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Rules' }).press('ControlOrMeta+Shift+ArrowLeft');
   await page.getByRole('textbox', { name: 'Rules' }).press('ControlOrMeta+Shift+ArrowLeft');
   await page.getByRole('textbox', { name: 'Rules' }).fill('split half score');
-  await page.getByRole('textbox', { name: 'Rules' }).press('Enter');
   await page.getByRole('button', { name: 'Create' }).click();
   await expect(page.locator('app-game-details')).toContainText('Dart');
   await expect(page.locator('app-game-details')).toContainText('split half score');

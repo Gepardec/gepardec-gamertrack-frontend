@@ -12,14 +12,15 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Create User' }).click();
   await page.getByRole('button', { name: 'Back' }).click();
   await expect(page.getByRole('button', { name: 'Create User' })).toBeVisible();
-  await expect(page.locator('app-user')).toContainText('Andreas Novak');
-  await expect(page.getByRole('paragraph')).toContainText('Active');
+  await page.pause();
+  await expect(page.locator('app-user-list')).toContainText('Andreas Novak');
   await page.getByRole('button', { name: 'Create User' }).click();
   await page.getByRole('textbox', { name: 'Enter Firstname' }).click();
   await page.getByRole('textbox', { name: 'Enter Firstname' }).fill('Tobias');
   await page.getByRole('textbox', { name: 'Enter Firstname' }).press('Tab');
   await page.getByRole('textbox', { name: 'Enter Lastname' }).fill('Meindl');
   await page.getByRole('button', { name: 'Create' }).click();
+  await expect(page.locator('app-user-list')).toContainText('Tobias Meindl');
   await page.getByRole('link', { name: 'Games' }).click();
   await page.getByRole('button', { name: 'Create Game' }).click();
   await page.getByRole('textbox', { name: 'Name' }).click();
@@ -36,8 +37,8 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: 'Home' }).click();
   await page.getByRole('button', { name: 'Create Match' }).click();
   await page.getByRole('heading', { name: 'Tischtennis' }).click();
-  await page.getByText('Andreas Novak').click();
-  await page.getByText('Tobias Meindl').click();
+  await page.getByText('Andreas Novak').first().click();
+  await page.getByText('Tobias Meindl').first().click();
   await page.getByRole('button', { name: 'Create Match' }).click();
   await expect(page.getByText('Confirm Match for Tischtennis 1. Andreas Novak2. Tobias Meindl Confirm Cancel')).toBeVisible();
   await expect(page.getByRole('dialog')).toContainText('1. Andreas Novak2. Tobias Meindl');
