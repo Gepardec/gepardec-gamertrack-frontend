@@ -12,7 +12,7 @@ test('Eingeloggter User hast Create Buttons Visible', async ({ page }) => {
   await expect(page.getByRole('button').nth(4)).toBeVisible();
   await expect(page.getByRole('button').nth(3)).toBeVisible();
   await page.getByRole('link', { name: 'Users' }).click();
-  await page.getByText('Andreas Novak').click();
+  await page.getByText('Andreas Novak').first().click();
   await expect(page.getByRole('button', { name: 'Update' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Delete' })).toBeVisible();
 });
