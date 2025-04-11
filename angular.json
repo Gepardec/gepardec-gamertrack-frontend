@@ -101,6 +101,17 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "gepardec-gamertrack-frontend:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gepardec-gamertrack-frontend:serve:production"
+            }
+          }
         }
       }
     }
