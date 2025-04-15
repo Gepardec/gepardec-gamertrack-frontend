@@ -10,11 +10,18 @@
 
 
 <main class="main">
-  <app-home-header></app-home-header>
+  <div class="header-container">
+    <app-home-header></app-home-header>
+  </div>
 
   <div class="content">
-
+    <app-notification></app-notification>
     <router-outlet></router-outlet>
+    @if (isAuthorized()) {
+    <button *ngIf="!isNewMatchRoute() "class="fixed-button" routerLink="/matches/new">
+      +
+    </button>
+      }
   </div>
 </main>
 

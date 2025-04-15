@@ -1,72 +1,59 @@
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+.game-list {
+  max-width: 100%;
+  max-height: 100%;
+  height: 90%;
 }
-.action-tab {
-  display: flex;
+
+.game-heading{
+  line-height: 40px;
+  font-size: 36px;
+  color: #333;
+  overflow: hidden;
+  font-weight: 600;
+  justify-items: center;
   align-items: center;
-  justify-self: center;
+  max-width: 100%;
+  min-height: 53px;
+  padding-bottom: 20px;
+  text-align: center
+}
+
+.btn {
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: rgb(240,210,0);
+  font-size: 30px;
+  height: 52px;
+  margin-top: 1vh;
+  color: black;
+
+}
+
+.create-btn:hover {
+  background-color: rgb(240,210,0);
+  box-shadow: 0 25px 32px rgba(240,210,0, 0.2);
+}
+
+.create-btn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.game-container{
+  height: 80%;
+  display: flex;
   flex-direction: column;
 }
 
-.page-heading {
+.no-games-message {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-  margin: 20px 0;
-  padding: 0 15px;
+  font-size: 20px;
+  color: #999;
 }
 
-/* General button style */
-.icon-button {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between icon and text */
-  font-size: 16px;
-  padding: 10px 15px;
-  background-color: transparent;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden; /* Prevent text overflow */
-  white-space: nowrap; /* Prevent text wrapping */
-  border-style: solid;
-  border-color: rgb(240, 210, 0);
-  color: rgb(240, 210, 0);
-}
-
-/* SVG icon style */
-.icon-button svg {
-  width: 20px;
-  height: 20px;
-  justify-self: center;
-  fill: currentColor; /* Match the button text color */
-  transition: 0.3s ease-in rgb(240,210,0) ;
-
-
-}
-
-/* Text (hidden by default) */
-.icon-button span {
-  position: absolute;
-  left: 52%;
-  opacity: 0; /* Fully hidden */
-  transform: translateX(-12px); /* Slide left */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effect */
-.icon-button:hover span {
-  opacity: 1; /* Fully visible */
-  transform: translateX(0); /* Reset position */
-}
-
-.icon-button:hover svg {
-  transform: rotate(90deg); /* Rotate icon */
-}
 
 @media (max-width: 768px) {
   .card-container {
@@ -76,6 +63,17 @@
 @media (max-width: 480px) {
   .card-container {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-height: 1380px) {
+  .game-heading {
+    font-size: 27px;
+  }
+}
+@media (max-height: 580px) {
+  .game-heading {
+    font-size: 20px;
+    padding-bottom: 5px;
   }
 }
 

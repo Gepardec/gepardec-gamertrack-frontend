@@ -1,50 +1,62 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        name="username"
-        [(ngModel)]="username"
-        required
-        #usernameInput="ngModel"
-      />
-      <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
-        Username is required.
+<section class="form-container">
+  <div class="create-card">
+    <h1 class="form-title">Login</h1>
+
+    <form (ngSubmit)="onSubmit()" class="user-form" #loginForm="ngForm">
+      <div class="user-info">
+        <div class="info-row">
+          <div class="info-label">Username</div>
+          <div class="info-value">
+            <input
+              type="text"
+              id="username"
+              class="input-field"
+              name="username"
+              [(ngModel)]="username"
+              required
+              #usernameInput="ngModel"
+              placeholder="Enter Username"
+            />
+            <div class="error-container">
+              <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
+                Username is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Lastname:</div>
+          <div class="info-value">
+            <input
+              type="password"
+              id="password"
+              class="input-field"
+              name="password"
+              [(ngModel)]="password"
+              required
+              #passwordInput="ngModel"
+              placeholder="Enter Password"
+            />
+            <div class="error-container">
+              <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+                Password is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button *ngIf="!isAuthorized()" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid"> Log In
+          </button>
+          <button *ngIf="isAuthorized()" (click)="onLogout()" class="btn btn-danger"> Log Out</button>
+        </div>
       </div>
-    </div>
+    </form>
+  </div>
+</section>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        name="password"
-        [(ngModel)]="password"
-        required
-        #passwordInput="ngModel"
-      />
-      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
-        Password is required.
-      </div>
-    </div>
 
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="loginForm.invalid">
-      Log In
-    </button>
-  </form>
-
-  <button
-    *ngIf="isAuthenticated()"
-    (click)="onLogout()"
-    class="btn btn-danger mt-3">
-    Log Out
-  </button>
-</div>
+@if (isLoading()) {
+ <app-loading-screen></app-loading-screen>
+}

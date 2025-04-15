@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.csr.html",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "matches-ranklist",
+      "urls": [
+        "/gepardec-gamertrack/api/v1/matches",
+        "/gepardec-gamertrack/api/v1/ranklist",
+        "/gepardec-gamertrack/api/v1/games"
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "1d",
+        "timeout": "5s",
+        "refreshAhead": "20h",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "matches-ranklist-queries",
+      "urls": [
+        "/gepardec-gamertrack/api/v1/matches?*",
+        "/gepardec-gamertrack/api/v1/ranklist?*"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "1d",
+        "timeout": "5s",
+        "refreshAhead": "20h",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

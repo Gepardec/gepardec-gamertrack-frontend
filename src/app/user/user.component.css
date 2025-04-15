@@ -1,19 +1,24 @@
-/* Container für den Benutzer */
 .user-card {
-  background-color: #ffffff;  /* Weißer Hintergrund für den Benutzerblock */
-  padding: 20px;
-  border-radius: 12px;  /* Abgerundete Ecken */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Weicher Schatten für Tiefe */
-  margin: 15px 0;
+  border: 1px solid #ddd;
+  align-content: center;
+  justify-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 15vh;
+  max-height: 150px;
+  min-height: 80px;
+  text-align: center;
 }
 
 .user-card:hover {
-  transform: translateY(-5px);  /* Sanfte Anhebung bei Hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Intensiverer Schatten */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
 }
 
-/* Header mit Benutzer-ID und Status */
 .user-header {
   display: flex;
   justify-content: space-between;
@@ -23,7 +28,7 @@
 
 .user-id {
   font-weight: bold;
-  color: #007bff;  /* Blau für die ID */
+  color: #007bff;
   font-size: 18px;
 }
 
@@ -33,16 +38,14 @@
   font-weight: bold;
   text-transform: capitalize;
   color: white;
-  background-color: #28a745;  /* Grün für 'Active' */
+  background-color: #28a745;
   transition: background-color 0.3s ease;
 }
 
-/* Wenn der Benutzer deaktiviert ist */
 .user-status.deactivated {
-  background-color: #dc3545;  /* Rot für 'Deactivated' */
+  background-color: #dc3545;
 }
 
-/* Benutzerinformationen und Aktionen nebeneinander */
 .user-content {
   display: flex;
   justify-content: space-between;
@@ -50,103 +53,56 @@
   gap: 20px;
 }
 
-/* Benutzerdetails auf der linken Seite */
 .user-details {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  width: 100%;
 }
 
-/* Vorname, Nachname und Status nebeneinander */
 .name-status {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+  text-align: center;
+  width: 100%;
 }
 
-.name-status p {
+.name-status{
   margin: 0;
-  font-size: 16px;
+  font-size: 26px;
+  text-align: center;
 }
 
-/* Status-Label für Deactivated */
 .status-label {
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 4px;
   text-transform: capitalize;
   color: white;
-  background-color: #28a745;  /* Grün für 'Active' */
+  background-color: #28a745;
   transition: background-color 0.3s ease;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  justify-self: center;
+
 }
 
 .status-label.deactivated {
-  background-color: #dc3545;  /* Rot für 'Deactivated' */
+  background-color: #dc3545;
+  width: 100px;
+  justify-self: center;
+
 }
 
-/* ID und Token untereinander */
-.id-token {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.id-token p {
-  margin: 0;
-}
 
-/* Aktionen auf der rechten Seite (Buttons) */
 .user-actions {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.update-btn {
-  background-color: #007bff;  /* Blau für Update */
-  color: white;
-}
-
-.update-btn:hover {
-  background-color: #0056b3;  /* Dunkleres Blau beim Hover */
-}
-
-.delete-btn {
-  background-color: #dc3545;  /* Rot für Delete */
-  color: white;
-}
-
-.delete-btn:hover {
-  background-color: #c82333;  /* Dunkleres Rot beim Hover */
-}
-
-/* Optional: Stil für die Anzeige auf mobilen Geräten */
-@media (max-width: 600px) {
-  .user-card {
-    padding: 15px;
-  }
-  .user-content {
-    flex-direction: column;
-  }
-  .user-details {
-    margin-bottom: 15px;
-  }
-  .user-actions {
-    flex-direction: row;
-    gap: 20px;
-    justify-content: flex-start;
-  }
 }

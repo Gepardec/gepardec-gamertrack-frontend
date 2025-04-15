@@ -1,0 +1,107 @@
+header {
+  font-family: Arial, sans-serif;
+  position: fixed;
+  display: flex;
+  background-color: black;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10000;
+}
+
+header * {
+  display: flex;
+}
+
+header li {
+  margin: 20px;
+}
+
+header li a {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+}
+header li a:hover {
+  color: rgb(240,210,0);
+}
+
+nav {
+}
+
+.logo {
+  font-size: 38px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 15%;
+}
+.logo-first-half {
+  color:  rgb(240,210,0);
+}
+
+.logo-second-half {
+  font-family: "Gill Sans" , sans-serif;
+  color:  white;
+}
+
+.btn {
+  background-color: rgb(240, 210, 0);
+  color: black;
+  font-size: 18px;
+  height: 45px;
+  width: 80px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container{
+  right: 20px;
+  width: 15%;
+  justify-content: end;
+}
+
+
+
+@media (max-width: 1000px) {
+  .logo {
+    font-size: 20px;
+  }
+  header li a {
+    font-size: 18px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 15px;
+    flex-direction: column;
+  }
+
+  header li a {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 12px;
+    height: 26px;
+    width: 54px;
+  }
+  header li {
+    margin: 7px;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="user-List-container">
+  <div class="user-heading">
+    <h2>All Users</h2>
+  </div>
+  <div *ngIf="users.length > 0" class="userList">
+    <app-user  *ngFor="let user of users" [user]="user"></app-user>
+  </div>
+  <div *ngIf="users.length === 0" class="no-users-message">
+    <p>No users available.</p>
+  </div>
+  <button class="btn create-btn" [routerLink]="['/users/new']" >Create User</button>
+</div>
+

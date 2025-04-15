@@ -1,12 +1,14 @@
-<section >
-  <h1 class="page-heading">Games</h1>
-</section>
-<section class="action-tab">
-  <button class="icon-button" (click)="createGame()">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-    <span>
-        Create game
-    </span>
-  </button>
-  <app-game-list [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
-</section>
+<div class="game-container">
+  <div class="game-heading">
+    <h2>Games</h2>
+  </div>
+  <section class="game-list">
+    <app-game-list *ngIf="gameList.length > 0" [gameList]="gameList" (onCardClick)="openGame($event.token)"></app-game-list>
+    <div *ngIf="gameList.length === 0" class="no-games-message">
+      <p>No games available.</p>
+    </div>
+    @if (isAuthorized()) {
+      <button class="btn create-btn" (click)="createGame()" >Create Game</button>
+    }
+  </section>
+</div>

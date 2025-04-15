@@ -1,16 +1,100 @@
-.content{
+.main{
   padding-top: 80px;
   display: flex;
   justify-content: center;
   flex: 1;
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
+}
+
+.content {
+  padding-top: 2vh;
+  width: 100%;
+  justify-content: center;
+  justify-self: center;
+  height: 90%;
 
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
+.header-container{
+  height: 10%;
 }
+
+
+ .material-symbols-outlined {
+   font-variation-settings:
+     'FILL' 0,
+     'wght' 400,
+     'GRAD' 0,
+     'opsz' 24
+ }
+
+
+.fixed-button {
+  position: fixed;
+  bottom: 10vh;
+  right: 7vw;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(240,210,0);
+  color: white;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 80px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.fixed-button:hover {
+  background-color: rgb(240,210,0);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+
+@media (max-width: 2860px) {
+  .fixed-button {
+    bottom: 7vh;
+    right: 7vw;
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 2024px) {
+  .fixed-button {
+    bottom: 10vh;
+    right: 10vw;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+  }
+}
+@media (max-height: 2590px) {
+  .fixed-button {
+    bottom: 10vh;
+    right: 10vw;
+    width: 120px;
+    height: 120px;
+    font-size: 40px;
+  }
+}
+@media (max-height: 1390px) {
+  .fixed-button {
+    bottom: 10vh;
+    right: 10vw;
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+  }
+}
+
+@media (max-height: 900px) {
+  .fixed-button {
+    visibility: hidden;
+  }
+}
+
+

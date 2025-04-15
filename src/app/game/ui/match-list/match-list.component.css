@@ -1,0 +1,163 @@
+select {
+  width: 35%;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+}
+.amount-matches {
+  width: 10%;
+}
+
+/* The alert message box */
+.alert {
+  position: absolute;
+  justify-self: center;
+  bottom: 10%;
+  left: 41%;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: grey;
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+
+
+
+.grid {
+  display: grid;
+  justify-self: center;
+  grid-template-columns: fit-content(100px) fit-content(100px) auto auto; /* Second column (numbers) shrinks first */
+  max-width: 100%;
+  column-gap: 0;
+  border-color: transparent transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 0 5px 5px 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 10%;
+  max-height: 430px;
+  scrollbar-width: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%;
+}
+
+.grid-column-header {
+  display: contents;
+}
+
+
+.grid-column-header div {
+  font-weight: bold;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  grid-column-gap: 0;
+  overflow-x: hidden;
+  position: sticky;
+  top: 0;
+  background-color: white; /* Ensure it remains visible over other content */
+}
+
+
+.grid-row {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  display: contents;
+  background-color: green;
+
+}
+
+.grid-row div {
+  padding: 10px;
+  margin: 0;
+  justify-content: center;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0 0 1px 0;
+  width: auto;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  width: auto;
+}
+
+.grid-item span {
+  display: block;
+  width: auto;
+}
+
+.no-matches {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px;
+  padding: 0 15px;
+}
+
+.select-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+@media (max-height: 1080px) {
+  .grid{
+    max-height: 30vh;
+  }
+}
+
+@media (max-height: 880px) {
+  .grid{
+    max-height: 25vh;
+  }
+}
+
+@media (max-height: 740px) {
+  .select-label {
+    font-size: 12px;
+  }
+  .select-group {
+    margin: 0px;
+  }
+  .grid{
+    font-size: 13px;
+    max-height: 32vh;
+  }
+}
+
+@media (max-height: 650px) {
+  .grid{
+    max-height: 19vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .select-label {
+    font-size: 12px;
+  }
+  .select-group {
+    margin: 0px;
+  }
+  .grid{
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,44 @@
+<section class="game-detail-container">
+  <div class="game-detail-card">
+    <h1 class="game-title">Update game</h1>
+    <form [formGroup]="updateGameForm" #formDir="ngForm" (submit)="submitEditedGame()">
+      <div class="game-info">
+        <div class="info-row">
+          <div class="info-label">Firstname</div>
+          <div class="info-value">
+            <input class="input-field" id="name" type="text" formControlName="name" required/>
+            <div class="error-container">
+              <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="alert alert-danger">
+                <div *ngIf="name.hasError('required')">
+                  A name is required
+                </div>
+                <div *ngIf="name.hasError('minlength')">
+                  Name must be at least 1 character long
+                </div>
+                <div *ngIf="name.hasError('pattern')">
+                  Name can't be blank
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Rules</div>
+          <div class="info-value">
+            <input id="rules" class="input-field" type="text" formControlName="rules"/>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" onClick="history.back()" class="btn back-btn">Back</button>
+
+          <button [disabled]="updateGameForm.invalid || !updateGameForm.touched || !updateGameForm.dirty" type="submit"
+                  class="btn update-btn">Update Game
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+

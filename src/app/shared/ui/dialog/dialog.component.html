@@ -1,0 +1,9 @@
+  <dialog [open]="openDialog" class="dialog-container">
+    <section class="dialog-body">
+      <ng-content></ng-content>
+    </section>
+    <div class="dialog-button-container">
+      <button type="submit" [disabled]="confirmButtonDisabled" (click)="onConfirmation.emit(true); closeDialog()"> Confirm </button>
+      <button type="button" (click)="closeDialog(); closeDialog()"> Cancel </button>
+    </div>
+  </dialog>

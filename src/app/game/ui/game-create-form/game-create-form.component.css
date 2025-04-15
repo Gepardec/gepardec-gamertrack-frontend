@@ -1,0 +1,185 @@
+.create-game-form {
+  height: 90vh;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-card {
+  background-color: #fff;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.create-game-form-heading {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  font-size: 14px; /* Adjust font size as needed */
+  font-weight: bold; /* Optional for emphasis */
+  margin-bottom: 6px; /* Adds spacing between the label and input */
+  color: #333; /* Label color */
+}
+
+input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  gap: 20px;
+}
+
+.cross-validation {
+  margin-bottom: 30px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  align-items: center;
+
+}
+
+.info-label {
+  font-weight: bold;
+  font-size: 20px;
+  color: #555;
+  width: 30%;
+}
+
+.info-value {
+  font-size: 20px;
+  color: #333;
+  width: 65%;
+  font-weight: 400;
+  padding-top: 4px;
+
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  align-content: end;
+
+}
+
+
+.error {
+  padding-top: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+.error-container {
+  height: 1vh;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black;
+  width: 100%;
+  height: 48px;
+}
+
+
+.back-btn {
+  background-color: gray;
+  color: #fff;
+}
+
+.back-btn:hover {
+  background-color: darkgray;
+}
+
+.create-btn {
+  background-color: rgb(240,210,0);
+  color: #fff;
+}
+
+.create-btn:hover:not(:disabled) {
+  background-color: rgb(240,220,0);
+}
+
+button:disabled {
+  width: 100%;
+  background-color: #ccc;
+}
+
+@media (max-width: 650px) {
+  .form-container {
+    width: 95%;
+  }
+  .info-label {
+    font-size: 14px;
+  }
+  .input-field {
+    font-size: 14px;
+  }
+  .create-game-form-heading {
+    font-size: 25px;
+  }
+  .btn {
+    font-size: 20px;
+    height: 40px;
+  }
+}
+
+@media (max-height: 600px) {
+  .create-game-form-heading {
+    font-size: 25px;
+    margin-bottom: 0px;
+
+  }
+  .btn {
+    font-size: 20px;
+    height: 40px;
+  }
+  .form-actions {
+    padding-top: 20px;
+  }
+  .cross-validation {
+    margin-bottom: 5px;
+  }
+}

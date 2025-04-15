@@ -1,0 +1,66 @@
+<section class="user-detail-container">
+  <div class="user-detail-card">
+    <h1 class="user-title">Update User Details</h1>
+    <form (ngSubmit)="updateUser()" #updateUserForm="ngForm">
+      <div class="user-info">
+        <div class="info-row">
+          <div class="info-label">Firstname:</div>
+          <div class="info-value">
+            <input
+              type="text"
+              name="firstname"
+              [(ngModel)]="user.firstname"
+              required
+              class="input-field"
+              placeholder="Enter Firstname"
+              #firstnameInput="ngModel"
+            />
+            <div class="error-container">
+              <div *ngIf="firstnameInput.invalid && firstnameInput.touched" class="error">
+                Firstname is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Lastname:</div>
+            <div class="info-value">
+              <input
+                type="text"
+                name="lastname"
+                [(ngModel)]="user.lastname"
+                required
+                class="input-field"
+                placeholder="Enter Lastname"
+                #lastnameInput="ngModel"
+              />
+              <div class="error-container">
+                <div *ngIf="lastnameInput.invalid && lastnameInput.touched" class="error">
+                  Lastname is required.
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Deactivated:</div>
+          <div class="info-value">
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="deactivated"
+                [(ngModel)]="user.deactivated" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn back-btn" [routerLink]="['/users/details', user.token]">Back</button>
+          <button class="btn update-btn" type="submit" [disabled]="!updateUserForm.form.valid">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+

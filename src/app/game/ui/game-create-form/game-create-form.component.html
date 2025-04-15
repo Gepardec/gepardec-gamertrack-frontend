@@ -1,0 +1,41 @@
+<section class="create-game-form">
+  <div class="create-card">
+  <h2 class="create-game-form-heading">Create a new Game</h2>
+    <form [formGroup]="createGameForm" (submit)="submitNewGame()">
+      <div class="cross-validation"
+           [class.cross-validation-error]="createGameForm.hasError('unambiguousRole') && (createGameForm.touched || createGameForm.dirty)">
+
+        <div class="info-row">
+          <label class="info-label" for="name">Name</label>
+          <div class="info-value">
+
+            <input class="input-field" placeholder="Enter game name" id="name" type="text" formControlName="name" required/>
+            <div *ngIf="name?.invalid && (name?.dirty && name?.touched)" class="error-container">
+                <div class="error" *ngIf="name.hasError('required')">
+                  A name is required
+                </div>
+                <div class="error" *ngIf="name.hasError('minlength')">
+                  Name must be at least 1 character long
+                </div>
+                <div class="error" *ngIf="name.hasError('pattern')">
+                  Name can't be blank
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <label class="info-label" for="rules">Rules</label>
+          <div class="info-value">
+            <input class="input-field" placeholder="Enter game rules" id="rules" type="text" formControlName="rules"/>
+          </div>
+        </div>
+
+        <div class="form-actions ">
+          <button type="button" onClick="history.back()" class="btn back-btn">Back</button>
+          <button [disabled]="createGameForm.invalid" type="submit" class="btn create-btn">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
