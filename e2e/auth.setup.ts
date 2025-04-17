@@ -4,7 +4,7 @@ import path from 'path';
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 require('dotenv').config()
 
-const password: string = process.env['SECRET_DEFAULT_PW'];
+const password: string | undefined = process.env['SECRET_DEFAULT_PW'];
 
 
 
@@ -26,7 +26,7 @@ setup('authenticate', async ({ page }) => {
 
 
   await page.fill('#username', 'Gepard');
-  await page.fill('#password', password);
+  await page.fill('#password', password!);
 
   await page.locator("[type=submit]").click();
 

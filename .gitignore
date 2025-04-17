@@ -50,3 +50,8 @@ node_modules/
 
 .env
 playwright/.auth
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
