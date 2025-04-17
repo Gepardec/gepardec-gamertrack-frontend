@@ -31,7 +31,7 @@ export class UserService {
   createUser(firstname: string, lastname: string) {
     const body = {firstname, lastname};
 
-    this.httpClient.post(this.configService.getBackendUrlWithContext(`${this.url}/`), body)
+    this.httpClient.post(this.configService.getBackendUrlWithContext(`${this.url}`), body)
       .subscribe(() => this.router.navigate(['users']));
   }
 

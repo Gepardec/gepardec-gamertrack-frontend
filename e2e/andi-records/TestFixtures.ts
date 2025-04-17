@@ -1,3 +1,6 @@
+import {User} from '../../src/app/core/models/user';
+import {Game} from '../../src/app/core/models/game';
+
 export const BASE_URL  = 'localhost:4200';
 
 
@@ -11,24 +14,26 @@ export const user1  = {
   "token": 'lkasdsdjkasd',
   "firstname": 'Erhard',
   "lastname": 'Siegl',
+  "deactivated": false,
 }
 
 export const user2 = {
   "token": 'lkasdsdjkasd1',
   "firstname": 'Andreas',
   "lastname": 'Novak',
+  "deactivated": false,
 }
 
 
-export const match = (user1, user2, game) => {
+export const match = (user1: User, user2: User, game: Game) => {
   return {
     "token": "asdjlasdjfasd",
-    "createdOn": "2023-10-01 12:00:00",
-    "updatedOn": "2023-10-01 12:00:00",
-    "game": JSON.stringify(game),
+    "createdOn": new Date(),
+    "updatedOn": new Date(),
+    "game": game,
     "users": [
-      JSON.stringify(user1),
-      JSON.stringify(user2)
+      user1,
+      user2
       ]
   }
 }
