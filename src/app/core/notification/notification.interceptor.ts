@@ -2,53 +2,48 @@ import {
   HttpRequest,
   HttpEvent,
   HttpHandlerFn,
-  HttpErrorResponse, HttpResponse, HttpStatusCode
+  HttpErrorResponse,
+  HttpResponse
 } from '@angular/common/http';
-import {catchError, Observable, tap} from 'rxjs';
-import {inject} from '@angular/core';
-import {NotificationService} from './notification.service';
+import { catchError, Observable, tap, throwError } from 'rxjs';
+import { inject } from '@angular/core';
+import { NotificationService } from './notification.service';
 
-
-export function NotificationInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
+export function NotificationInterceptor(
+  req: HttpRequest<unknown>,
+  next: HttpHandlerFn
+): Observable<HttpEvent<unknown>> {
   const notificationsService = inject(NotificationService);
 
   return next(req).pipe(
     tap({
       next: (response) => {
-        if ((response as HttpResponse<unknown>).status === 201) {
-          if (response instanceof HttpResponse) {
-            let message = `${response.statusText}: Successfully`;
-
-            let colorClass = 'success';
-            notificationsService.showNotification(message, colorClass);
-            }
+        if (response instanceof HttpResponse && response.status === 201) {
+          const message = `${response.statusText}: Successfully`;
+          const colorClass = 'success';
+          notificationsService.showNotification(message, colorClass);
         }
-
-        if ((response as HttpResponse<unknown>) === null) {
-          if (response instanceof HttpResponse) {
-            notificationsService.showNotification('Backen unreachable, Cached Data is being served', 'warning');
-            }
-        }
-      }
+      },
     }),
-
     catchError((error: HttpErrorResponse) => {
-      let message: string = error.statusText;
+      // Default values
+      let message = error.statusText || 'Error';
       let colorClass = 'error';
 
-      if (error.error) {
-        message = message +`: ${error.error.message}`;
-      }
-
-      if (error.status in [401, 402, 403]) {
+      // Network error or backend unavailable (browser shows status 0 on network issues)
+      const backendUnavailableStatuses = [0, 502, 503, 504];
+      if (backendUnavailableStatuses.includes(error.status)) {
+        message = 'Der Server ist derzeit nicht erreichbar, versuchen sie es später noch einmal!';
+        colorClass = 'warning';
+      } else if ([401, 402, 403].includes(error.status)) {
         colorClass = 'error';
-      } else if (error.status in [500, 503]) {
+      } else if ([500].includes(error.status)) {
         message = `${error.statusText}, Cached Data is being served`;
         colorClass = 'warning';
       }
 
       notificationsService.showNotification(message, colorClass);
-      throw error;
+      return throwError(() => error);
     })
   );
 }
